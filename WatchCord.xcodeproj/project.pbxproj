@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA40878C28318B24009B638A /* PretendItsRealPlease.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA40878B28318B24009B638A /* PretendItsRealPlease.swift */; };
+		AA40878C28318B24009B638A /* SampleDataProvision.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA40878B28318B24009B638A /* SampleDataProvision.swift */; };
 		AA40878E28318EA1009B638A /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA40878D28318EA1009B638A /* ChatView.swift */; };
 		AA408791283190CC009B638A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA408790283190CC009B638A /* SDWebImageSwiftUI */; };
 		AA40879428319175009B638A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA40879328319175009B638A /* SDWebImageSwiftUI */; };
@@ -23,6 +23,41 @@
 		AAC6B0E3283123C60032E1D6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */; };
 		AAC6B0E5283123C70032E1D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0E4283123C70032E1D6 /* Assets.xcassets */; };
 		AAC6B0E8283123C70032E1D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0E7283123C70032E1D6 /* Preview Assets.xcassets */; };
+		AAFD28D528343FBC003BEDEA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28BF28343FBB003BEDEA /* Reachability.swift */; };
+		AAFD28D628343FBC003BEDEA /* Gateway+Receive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C128343FBB003BEDEA /* Gateway+Receive.swift */; };
+		AAFD28D728343FBC003BEDEA /* MentionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C228343FBB003BEDEA /* MentionProtocol.swift */; };
+		AAFD28D828343FBC003BEDEA /* Sockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C328343FBB003BEDEA /* Sockets.swift */; };
+		AAFD28D928343FBC003BEDEA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C428343FBB003BEDEA /* Request.swift */; };
+		AAFD28DA28343FBC003BEDEA /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C528343FBB003BEDEA /* Core.swift */; };
+		AAFD28DB28343FBC003BEDEA /* AsyncMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C728343FBB003BEDEA /* AsyncMarkdown.swift */; };
+		AAFD28DC28343FBC003BEDEA /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C828343FBB003BEDEA /* Markdown.swift */; };
+		AAFD28DD28343FBC003BEDEA /* RegisterImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28CA28343FBC003BEDEA /* RegisterImages.swift */; };
+		AAFD28DF28343FBC003BEDEA /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28CC28343FBC003BEDEA /* Images.swift */; };
+		AAFD28E028343FBC003BEDEA /* Gateway+MessageHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28CE28343FBC003BEDEA /* Gateway+MessageHandle.swift */; };
+		AAFD28E128343FBC003BEDEA /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28CF28343FBC003BEDEA /* Gateway.swift */; };
+		AAFD28E228343FBC003BEDEA /* GatewayEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28D028343FBC003BEDEA /* GatewayEvent.swift */; };
+		AAFD28E328343FBC003BEDEA /* ZStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28D128343FBC003BEDEA /* ZStream.swift */; };
+		AAFD28E428343FBC003BEDEA /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28D228343FBC003BEDEA /* Socket.swift */; };
+		AAFD28E528343FBC003BEDEA /* Gateway+VoiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28D428343FBC003BEDEA /* Gateway+VoiceState.swift */; };
+		AAFD28FD28344219003BEDEA /* MemberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28E828344219003BEDEA /* MemberList.swift */; };
+		AAFD28FE28344219003BEDEA /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28E928344219003BEDEA /* Events.swift */; };
+		AAFD28FF28344219003BEDEA /* LoginPayloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28EA28344219003BEDEA /* LoginPayloads.swift */; };
+		AAFD290028344219003BEDEA /* GatewayStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28EB28344219003BEDEA /* GatewayStructure.swift */; };
+		AAFD290128344219003BEDEA /* SongLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28ED28344219003BEDEA /* SongLink.swift */; };
+		AAFD290228344219003BEDEA /* Embed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28EF28344219003BEDEA /* Embed.swift */; };
+		AAFD290328344219003BEDEA /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F028344219003BEDEA /* Attachment.swift */; };
+		AAFD290428344219003BEDEA /* Roles.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F128344219003BEDEA /* Roles.swift */; };
+		AAFD290528344219003BEDEA /* Guild.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F228344219003BEDEA /* Guild.swift */; };
+		AAFD290628344219003BEDEA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F328344219003BEDEA /* Message.swift */; };
+		AAFD290728344219003BEDEA /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F428344219003BEDEA /* Sticker.swift */; };
+		AAFD290828344219003BEDEA /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F528344219003BEDEA /* Channel.swift */; };
+		AAFD290928344219003BEDEA /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F628344219003BEDEA /* Permissions.swift */; };
+		AAFD290A28344219003BEDEA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F728344219003BEDEA /* User.swift */; };
+		AAFD290B28344219003BEDEA /* Emote.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F828344219003BEDEA /* Emote.swift */; };
+		AAFD290C28344219003BEDEA /* Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28F928344219003BEDEA /* Reaction.swift */; };
+		AAFD290D28344219003BEDEA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28FA28344219003BEDEA /* Settings.swift */; };
+		AAFD290E28344219003BEDEA /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28FB28344219003BEDEA /* Status.swift */; };
+		AAFD290F28344219003BEDEA /* ReadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28FC28344219003BEDEA /* ReadState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA40878B28318B24009B638A /* PretendItsRealPlease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PretendItsRealPlease.swift; sourceTree = "<group>"; };
+		AA40878B28318B24009B638A /* SampleDataProvision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataProvision.swift; sourceTree = "<group>"; };
 		AA40878D28318EA1009B638A /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		AAC6B0C0283123C20032E1D6 /* WatchCord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchCord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC6B0C3283123C20032E1D6 /* WatchCordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCordApp.swift; sourceTree = "<group>"; };
@@ -84,6 +119,41 @@
 		AAC6B0E4283123C70032E1D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC6B0E7283123C70032E1D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAC6B0E9283123C70032E1D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFD28BF28343FBB003BEDEA /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		AAFD28C128343FBB003BEDEA /* Gateway+Receive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+Receive.swift"; sourceTree = "<group>"; };
+		AAFD28C228343FBB003BEDEA /* MentionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionProtocol.swift; sourceTree = "<group>"; };
+		AAFD28C328343FBB003BEDEA /* Sockets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sockets.swift; sourceTree = "<group>"; };
+		AAFD28C428343FBB003BEDEA /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		AAFD28C528343FBB003BEDEA /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		AAFD28C728343FBB003BEDEA /* AsyncMarkdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncMarkdown.swift; sourceTree = "<group>"; };
+		AAFD28C828343FBB003BEDEA /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
+		AAFD28CA28343FBC003BEDEA /* RegisterImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterImages.swift; sourceTree = "<group>"; };
+		AAFD28CC28343FBC003BEDEA /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		AAFD28CE28343FBC003BEDEA /* Gateway+MessageHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+MessageHandle.swift"; sourceTree = "<group>"; };
+		AAFD28CF28343FBC003BEDEA /* Gateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
+		AAFD28D028343FBC003BEDEA /* GatewayEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatewayEvent.swift; sourceTree = "<group>"; };
+		AAFD28D128343FBC003BEDEA /* ZStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStream.swift; sourceTree = "<group>"; };
+		AAFD28D228343FBC003BEDEA /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		AAFD28D428343FBC003BEDEA /* Gateway+VoiceState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+VoiceState.swift"; sourceTree = "<group>"; };
+		AAFD28E828344219003BEDEA /* MemberList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberList.swift; sourceTree = "<group>"; };
+		AAFD28E928344219003BEDEA /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		AAFD28EA28344219003BEDEA /* LoginPayloads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPayloads.swift; sourceTree = "<group>"; };
+		AAFD28EB28344219003BEDEA /* GatewayStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatewayStructure.swift; sourceTree = "<group>"; };
+		AAFD28ED28344219003BEDEA /* SongLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongLink.swift; sourceTree = "<group>"; };
+		AAFD28EF28344219003BEDEA /* Embed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Embed.swift; sourceTree = "<group>"; };
+		AAFD28F028344219003BEDEA /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		AAFD28F128344219003BEDEA /* Roles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roles.swift; sourceTree = "<group>"; };
+		AAFD28F228344219003BEDEA /* Guild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guild.swift; sourceTree = "<group>"; };
+		AAFD28F328344219003BEDEA /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		AAFD28F428344219003BEDEA /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
+		AAFD28F528344219003BEDEA /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		AAFD28F628344219003BEDEA /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		AAFD28F728344219003BEDEA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AAFD28F828344219003BEDEA /* Emote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emote.swift; sourceTree = "<group>"; };
+		AAFD28F928344219003BEDEA /* Reaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reaction.swift; sourceTree = "<group>"; };
+		AAFD28FA28344219003BEDEA /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		AAFD28FB28344219003BEDEA /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		AAFD28FC28344219003BEDEA /* ReadState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +179,9 @@
 		AA40878A28318AFB009B638A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				AA40878B28318B24009B638A /* PretendItsRealPlease.swift */,
+				AAFD28E628344201003BEDEA /* Objects */,
+				AAFD28A728343DDA003BEDEA /* Backend */,
+				AA40878B28318B24009B638A /* SampleDataProvision.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -198,6 +270,127 @@
 				AA40878D28318EA1009B638A /* ChatView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AAFD28A728343DDA003BEDEA /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28CD28343FBC003BEDEA /* Gateway */,
+				AAFD28C628343FBB003BEDEA /* Markdown */,
+				AAFD28C928343FBC003BEDEA /* Media */,
+				AAFD28C028343FBB003BEDEA /* Networking */,
+				AAFD28BE28343FBB003BEDEA /* Reachability */,
+				AAFD28D328343FBC003BEDEA /* Voice */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		AAFD28BE28343FBB003BEDEA /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28BF28343FBB003BEDEA /* Reachability.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		AAFD28C028343FBB003BEDEA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28C128343FBB003BEDEA /* Gateway+Receive.swift */,
+				AAFD28C228343FBB003BEDEA /* MentionProtocol.swift */,
+				AAFD28C328343FBB003BEDEA /* Sockets.swift */,
+				AAFD28C428343FBB003BEDEA /* Request.swift */,
+				AAFD28C528343FBB003BEDEA /* Core.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		AAFD28C628343FBB003BEDEA /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28C728343FBB003BEDEA /* AsyncMarkdown.swift */,
+				AAFD28C828343FBB003BEDEA /* Markdown.swift */,
+			);
+			path = Markdown;
+			sourceTree = "<group>";
+		};
+		AAFD28C928343FBC003BEDEA /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28CA28343FBC003BEDEA /* RegisterImages.swift */,
+				AAFD28CC28343FBC003BEDEA /* Images.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		AAFD28CD28343FBC003BEDEA /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28CE28343FBC003BEDEA /* Gateway+MessageHandle.swift */,
+				AAFD28CF28343FBC003BEDEA /* Gateway.swift */,
+				AAFD28D028343FBC003BEDEA /* GatewayEvent.swift */,
+				AAFD28D128343FBC003BEDEA /* ZStream.swift */,
+				AAFD28D228343FBC003BEDEA /* Socket.swift */,
+			);
+			path = Gateway;
+			sourceTree = "<group>";
+		};
+		AAFD28D328343FBC003BEDEA /* Voice */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28D428343FBC003BEDEA /* Gateway+VoiceState.swift */,
+			);
+			path = Voice;
+			sourceTree = "<group>";
+		};
+		AAFD28E628344201003BEDEA /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28EE28344219003BEDEA /* DiscordTypes */,
+				AAFD28E728344219003BEDEA /* GatewayPayloads */,
+				AAFD28EC28344219003BEDEA /* Misc */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		AAFD28E728344219003BEDEA /* GatewayPayloads */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28E828344219003BEDEA /* MemberList.swift */,
+				AAFD28E928344219003BEDEA /* Events.swift */,
+				AAFD28EA28344219003BEDEA /* LoginPayloads.swift */,
+				AAFD28EB28344219003BEDEA /* GatewayStructure.swift */,
+			);
+			path = GatewayPayloads;
+			sourceTree = "<group>";
+		};
+		AAFD28EC28344219003BEDEA /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28ED28344219003BEDEA /* SongLink.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		AAFD28EE28344219003BEDEA /* DiscordTypes */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD28EF28344219003BEDEA /* Embed.swift */,
+				AAFD28F028344219003BEDEA /* Attachment.swift */,
+				AAFD28F128344219003BEDEA /* Roles.swift */,
+				AAFD28F228344219003BEDEA /* Guild.swift */,
+				AAFD28F328344219003BEDEA /* Message.swift */,
+				AAFD28F428344219003BEDEA /* Sticker.swift */,
+				AAFD28F528344219003BEDEA /* Channel.swift */,
+				AAFD28F628344219003BEDEA /* Permissions.swift */,
+				AAFD28F728344219003BEDEA /* User.swift */,
+				AAFD28F828344219003BEDEA /* Emote.swift */,
+				AAFD28F928344219003BEDEA /* Reaction.swift */,
+				AAFD28FA28344219003BEDEA /* Settings.swift */,
+				AAFD28FB28344219003BEDEA /* Status.swift */,
+				AAFD28FC28344219003BEDEA /* ReadState.swift */,
+			);
+			path = DiscordTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,11 +542,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAFD28DC28343FBC003BEDEA /* Markdown.swift in Sources */,
+				AAFD28E028343FBC003BEDEA /* Gateway+MessageHandle.swift in Sources */,
+				AAFD28D628343FBC003BEDEA /* Gateway+Receive.swift in Sources */,
+				AAFD28D828343FBC003BEDEA /* Sockets.swift in Sources */,
+				AAFD290128344219003BEDEA /* SongLink.swift in Sources */,
+				AAFD290528344219003BEDEA /* Guild.swift in Sources */,
+				AAFD28FF28344219003BEDEA /* LoginPayloads.swift in Sources */,
+				AAFD28E228343FBC003BEDEA /* GatewayEvent.swift in Sources */,
+				AAFD290B28344219003BEDEA /* Emote.swift in Sources */,
+				AAFD28E128343FBC003BEDEA /* Gateway.swift in Sources */,
+				AAFD290328344219003BEDEA /* Attachment.swift in Sources */,
+				AAFD28FE28344219003BEDEA /* Events.swift in Sources */,
 				AAC6B0E1283123C60032E1D6 /* WatchCordApp.swift in Sources */,
-				AA40878C28318B24009B638A /* PretendItsRealPlease.swift in Sources */,
+				AAFD28E428343FBC003BEDEA /* Socket.swift in Sources */,
+				AAFD290A28344219003BEDEA /* User.swift in Sources */,
+				AAFD290828344219003BEDEA /* Channel.swift in Sources */,
+				AAFD290928344219003BEDEA /* Permissions.swift in Sources */,
+				AAFD28DB28343FBC003BEDEA /* AsyncMarkdown.swift in Sources */,
+				AAFD290D28344219003BEDEA /* Settings.swift in Sources */,
+				AAFD290228344219003BEDEA /* Embed.swift in Sources */,
+				AAFD28DA28343FBC003BEDEA /* Core.swift in Sources */,
+				AAFD28E328343FBC003BEDEA /* ZStream.swift in Sources */,
+				AA40878C28318B24009B638A /* SampleDataProvision.swift in Sources */,
+				AAFD290F28344219003BEDEA /* ReadState.swift in Sources */,
+				AAFD28D528343FBC003BEDEA /* Reachability.swift in Sources */,
+				AAFD290C28344219003BEDEA /* Reaction.swift in Sources */,
+				AAFD28D728343FBC003BEDEA /* MentionProtocol.swift in Sources */,
+				AAFD290628344219003BEDEA /* Message.swift in Sources */,
 				AA40878E28318EA1009B638A /* ChatView.swift in Sources */,
+				AAFD28DD28343FBC003BEDEA /* RegisterImages.swift in Sources */,
+				AAFD28E528343FBC003BEDEA /* Gateway+VoiceState.swift in Sources */,
+				AAFD28FD28344219003BEDEA /* MemberList.swift in Sources */,
+				AAFD28D928343FBC003BEDEA /* Request.swift in Sources */,
+				AAFD28DF28343FBC003BEDEA /* Images.swift in Sources */,
 				AAC6B0DF283123C60032E1D6 /* SidebarView.swift in Sources */,
+				AAFD290428344219003BEDEA /* Roles.swift in Sources */,
+				AAFD290E28344219003BEDEA /* Status.swift in Sources */,
+				AAFD290728344219003BEDEA /* Sticker.swift in Sources */,
 				AAC6B0E3283123C60032E1D6 /* ComplicationController.swift in Sources */,
+				AAFD290028344219003BEDEA /* GatewayStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
