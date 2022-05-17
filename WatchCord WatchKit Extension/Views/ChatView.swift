@@ -1,6 +1,6 @@
 //
 //  ChatView.swift
-//  MiniCord WatchKit Extension
+//  WatchCord WatchKit Extension
 //
 //  Created by llsc12 on 15/05/2022.
 //

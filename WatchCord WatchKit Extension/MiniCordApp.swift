@@ -1,6 +1,6 @@
 //
-//  MiniCordApp.swift
-//  MiniCord WatchKit Extension
+//  WatchCordApp.swift
+//  WatchCord WatchKit Extension
 //
 //  Created by llsc12 on 15/05/2022.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct MiniCordApp: App {
+struct WatchCordApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {

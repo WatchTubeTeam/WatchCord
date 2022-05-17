@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  MiniCord WatchKit Extension
+//  WatchCord WatchKit Extension
 //
 //  Created by llsc12 on 15/05/2022.
 //
@@ -26,7 +26,7 @@ struct SidebarView: View {
                                 Button {
                                     selectedServerId = "1"
                                 } label: {
-                                    Image("minicord")
+                                    Image("WatchCord")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .scaledToFit()
@@ -62,7 +62,7 @@ struct SidebarView: View {
                             // welcome menu
                             VStack {
                                 HStack {
-                                    Text("Welcome to \nMiniCord!")
+                                    Text("Welcome to \nWatchCord!")
                                         .font(.callout)
                                         .minimumScaleFactor(0.1)
                                         .lineLimit(2)

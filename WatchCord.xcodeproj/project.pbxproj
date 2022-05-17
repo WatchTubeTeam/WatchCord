@@ -15,9 +15,9 @@
 		AAC6B0C6283123C20032E1D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0C5283123C20032E1D6 /* ContentView.swift */; };
 		AAC6B0C8283123C40032E1D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0C7283123C40032E1D6 /* Assets.xcassets */; };
 		AAC6B0CB283123C40032E1D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0CA283123C40032E1D6 /* Preview Assets.xcassets */; };
-		AAC6B0CF283123C40032E1D6 /* MiniCord WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AAC6B0CE283123C40032E1D6 /* MiniCord WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AAC6B0CF283123C40032E1D6 /* WatchCord.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AAC6B0CE283123C40032E1D6 /* WatchCord.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AAC6B0D4283123C50032E1D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0D3283123C50032E1D6 /* Assets.xcassets */; };
-		AAC6B0DA283123C60032E1D6 /* MiniCord WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AAC6B0D9283123C60032E1D6 /* MiniCord WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AAC6B0DA283123C60032E1D6 /* WatchCord WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AAC6B0D9283123C60032E1D6 /* WatchCord WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AAC6B0DF283123C60032E1D6 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0DE283123C60032E1D6 /* SidebarView.swift */; };
 		AAC6B0E1283123C60032E1D6 /* MiniCordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0E0283123C60032E1D6 /* MiniCordApp.swift */; };
 		AAC6B0E3283123C60032E1D6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */; };
@@ -49,7 +49,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				AAC6B0DA283123C60032E1D6 /* MiniCord WatchKit Extension.appex in Embed App Extensions */,
+				AAC6B0DA283123C60032E1D6 /* WatchCord WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,7 +60,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				AAC6B0CF283123C40032E1D6 /* MiniCord WatchKit App.app in Embed Watch Content */,
+				AAC6B0CF283123C40032E1D6 /* WatchCord.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,14 +70,14 @@
 /* Begin PBXFileReference section */
 		AA40878B28318B24009B638A /* PretendItsRealPlease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PretendItsRealPlease.swift; sourceTree = "<group>"; };
 		AA40878D28318EA1009B638A /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		AAC6B0C0283123C20032E1D6 /* MiniCord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniCord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC6B0C0283123C20032E1D6 /* WatchCord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchCord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC6B0C3283123C20032E1D6 /* MiniCordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCordApp.swift; sourceTree = "<group>"; };
 		AAC6B0C5283123C20032E1D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AAC6B0C7283123C40032E1D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC6B0CA283123C40032E1D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AAC6B0CE283123C40032E1D6 /* MiniCord WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MiniCord WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC6B0CE283123C40032E1D6 /* WatchCord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchCord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC6B0D3283123C50032E1D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AAC6B0D9283123C60032E1D6 /* MiniCord WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MiniCord WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAC6B0D9283123C60032E1D6 /* WatchCord WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchCord WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC6B0DE283123C60032E1D6 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		AAC6B0E0283123C60032E1D6 /* MiniCordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCordApp.swift; sourceTree = "<group>"; };
 		AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -124,9 +124,9 @@
 		AAC6B0B7283123C20032E1D6 = {
 			isa = PBXGroup;
 			children = (
-				AAC6B0C2283123C20032E1D6 /* MiniCord */,
-				AAC6B0D2283123C40032E1D6 /* MiniCord WatchKit App */,
-				AAC6B0DD283123C60032E1D6 /* MiniCord WatchKit Extension */,
+				AAC6B0C2283123C20032E1D6 /* WatchCord */,
+				AAC6B0D2283123C40032E1D6 /* WatchCord WatchKit App */,
+				AAC6B0DD283123C60032E1D6 /* WatchCord WatchKit Extension */,
 				AAC6B0C1283123C20032E1D6 /* Products */,
 				AA40879228319175009B638A /* Frameworks */,
 			);
@@ -135,14 +135,14 @@
 		AAC6B0C1283123C20032E1D6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AAC6B0C0283123C20032E1D6 /* MiniCord.app */,
-				AAC6B0CE283123C40032E1D6 /* MiniCord WatchKit App.app */,
-				AAC6B0D9283123C60032E1D6 /* MiniCord WatchKit Extension.appex */,
+				AAC6B0C0283123C20032E1D6 /* WatchCord.app */,
+				AAC6B0CE283123C40032E1D6 /* WatchCord.app */,
+				AAC6B0D9283123C60032E1D6 /* WatchCord WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AAC6B0C2283123C20032E1D6 /* MiniCord */ = {
+		AAC6B0C2283123C20032E1D6 /* WatchCord */ = {
 			isa = PBXGroup;
 			children = (
 				AAC6B0C3283123C20032E1D6 /* MiniCordApp.swift */,
@@ -150,7 +150,7 @@
 				AAC6B0C7283123C40032E1D6 /* Assets.xcassets */,
 				AAC6B0C9283123C40032E1D6 /* Preview Content */,
 			);
-			path = MiniCord;
+			path = WatchCord;
 			sourceTree = "<group>";
 		};
 		AAC6B0C9283123C40032E1D6 /* Preview Content */ = {
@@ -161,15 +161,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AAC6B0D2283123C40032E1D6 /* MiniCord WatchKit App */ = {
+		AAC6B0D2283123C40032E1D6 /* WatchCord WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
 				AAC6B0D3283123C50032E1D6 /* Assets.xcassets */,
 			);
-			path = "MiniCord WatchKit App";
+			path = "WatchCord WatchKit App";
 			sourceTree = "<group>";
 		};
-		AAC6B0DD283123C60032E1D6 /* MiniCord WatchKit Extension */ = {
+		AAC6B0DD283123C60032E1D6 /* WatchCord WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
 				AAC6B0E0283123C60032E1D6 /* MiniCordApp.swift */,
@@ -180,7 +180,7 @@
 				AAC6B0E9283123C70032E1D6 /* Info.plist */,
 				AAC6B0E6283123C70032E1D6 /* Preview Content */,
 			);
-			path = "MiniCord WatchKit Extension";
+			path = "WatchCord WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		AAC6B0E6283123C70032E1D6 /* Preview Content */ = {
@@ -203,9 +203,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AAC6B0BF283123C20032E1D6 /* MiniCord */ = {
+		AAC6B0BF283123C20032E1D6 /* WatchCord */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAC6B0F4283123C70032E1D6 /* Build configuration list for PBXNativeTarget "MiniCord" */;
+			buildConfigurationList = AAC6B0F4283123C70032E1D6 /* Build configuration list for PBXNativeTarget "WatchCord" */;
 			buildPhases = (
 				AAC6B0BC283123C20032E1D6 /* Sources */,
 				AAC6B0BD283123C20032E1D6 /* Frameworks */,
@@ -217,17 +217,17 @@
 			dependencies = (
 				AAC6B0D1283123C40032E1D6 /* PBXTargetDependency */,
 			);
-			name = MiniCord;
+			name = WatchCord;
 			packageProductDependencies = (
 				AA408790283190CC009B638A /* SDWebImageSwiftUI */,
 			);
 			productName = MiniCord;
-			productReference = AAC6B0C0283123C20032E1D6 /* MiniCord.app */;
+			productReference = AAC6B0C0283123C20032E1D6 /* WatchCord.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AAC6B0CD283123C40032E1D6 /* MiniCord WatchKit App */ = {
+		AAC6B0CD283123C40032E1D6 /* WatchCord WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAC6B0F0283123C70032E1D6 /* Build configuration list for PBXNativeTarget "MiniCord WatchKit App" */;
+			buildConfigurationList = AAC6B0F0283123C70032E1D6 /* Build configuration list for PBXNativeTarget "WatchCord WatchKit App" */;
 			buildPhases = (
 				AAC6B0CC283123C40032E1D6 /* Resources */,
 				AAC6B0EF283123C70032E1D6 /* Embed App Extensions */,
@@ -237,14 +237,14 @@
 			dependencies = (
 				AAC6B0DC283123C60032E1D6 /* PBXTargetDependency */,
 			);
-			name = "MiniCord WatchKit App";
+			name = "WatchCord WatchKit App";
 			productName = "MiniCord WatchKit App";
-			productReference = AAC6B0CE283123C40032E1D6 /* MiniCord WatchKit App.app */;
+			productReference = AAC6B0CE283123C40032E1D6 /* WatchCord.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		AAC6B0D8283123C60032E1D6 /* MiniCord WatchKit Extension */ = {
+		AAC6B0D8283123C60032E1D6 /* WatchCord WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAC6B0EC283123C70032E1D6 /* Build configuration list for PBXNativeTarget "MiniCord WatchKit Extension" */;
+			buildConfigurationList = AAC6B0EC283123C70032E1D6 /* Build configuration list for PBXNativeTarget "WatchCord WatchKit Extension" */;
 			buildPhases = (
 				AAC6B0D5283123C60032E1D6 /* Sources */,
 				AAC6B0D6283123C60032E1D6 /* Frameworks */,
@@ -254,12 +254,12 @@
 			);
 			dependencies = (
 			);
-			name = "MiniCord WatchKit Extension";
+			name = "WatchCord WatchKit Extension";
 			packageProductDependencies = (
 				AA40879328319175009B638A /* SDWebImageSwiftUI */,
 			);
 			productName = "MiniCord WatchKit Extension";
-			productReference = AAC6B0D9283123C60032E1D6 /* MiniCord WatchKit Extension.appex */;
+			productReference = AAC6B0D9283123C60032E1D6 /* WatchCord WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -299,9 +299,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AAC6B0BF283123C20032E1D6 /* MiniCord */,
-				AAC6B0CD283123C40032E1D6 /* MiniCord WatchKit App */,
-				AAC6B0D8283123C60032E1D6 /* MiniCord WatchKit Extension */,
+				AAC6B0BF283123C20032E1D6 /* WatchCord */,
+				AAC6B0CD283123C40032E1D6 /* WatchCord WatchKit App */,
+				AAC6B0D8283123C60032E1D6 /* WatchCord WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -362,12 +362,12 @@
 /* Begin PBXTargetDependency section */
 		AAC6B0D1283123C40032E1D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AAC6B0CD283123C40032E1D6 /* MiniCord WatchKit App */;
+			target = AAC6B0CD283123C40032E1D6 /* WatchCord WatchKit App */;
 			targetProxy = AAC6B0D0283123C40032E1D6 /* PBXContainerItemProxy */;
 		};
 		AAC6B0DC283123C60032E1D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AAC6B0D8283123C60032E1D6 /* MiniCord WatchKit Extension */;
+			target = AAC6B0D8283123C60032E1D6 /* WatchCord WatchKit Extension */;
 			targetProxy = AAC6B0DB283123C60032E1D6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -488,13 +488,13 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MiniCord WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WatchCord WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 566RT33SA2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MiniCord WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "MiniCord WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_FILE = "WatchCord WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "WatchCord WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchCord_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -503,7 +503,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.MiniCord.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchCord.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -520,13 +520,13 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MiniCord WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WatchCord WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 566RT33SA2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MiniCord WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "MiniCord WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_FILE = "WatchCord WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "WatchCord WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchCord_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -535,7 +535,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.MiniCord.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchCord.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -557,13 +557,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 566RT33SA2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = MiniCord_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "MiniCord WatchKit App";
+				IBSC_MODULE = WatchCord_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.MiniCord;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.WatchCord;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.MiniCord.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchCord.watchkitapp;
+				PRODUCT_NAME = WatchCord;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -583,13 +582,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 566RT33SA2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = MiniCord_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "MiniCord WatchKit App";
+				IBSC_MODULE = WatchCord_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.MiniCord;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.WatchCord;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.MiniCord.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchCord.watchkitapp;
+				PRODUCT_NAME = WatchCord;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -607,7 +605,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MiniCord/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WatchCord/Preview Content\"";
 				DEVELOPMENT_TEAM = 566RT33SA2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -622,7 +620,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.MiniCord;
+				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchCord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -638,7 +636,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MiniCord/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WatchCord/Preview Content\"";
 				DEVELOPMENT_TEAM = 566RT33SA2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -653,7 +651,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.MiniCord;
+				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchCord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -675,7 +673,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAC6B0EC283123C70032E1D6 /* Build configuration list for PBXNativeTarget "MiniCord WatchKit Extension" */ = {
+		AAC6B0EC283123C70032E1D6 /* Build configuration list for PBXNativeTarget "WatchCord WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAC6B0ED283123C70032E1D6 /* Debug */,
@@ -684,7 +682,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAC6B0F0283123C70032E1D6 /* Build configuration list for PBXNativeTarget "MiniCord WatchKit App" */ = {
+		AAC6B0F0283123C70032E1D6 /* Build configuration list for PBXNativeTarget "WatchCord WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAC6B0F1283123C70032E1D6 /* Debug */,
@@ -693,7 +691,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAC6B0F4283123C70032E1D6 /* Build configuration list for PBXNativeTarget "MiniCord" */ = {
+		AAC6B0F4283123C70032E1D6 /* Build configuration list for PBXNativeTarget "WatchCord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAC6B0F5283123C70032E1D6 /* Debug */,
