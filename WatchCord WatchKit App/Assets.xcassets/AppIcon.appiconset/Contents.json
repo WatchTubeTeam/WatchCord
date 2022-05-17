@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "watch-notificationCenter-38mm@2x.png",
       "idiom" : "watch",
       "role" : "notificationCenter",
       "scale" : "2x",
@@ -8,6 +9,7 @@
       "subtype" : "38mm"
     },
     {
+      "filename" : "watch-notificationCenter-42mm@2x.png",
       "idiom" : "watch",
       "role" : "notificationCenter",
       "scale" : "2x",
@@ -15,12 +17,14 @@
       "subtype" : "42mm"
     },
     {
+      "filename" : "watch-companionSettings@2x.png",
       "idiom" : "watch",
       "role" : "companionSettings",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "watch-companionSettings@3x.png",
       "idiom" : "watch",
       "role" : "companionSettings",
       "scale" : "3x",
@@ -34,6 +38,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "watch-appLauncher-38mm@2x.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -41,6 +46,7 @@
       "subtype" : "38mm"
     },
     {
+      "filename" : "watch-appLauncher-40mm@2x.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -55,6 +61,7 @@
       "subtype" : "41mm"
     },
     {
+      "filename" : "watch-appLauncher-44mm@2x.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -69,6 +76,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "watch-quickLook-38mm@2x.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -76,6 +84,7 @@
       "subtype" : "38mm"
     },
     {
+      "filename" : "watch-quickLook-42mm@2x.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -83,6 +92,7 @@
       "subtype" : "42mm"
     },
     {
+      "filename" : "watch-quickLook-44mm@2x.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -97,6 +107,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "watch-marketing.png",
       "idiom" : "watch-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
