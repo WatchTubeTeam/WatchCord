@@ -5,7 +5,6 @@
 //  Created by evelyn on 2021-06-27.
 //
 
-import AppKit
 import Foundation
 
 final class RoleManager {

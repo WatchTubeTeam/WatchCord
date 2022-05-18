@@ -23,7 +23,6 @@
 		AAC6B0E3283123C60032E1D6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */; };
 		AAC6B0E5283123C70032E1D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0E4283123C70032E1D6 /* Assets.xcassets */; };
 		AAC6B0E8283123C70032E1D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0E7283123C70032E1D6 /* Preview Assets.xcassets */; };
-		AAFD28D528343FBC003BEDEA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28BF28343FBB003BEDEA /* Reachability.swift */; };
 		AAFD28D628343FBC003BEDEA /* Gateway+Receive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C128343FBB003BEDEA /* Gateway+Receive.swift */; };
 		AAFD28D728343FBC003BEDEA /* MentionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C228343FBB003BEDEA /* MentionProtocol.swift */; };
 		AAFD28D828343FBC003BEDEA /* Sockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C328343FBB003BEDEA /* Sockets.swift */; };
@@ -119,7 +118,6 @@
 		AAC6B0E4283123C70032E1D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC6B0E7283123C70032E1D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAC6B0E9283123C70032E1D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAFD28BF28343FBB003BEDEA /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		AAFD28C128343FBB003BEDEA /* Gateway+Receive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+Receive.swift"; sourceTree = "<group>"; };
 		AAFD28C228343FBB003BEDEA /* MentionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionProtocol.swift; sourceTree = "<group>"; };
 		AAFD28C328343FBB003BEDEA /* Sockets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sockets.swift; sourceTree = "<group>"; };
@@ -279,18 +277,9 @@
 				AAFD28C628343FBB003BEDEA /* Markdown */,
 				AAFD28C928343FBC003BEDEA /* Media */,
 				AAFD28C028343FBB003BEDEA /* Networking */,
-				AAFD28BE28343FBB003BEDEA /* Reachability */,
 				AAFD28D328343FBC003BEDEA /* Voice */,
 			);
 			path = Backend;
-			sourceTree = "<group>";
-		};
-		AAFD28BE28343FBB003BEDEA /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				AAFD28BF28343FBB003BEDEA /* Reachability.swift */,
-			);
-			path = Reachability;
 			sourceTree = "<group>";
 		};
 		AAFD28C028343FBB003BEDEA /* Networking */ = {
@@ -566,7 +555,6 @@
 				AAFD28E328343FBC003BEDEA /* ZStream.swift in Sources */,
 				AA40878C28318B24009B638A /* SampleDataProvision.swift in Sources */,
 				AAFD290F28344219003BEDEA /* ReadState.swift in Sources */,
-				AAFD28D528343FBC003BEDEA /* Reachability.swift in Sources */,
 				AAFD290C28344219003BEDEA /* Reaction.swift in Sources */,
 				AAFD28D728343FBC003BEDEA /* MentionProtocol.swift in Sources */,
 				AAFD290628344219003BEDEA /* Message.swift in Sources */,

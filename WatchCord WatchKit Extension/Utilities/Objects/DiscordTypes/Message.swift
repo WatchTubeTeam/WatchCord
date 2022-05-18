@@ -5,7 +5,6 @@
 //  Created by evelyn on 2021-08-16.
 //
 
-import AppKit
 import Foundation
 
 final class Message: Decodable, Equatable, Identifiable, Hashable {
