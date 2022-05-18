@@ -6,7 +6,7 @@ final class KeychainManager {
         let query = [
             kSecClass as String: kSecClassGenericPassword as String,
             kSecAttrAccount as String: key,
-            kSecAttrAccessGroup as String: "group.evelyn.accord",
+            kSecAttrAccessGroup as String: "group.llsc12.watchcord",
             kSecValueData as String: data,
         ] as [String: Any]
 
@@ -20,7 +20,7 @@ final class KeychainManager {
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key,
             kSecReturnData as String: kCFBooleanTrue!,
-            kSecAttrAccessGroup as String: "group.evelyn.accord",
+            kSecAttrAccessGroup as String: "group.llsc12.watchcord",
             kSecMatchLimit as String: kSecMatchLimitOne,
         ] as [String: Any]
 
