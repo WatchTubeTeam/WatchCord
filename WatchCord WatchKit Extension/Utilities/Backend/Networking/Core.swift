@@ -14,7 +14,7 @@ final class NetworkCore {
         let url = URL(string: "\(rootURL)/gateway")!
         let data = try? Data(contentsOf: url)
         if data == nil {
-            AccordApp.error(text: "Offline", additionalDescription: "Check your network connection")
+            WatchCordApp.error(text: "Offline", additionalDescription: "Check your network connection")
             connected = false
         } else {
             connected = true
