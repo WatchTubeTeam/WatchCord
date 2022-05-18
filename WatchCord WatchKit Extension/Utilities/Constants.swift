@@ -19,6 +19,7 @@ let rootURL: String = "https://discord.com/api/v9"
 let cdnURL: String = "https://cdn.discordapp.com"
 var user_id: String = .init()
 var avatar: Data = .init()
+public var pastelColors: Bool = UserDefaults.standard.bool(forKey: "pastelColors")
 // var discordStockSettings: Bool = UserDefaults.standard.bool(forKey: "discordStockSettings")
 var sortByMostRecent: Bool = UserDefaults.standard.bool(forKey: "sortByMostRecent")
 var pfpShown: Bool = UserDefaults.standard.bool(forKey: "pfpShown")
@@ -89,3 +90,10 @@ final class AccordCoreVars {
         log: OSLog(subsystem: "com.apple.runtime-issues", category: "Accord")
     )
 #endif
+
+#warning("TO DO")
+func generateFakeNonce() -> String {
+    let date: Double = Date().timeIntervalSince1970
+    let nonceNumber = (Int(date)*1000 - 1420070400000) * 4194304
+    return String(nonceNumber)
+}
