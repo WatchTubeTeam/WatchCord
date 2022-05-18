@@ -296,7 +296,7 @@ extension DispatchQueue {
     }
 }
 
-extension NSWorkspace {
+extension WKExtension {
     var kernelVersion: String {
         var size = 0
         sysctlbyname("kern.osrelease", nil, &size, nil, 0)

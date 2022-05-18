@@ -300,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				AAFD28CD28343FBC003BEDEA /* Gateway */,
-				AAFD28C628343FBB003BEDEA /* Markdown */,
 				AAFD28C928343FBC003BEDEA /* Media */,
 				AAFD28C028343FBB003BEDEA /* Networking */,
 				AAFD28D328343FBC003BEDEA /* Voice */,
@@ -316,13 +315,6 @@
 				AAFD291728351AAB003BEDEA /* Request.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		AAFD28C628343FBB003BEDEA /* Markdown */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Markdown;
 			sourceTree = "<group>";
 		};
 		AAFD28C928343FBC003BEDEA /* Media */ = {

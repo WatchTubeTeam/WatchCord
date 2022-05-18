@@ -6,6 +6,7 @@
 //
 
 //import AppKit // Necessary for the locale & architecture
+import WatchKit
 import Combine
 import Foundation
 import Network
@@ -255,7 +256,7 @@ final class Gateway {
                     "release_channel": "stable",
                     "client_build_number": dscVersion,
                     "client_version": "0.0.266",
-                    "os_version": NSWorkspace.shared.kernelVersion,
+                    "os_version": WKExtension.shared().kernelVersion,
                     "os_arch": "x64",
                     "system-locale": "\(NSLocale.current.languageCode ?? "en")-\(NSLocale.current.regionCode ?? "US")",
                 ],
