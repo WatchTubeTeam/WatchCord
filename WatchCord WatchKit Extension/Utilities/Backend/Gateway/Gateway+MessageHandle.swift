@@ -101,7 +101,7 @@ extension Gateway {
         case .messageDeleteBulk: break
         case .applicationCommandUpdate: break
         case .applicationCommandPermissionsUpdate: break
-        case .guildApplicationCommandsUpdate:
+        case .guildApplicationCommandsUpdate: break
 //            print("uwu")
 //            if let guildID = event.guildID {
 //                let commands = try JSONDecoder().decode(
