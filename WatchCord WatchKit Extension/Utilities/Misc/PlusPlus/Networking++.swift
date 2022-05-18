@@ -13,22 +13,6 @@ public extension NSString {
     }
 }
 
-extension URLSessionConfiguration {
-    func setProxy() {
-        guard proxyEnabled else { return }
-        connectionProxyDictionary = [AnyHashable: Any]()
-        connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 1
-        if let ip = proxyIP {
-            connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String] = ip
-            connectionProxyDictionary?[kCFNetworkProxiesHTTPSProxy as String] = ip
-        }
-        if let port = proxyPort {
-            connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = Int(port)
-            connectionProxyDictionary?[kCFNetworkProxiesHTTPSPort as String] = Int(port)
-        }
-    }
-}
-
 extension URL {
     func appendingQueryParameters(_ parametersDictionary: [String: String]) -> URL {
         let URLString = String(format: "%@?%@", absoluteString, parametersDictionary.queryParameters)

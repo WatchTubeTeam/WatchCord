@@ -266,7 +266,7 @@ final class Gateway {
 
     private func heartbeat() throws {
         guard !pendingHeartbeat else {
-            return AccordApp.error(GatewayErrors.heartbeatMissed, additionalDescription: "Check your network connection")
+            return WatchCordApp.error(GatewayErrors.heartbeatMissed, additionalDescription: "Check your network connection")
         }
         let packet: [String: Any] = [
             "op": 1,
@@ -285,7 +285,7 @@ final class Gateway {
                 guard let info = context?.protocolMetadata.first as? NWProtocolWebSocket.Metadata,
                       let data = data
                 else {
-                    return AccordApp.error(GatewayErrors.essentialEventFailed("READY"), additionalDescription: "Try reconnecting?")
+                    return WatchCordApp.error(GatewayErrors.essentialEventFailed("READY"), additionalDescription: "Try reconnecting?")
                 }
                 switch info.opcode {
                 case .text:
@@ -307,7 +307,7 @@ final class Gateway {
                             return
                         } catch {
                             promise(.failure(error))
-                            AccordApp.error(error)
+                            WatchCordApp.error(error)
                             return
                         }
                     }
@@ -341,7 +341,7 @@ final class Gateway {
                                 return
                             } catch {
                                 promise(.failure(error))
-                                AccordApp.error(error)
+                                WatchCordApp.error(error)
                                 return
                             }
                         }

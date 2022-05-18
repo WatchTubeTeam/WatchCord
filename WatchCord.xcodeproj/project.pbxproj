@@ -23,8 +23,6 @@
 		AAC6B0E3283123C60032E1D6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */; };
 		AAC6B0E5283123C70032E1D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0E4283123C70032E1D6 /* Assets.xcassets */; };
 		AAC6B0E8283123C70032E1D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0E7283123C70032E1D6 /* Preview Assets.xcassets */; };
-		AAFD28DB28343FBC003BEDEA /* AsyncMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C728343FBB003BEDEA /* AsyncMarkdown.swift */; };
-		AAFD28DC28343FBC003BEDEA /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C828343FBB003BEDEA /* Markdown.swift */; };
 		AAFD28DD28343FBC003BEDEA /* RegisterImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28CA28343FBC003BEDEA /* RegisterImages.swift */; };
 		AAFD28DF28343FBC003BEDEA /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28CC28343FBC003BEDEA /* Images.swift */; };
 		AAFD28E028343FBC003BEDEA /* Gateway+MessageHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28CE28343FBC003BEDEA /* Gateway+MessageHandle.swift */; };
@@ -56,11 +54,8 @@
 		AAFD291928351AAC003BEDEA /* MentionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291528351AAB003BEDEA /* MentionProtocol.swift */; };
 		AAFD291B28351AAC003BEDEA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291728351AAB003BEDEA /* Request.swift */; };
 		AAFD291C28351AAC003BEDEA /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291828351AAC003BEDEA /* Core.swift */; };
-		AAFD293128351B5E003BEDEA /* ImageProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291E28351B5E003BEDEA /* ImageProcessing.swift */; };
 		AAFD293228351B5E003BEDEA /* Queues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291F28351B5E003BEDEA /* Queues.swift */; };
 		AAFD293328351B5E003BEDEA /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292128351B5E003BEDEA /* Github.swift */; };
-		AAFD293428351B5E003BEDEA /* UserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292228351B5E003BEDEA /* UserNotifications.swift */; };
-		AAFD293528351B5E003BEDEA /* AppKitLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292328351B5E003BEDEA /* AppKitLink.swift */; };
 		AAFD293628351B5E003BEDEA /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292428351B5E003BEDEA /* Keychain.swift */; };
 		AAFD293728351B5E003BEDEA /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292528351B5E003BEDEA /* Regex.swift */; };
 		AAFD293828351B5E003BEDEA /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292728351B5E003BEDEA /* String++.swift */; };
@@ -73,6 +68,7 @@
 		AAFD293F28351B5E003BEDEA /* SwiftUI++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292E28351B5E003BEDEA /* SwiftUI++.swift */; };
 		AAFD294028351B5E003BEDEA /* Operators++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292F28351B5E003BEDEA /* Operators++.swift */; };
 		AAFD294128351B5E003BEDEA /* Keypath++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD293028351B5E003BEDEA /* Keypath++.swift */; };
+		AAFD2943283541ED003BEDEA /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD2942283541ED003BEDEA /* AppExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,8 +130,6 @@
 		AAC6B0E4283123C70032E1D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC6B0E7283123C70032E1D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAC6B0E9283123C70032E1D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAFD28C728343FBB003BEDEA /* AsyncMarkdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncMarkdown.swift; sourceTree = "<group>"; };
-		AAFD28C828343FBB003BEDEA /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 		AAFD28CA28343FBC003BEDEA /* RegisterImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterImages.swift; sourceTree = "<group>"; };
 		AAFD28CC28343FBC003BEDEA /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		AAFD28CE28343FBC003BEDEA /* Gateway+MessageHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+MessageHandle.swift"; sourceTree = "<group>"; };
@@ -167,11 +161,8 @@
 		AAFD291528351AAB003BEDEA /* MentionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionProtocol.swift; sourceTree = "<group>"; };
 		AAFD291728351AAB003BEDEA /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AAFD291828351AAC003BEDEA /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
-		AAFD291E28351B5E003BEDEA /* ImageProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessing.swift; sourceTree = "<group>"; };
 		AAFD291F28351B5E003BEDEA /* Queues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queues.swift; sourceTree = "<group>"; };
 		AAFD292128351B5E003BEDEA /* Github.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
-		AAFD292228351B5E003BEDEA /* UserNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
-		AAFD292328351B5E003BEDEA /* AppKitLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKitLink.swift; sourceTree = "<group>"; };
 		AAFD292428351B5E003BEDEA /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		AAFD292528351B5E003BEDEA /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		AAFD292728351B5E003BEDEA /* String++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
@@ -184,6 +175,7 @@
 		AAFD292E28351B5E003BEDEA /* SwiftUI++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftUI++.swift"; sourceTree = "<group>"; };
 		AAFD292F28351B5E003BEDEA /* Operators++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operators++.swift"; sourceTree = "<group>"; };
 		AAFD293028351B5E003BEDEA /* Keypath++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keypath++.swift"; sourceTree = "<group>"; };
+		AAFD2942283541ED003BEDEA /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,8 +321,6 @@
 		AAFD28C628343FBB003BEDEA /* Markdown */ = {
 			isa = PBXGroup;
 			children = (
-				AAFD28C728343FBB003BEDEA /* AsyncMarkdown.swift */,
-				AAFD28C828343FBB003BEDEA /* Markdown.swift */,
 			);
 			path = Markdown;
 			sourceTree = "<group>";
@@ -417,14 +407,12 @@
 		AAFD291D28351B5E003BEDEA /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				AAFD291E28351B5E003BEDEA /* ImageProcessing.swift */,
 				AAFD291F28351B5E003BEDEA /* Queues.swift */,
 				AAFD292028351B5E003BEDEA /* Shapes */,
-				AAFD292228351B5E003BEDEA /* UserNotifications.swift */,
-				AAFD292328351B5E003BEDEA /* AppKitLink.swift */,
 				AAFD292428351B5E003BEDEA /* Keychain.swift */,
 				AAFD292528351B5E003BEDEA /* Regex.swift */,
 				AAFD292628351B5E003BEDEA /* PlusPlus */,
+				AAFD2942283541ED003BEDEA /* AppExtension.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -603,14 +591,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAFD28DC28343FBC003BEDEA /* Markdown.swift in Sources */,
 				AAFD293928351B5E003BEDEA /* Networking++.swift in Sources */,
 				AAFD291B28351AAC003BEDEA /* Request.swift in Sources */,
 				AAFD28E028343FBC003BEDEA /* Gateway+MessageHandle.swift in Sources */,
 				AAFD290128344219003BEDEA /* SongLink.swift in Sources */,
 				AAFD291928351AAC003BEDEA /* MentionProtocol.swift in Sources */,
 				AAFD293628351B5E003BEDEA /* Keychain.swift in Sources */,
-				AAFD293428351B5E003BEDEA /* UserNotifications.swift in Sources */,
 				AAFD290528344219003BEDEA /* Guild.swift in Sources */,
 				AAFD28FF28344219003BEDEA /* LoginPayloads.swift in Sources */,
 				AAFD293228351B5E003BEDEA /* Queues.swift in Sources */,
@@ -625,15 +611,14 @@
 				AAFD290A28344219003BEDEA /* User.swift in Sources */,
 				AAFD293328351B5E003BEDEA /* Github.swift in Sources */,
 				AAFD2911283518B6003BEDEA /* Constants.swift in Sources */,
-				AAFD293528351B5E003BEDEA /* AppKitLink.swift in Sources */,
 				AAFD290828344219003BEDEA /* Channel.swift in Sources */,
 				AAFD293F28351B5E003BEDEA /* SwiftUI++.swift in Sources */,
 				AAFD290928344219003BEDEA /* Permissions.swift in Sources */,
-				AAFD28DB28343FBC003BEDEA /* AsyncMarkdown.swift in Sources */,
 				AAFD290D28344219003BEDEA /* Settings.swift in Sources */,
 				AAFD290228344219003BEDEA /* Embed.swift in Sources */,
 				AAFD294028351B5E003BEDEA /* Operators++.swift in Sources */,
 				AAFD28E328343FBC003BEDEA /* ZStream.swift in Sources */,
+				AAFD2943283541ED003BEDEA /* AppExtension.swift in Sources */,
 				AA40878C28318B24009B638A /* SampleDataProvision.swift in Sources */,
 				AAFD290F28344219003BEDEA /* ReadState.swift in Sources */,
 				AAFD290C28344219003BEDEA /* Reaction.swift in Sources */,
@@ -646,7 +631,6 @@
 				AAFD294128351B5E003BEDEA /* Keypath++.swift in Sources */,
 				AAFD28DF28343FBC003BEDEA /* Images.swift in Sources */,
 				AAC6B0DF283123C60032E1D6 /* SidebarView.swift in Sources */,
-				AAFD293128351B5E003BEDEA /* ImageProcessing.swift in Sources */,
 				AAFD290428344219003BEDEA /* Roles.swift in Sources */,
 				AAFD293C28351B5E003BEDEA /* Collection++.swift in Sources */,
 				AAFD290E28344219003BEDEA /* Status.swift in Sources */,

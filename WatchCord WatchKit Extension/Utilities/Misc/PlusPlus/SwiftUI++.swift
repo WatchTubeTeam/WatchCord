@@ -9,7 +9,6 @@ import AVKit
 import Combine
 import Foundation
 import SwiftUI
-import WebKit
 
 extension Button {
     init(action: @escaping () throws -> Void, catch: @escaping (_ error: Error?) -> Void, label: @escaping () -> Label) {

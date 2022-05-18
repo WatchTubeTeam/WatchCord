@@ -40,7 +40,7 @@ extension String {
 
 func logOut() {
     KeychainManager.save(key: keychainItemName, data: Data())
-    NSApp.restart()
+//    NSApp.restart()
 }
 
 final class Headers {
@@ -84,7 +84,7 @@ final class Headers {
             "browser": "Discord Client",
             "release_channel": "stable",
             "client_version": "0.0.266",
-            "os_version": NSWorkspace.shared.kernelVersion,
+            "os_version": WKInterfaceDevice.current(),
             "os_arch": "x64",
             "system_locale": "\(NSLocale.current.languageCode ?? "en")-\(NSLocale.current.regionCode ?? "US")",
             "client_build_number": dscVersion,
@@ -193,7 +193,6 @@ public final class Request {
         }()
         guard var request = request else { return completion(.failure(FetchErrors.invalidRequest)) }
         var config = URLSessionConfiguration.default
-        config.setProxy()
         guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != NWConnection.State.ready) else {
             print("No active websocket connection")
             return
@@ -246,7 +245,6 @@ public final class Request {
         }()
         guard var request = request else { return completion(.failure(FetchErrors.invalidRequest)) }
         var config = URLSessionConfiguration.default
-        config.setProxy()
         guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != NWConnection.State.ready) else {
             print("No active websocket connection")
             return
@@ -279,28 +277,27 @@ public final class Request {
     class func image(
         url: URL?,
         to size: CGSize? = nil,
-        completion: @escaping ((_ value: NSImage?) -> Void)
+        completion: @escaping ((_ value: UIImage?) -> Void)
     ) {
         guard let url = url else { return completion(nil) }
         let request = URLRequest(url: url)
         if let cachedImage = cache.cachedResponse(for: request) {
-            return completion(NSImage(data: cachedImage.data) ?? NSImage())
+            return completion(UIImage(data: cachedImage.data) ?? UIImage())
         }
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
             guard let data = data,
-                  let imageData = NSImage(data: data)?.downsample(to: size),
-                  let image = NSImage(data: imageData)
+                  let image = UIImage(data: data)
             else {
                 print(error?.localizedDescription ?? "unknown error")
                 if let data = data {
                     cache.storeCachedResponse(CachedURLResponse(response: response!, data: data), for: request)
-                    return completion(NSImage(data: data))
+                    return completion(UIImage(data: data))
                 } else {
                     print("load failed")
                     return completion(nil)
                 }
             }
-            cache.storeCachedResponse(CachedURLResponse(response: response!, data: imageData), for: request)
+            cache.storeCachedResponse(CachedURLResponse(response: response!, data: data), for: request)
             return completion(image)
         }).resume()
     }
@@ -323,7 +320,6 @@ public final class Request {
         }()
         guard var request = request else { return }
         var config = URLSessionConfiguration.default
-        config.setProxy()
         guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != NWConnection.State.ready) else {
             print("No active websocket connection")
             return
@@ -384,8 +380,8 @@ public final class Request {
 }
 
 public final class RequestPublisher {
-    static var EmptyImagePublisher: AnyPublisher<NSImage, Error> = {
-        Empty<NSImage, Error>.init().eraseToAnyPublisher()
+    static var EmptyImagePublisher: AnyPublisher<UIImage, Error> = {
+        Empty<UIImage, Error>.init().eraseToAnyPublisher()
     }()
 
     enum ImageErrors: Error {
@@ -439,18 +435,18 @@ public final class RequestPublisher {
     class func image(
         url: URL?,
         to size: CGSize? = nil
-    ) -> AnyPublisher<NSImage, Error> {
+    ) -> AnyPublisher<UIImage, Error> {
         guard let url = url else { return EmptyImagePublisher }
         let request = URLRequest(url: url)
-        if let cachedImage = cache.cachedResponse(for: request), let img = NSImage(data: cachedImage.data) {
+        if let cachedImage = cache.cachedResponse(for: request), let img = UIImage(data: cachedImage.data) {
             return Just(img).eraseToAny()
         }
         return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { data, response -> NSImage in
-                if let size = size, let downsampled = data.downsample(to: size), let image = NSImage(data: downsampled) {
-                    cache.storeCachedResponse(CachedURLResponse(response: response, data: downsampled), for: request)
+            .tryMap { data, response -> UIImage in
+                if let _ = size, let image = UIImage(data: data) {
+                    cache.storeCachedResponse(CachedURLResponse(response: response, data: data), for: request)
                     return image
-                } else if let image = NSImage(data: data) {
+                } else if let image = UIImage(data: data) {
                     cache.storeCachedResponse(CachedURLResponse(response: response, data: data), for: request)
                     return image
                 } else { throw ImageErrors.noImage }

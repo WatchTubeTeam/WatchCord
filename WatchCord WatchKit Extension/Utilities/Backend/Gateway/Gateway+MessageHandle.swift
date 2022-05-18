@@ -38,7 +38,7 @@ extension Gateway {
             let guild = try JSONDecoder().decode(GatewayEventContent<Guild>.self, from: event.data)
             let folder = GuildFolder(guild_ids: [guild.d.id])
             folder.guilds.append(guild.d)
-            ServerListView.folders.append(folder)
+//            ServerListView.folders.append(folder)
         case .guildDelete:
             print(String(data: event.data, encoding: .utf8))
         case .guildMemberAdd: break
@@ -63,19 +63,19 @@ extension Gateway {
             let guildID = message.guild_id ?? "@me"
             guard let channelID = event.channelID else { print("wat"); break }
             MentionSender.shared.newMessage(in: channelID, with: message.id, isDM: message.guild_id == nil)
-            if ids.contains(user_id) || (ServerListView.privateChannels.map(\.id).contains(channelID) && message.author?.id != user_id) {
-                print("Sending notification")
-                let matchingGuild = Array(ServerListView.folders.map(\.guilds).joined())[message.guild_id ?? ""]
-                let matchingChannel = matchingGuild?.channels?[message.channel_id] ?? ServerListView.privateChannels[message.channel_id]
-                showNotification(
-                    title: message.author?.username ?? "Unknown User",
-                    subtitle: matchingGuild == nil ? matchingChannel?.computedName ?? "Direct Messages" : "#\(matchingChannel?.computedName ?? "") • \(matchingGuild?.name ?? "")",
-                    description: message.content,
-                    pfpURL: pfpURL(message.author?.id, message.author?.avatar, "128"),
-                    id: message.channel_id
-                )
-                MentionSender.shared.addMention(guild: guildID, channel: channelID)
-            }
+//            if ids.contains(user_id) || (ServerListView.privateChannels.map(\.id).contains(channelID) && message.author?.id != user_id) {
+//                print("Sending notification")
+//                let matchingGuild = Array(ServerListView.folders.map(\.guilds).joined())[message.guild_id ?? ""]
+//                let matchingChannel = matchingGuild?.channels?[message.channel_id] ?? ServerListView.privateChannels[message.channel_id]
+//                showNotification(
+//                    title: message.author?.username ?? "Unknown User",
+//                    subtitle: matchingGuild == nil ? matchingChannel?.computedName ?? "Direct Messages" : "#\(matchingChannel?.computedName ?? "") • \(matchingGuild?.name ?? "")",
+//                    description: message.content,
+//                    pfpURL: pfpURL(message.author?.id, message.author?.avatar, "128"),
+//                    id: message.channel_id
+//                )
+//                MentionSender.shared.addMention(guild: guildID, channel: channelID)
+//            }
         case .messageUpdate:
             if let channelID = event.channelID {
                 editSubject.send((event.data, channelID))
@@ -102,24 +102,24 @@ extension Gateway {
         case .applicationCommandUpdate: break
         case .applicationCommandPermissionsUpdate: break
         case .guildApplicationCommandsUpdate:
-            print("uwu")
-            if let guildID = event.guildID {
-                let commands = try JSONDecoder().decode(
-                    SlashCommandStorage.GuildApplicationCommandsUpdateEvent.self,
-                    from: event.data
-                )
-                let userKeyMap = commands.d.applications.generateKeyMap()
-                SlashCommandStorage.commands[guildID] = commands.d.application_commands
-                    .map { command -> SlashCommandStorage.Command in
-                        print(command)
-                        if let avatar = commands.d.applications[command.application_id, userKeyMap]?.icon {
-                            command.avatar = avatar
-                            return command
-                        }
-                        print(event.data)
-                        return command
-                    }
-            }
+//            print("uwu")
+//            if let guildID = event.guildID {
+//                let commands = try JSONDecoder().decode(
+//                    SlashCommandStorage.GuildApplicationCommandsUpdateEvent.self,
+//                    from: event.data
+//                )
+//                let userKeyMap = commands.d.applications.generateKeyMap()
+//                SlashCommandStorage.commands[guildID] = commands.d.application_commands
+//                    .map { command -> SlashCommandStorage.Command in
+//                        print(command)
+//                        if let avatar = commands.d.applications[command.application_id, userKeyMap]?.icon {
+//                            command.avatar = avatar
+//                            return command
+//                        }
+//                        print(event.data)
+//                        return command
+//                    }
+//            }
         default: break
         }
     }
