@@ -58,9 +58,9 @@ struct HoveredAttachment: View, Equatable {
                 .scaledToFit()
                 .padding(2)
                 .background(hovering ? Color.gray.opacity(0.75).cornerRadius(1) : Color.clear.cornerRadius(0))
-                .onHover(perform: { _ in
-                    hovering.toggle()
-                })
+//                .onHover(perform: { _ in
+//                    hovering.toggle()
+//                })
         }
         .onAppear {
             imageLoader.load()

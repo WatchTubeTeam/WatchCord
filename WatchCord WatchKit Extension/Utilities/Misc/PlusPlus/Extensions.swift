@@ -8,6 +8,8 @@
 import Combine
 import Foundation
 import SwiftUI
+import UIKit
+import WatchKit
 
 public var doNothing: (Any) -> Void = { _ in }
 
@@ -167,19 +169,19 @@ struct Folder<Content: View>: View {
     }
 }
 
-func showWindow(_ channel: Channel) {
-    var windowRef: NSWindow
-    windowRef = NSWindow(
-        contentRect: NSRect(x: 0, y: 0, width: 500, height: 300),
-        styleMask: [.titled, .closable, .miniaturizable, .fullSizeContentView, .resizable],
-        backing: .buffered, defer: false
-    )
-    windowRef.delegate = nil
-    windowRef.contentView = NSHostingView(rootView: ChannelView(channel))
-    windowRef.title = "\(channel.name ?? "Unknown Channel") - Accord"
-    windowRef.isReleasedWhenClosed = false
-    windowRef.makeKeyAndOrderFront(nil)
-}
+//func showWindow(_ channel: Channel) {
+//    var windowRef: NSWindow
+//    windowRef = NSWindow(
+//        contentRect: NSRect(x: 0, y: 0, width: 500, height: 300),
+//        styleMask: [.titled, .closable, .miniaturizable, .fullSizeContentView, .resizable],
+//        backing: .buffered, defer: false
+//    )
+//    windowRef.delegate = nil
+//    windowRef.contentView = NSHostingView(rootView: ChannelView(channel))
+//    windowRef.title = "\(channel.name ?? "Unknown Channel") - Accord"
+//    windowRef.isReleasedWhenClosed = false
+//    windowRef.makeKeyAndOrderFront(nil)
+//}
 
 func pronounDBFormed(pronoun: String?) -> String {
     switch pronoun {
@@ -252,39 +254,39 @@ public extension Collection where Indices.Iterator.Element == Index, Index: Bina
 
 // Hide the TextField Focus Ring on Big Sur
 
-extension NSTextField {
-    override open var focusRingType: NSFocusRingType {
-        get { .none }
-        set {}
-    }
-    
-    override open func insertNewlineIgnoringFieldEditor(_ sender: Any?) {
-        print("newline 2")
-        super.insertNewlineIgnoringFieldEditor(sender)
-    }
-    
-    override open func insertNewline(_ sender: Any?) {
-        print("newline")
-        super.insertNewline(sender)
-    }
-    
-    override open func performKeyEquivalent(with event: NSEvent) -> Bool {
-        if event.type == NSEvent.EventType.keyDown {
-            print(event)
-            if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == NSEvent.ModifierFlags.command.rawValue {
-                switch event.charactersIgnoringModifiers! {
-                case "v":
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "red.evelyn.accord.PasteEvent"), object: nil, userInfo: [:])
-                default:
-                    break
-                }
-            } else if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == NSEvent.ModifierFlags.shift.rawValue {
-                print(event.characters)
-            }
-        }
-        return super.performKeyEquivalent(with: event)
-    }
-}
+//extension NSTextField {
+//    override open var focusRingType: NSFocusRingType {
+//        get { .none }
+//        set {}
+//    }
+//
+//    override open func insertNewlineIgnoringFieldEditor(_ sender: Any?) {
+//        print("newline 2")
+//        super.insertNewlineIgnoringFieldEditor(sender)
+//    }
+//
+//    override open func insertNewline(_ sender: Any?) {
+//        print("newline")
+//        super.insertNewline(sender)
+//    }
+//
+//    override open func performKeyEquivalent(with event: NSEvent) -> Bool {
+//        if event.type == NSEvent.EventType.keyDown {
+//            print(event)
+//            if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == NSEvent.ModifierFlags.command.rawValue {
+//                switch event.charactersIgnoringModifiers! {
+//                case "v":
+//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "red.evelyn.accord.PasteEvent"), object: nil, userInfo: [:])
+//                default:
+//                    break
+//                }
+//            } else if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == NSEvent.ModifierFlags.shift.rawValue {
+//                print(event.characters)
+//            }
+//        }
+//        return super.performKeyEquivalent(with: event)
+//    }
+//}
 
 extension DispatchQueue {
     func asyncIf(_ condition: @autoclosure () -> Bool, _ perform: @escaping () -> Void) {
@@ -314,17 +316,17 @@ extension Data {
     }
 }
 
-extension NSBitmapImageRep {
-    var png: Data? { representation(using: .png, properties: [:]) }
-}
-
-extension Data {
-    var bitmap: NSBitmapImageRep? { NSBitmapImageRep(data: self) }
-}
-
-extension NSImage {
-    var png: Data? { tiffRepresentation?.bitmap?.png }
-}
+//extension NSBitmapImageRep {
+//    var png: Data? { representation(using: .png, properties: [:]) }
+//}
+//
+//extension Data {
+//    var bitmap: NSBitmapImageRep? { NSBitmapImageRep(data: self) }
+//}
+//
+//extension UIImage {
+//    var png: Data? { tiffRepresentation?.bitmap?.png }
+//}
 
 extension Date {
     func makeProperDate() -> String {

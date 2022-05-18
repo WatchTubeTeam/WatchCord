@@ -7,6 +7,7 @@
 
 import Foundation
 import WatchKit
+
 extension WatchCordApp {
     #warning("This needs rewriting")
     static func error(_ error: Error? = nil, text: String? = nil, additionalDescription: String? = nil, reconnectOption _: Bool = true) {

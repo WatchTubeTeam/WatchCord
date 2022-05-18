@@ -115,27 +115,27 @@ struct FastButton<Content: View>: View {
     }
 }
 
-struct WebVideoPlayer: NSViewRepresentable {
-    init(url: URL) {
-        self.url = url
-    }
-
-    let url: URL
-
-    func makeNSView(context _: Context) -> WKWebView {
-        var webView = WKWebView()
-        let webConfiguration = WKWebViewConfiguration()
-        webConfiguration.mediaTypesRequiringUserActionForPlayback = []
-
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        let html = "<video playsinline controls width=\"100%\" src=\"\(url.absoluteString)\"> </video>"
-        webView.loadHTMLString(html, baseURL: url)
-        print(html, webView)
-        return webView
-    }
-
-    func updateNSView(_: WKWebView, context _: Context) {}
-}
+//struct WebVideoPlayer: NSViewRepresentable {
+//    init(url: URL) {
+//        self.url = url
+//    }
+//
+//    let url: URL
+//
+//    func makeNSView(context _: Context) -> WKWebView {
+//        var webView = WKWebView()
+//        let webConfiguration = WKWebViewConfiguration()
+//        webConfiguration.mediaTypesRequiringUserActionForPlayback = []
+//
+//        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+//        let html = "<video playsinline controls width=\"100%\" src=\"\(url.absoluteString)\"> </video>"
+//        webView.loadHTMLString(html, baseURL: url)
+//        print(html, webView)
+//        return webView
+//    }
+//
+//    func updateNSView(_: WKWebView, context _: Context) {}
+//}
 
 extension GridItem {
     static func multiple(count: Int, size: Self.Size = .flexible(), spacing: CGFloat? = nil, alignment: SwiftUI.Alignment? = nil) -> [GridItem] {
@@ -184,37 +184,37 @@ extension Font {
     static var chatTextFont = Font.system(size: 14)
 }
 
-extension View {
-    
-    func imageRepresentation(_ completion: @escaping (NSImage?) -> Void) {
-        let view = NoInsetHostingView(rootView: self)
-        view.setFrameSize(view.fittingSize)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            return completion(view.bitmapImage())
-        })
-    }
+//extension View {
+//
+//    func imageRepresentation(_ completion: @escaping (NSImage?) -> Void) {
+//        let view = NoInsetHostingView(rootView: self)
+//        view.setFrameSize(view.fittingSize)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+//            return completion(view.bitmapImage())
+//        })
+//    }
+//
+//}
 
-}
+//class NoInsetHostingView<V>: NSHostingView<V> where V: View {
+//
+//    override var safeAreaInsets: NSEdgeInsets {
+//        return .init()
+//    }
+//
+//}
 
-class NoInsetHostingView<V>: NSHostingView<V> where V: View {
-    
-    override var safeAreaInsets: NSEdgeInsets {
-        return .init()
-    }
-    
-}
-
-public extension NSView {
-    
-    func bitmapImage() -> NSImage? {
-        guard let rep = bitmapImageRepForCachingDisplay(in: bounds) else {
-            return nil
-        }
-        cacheDisplay(in: bounds, to: rep)
-        guard let cgImage = rep.cgImage else {
-            return nil
-        }
-        return NSImage(cgImage: cgImage, size: bounds.size)
-    }
-    
-}
+//public extension NSView {
+//    
+//    func bitmapImage() -> NSImage? {
+//        guard let rep = bitmapImageRepForCachingDisplay(in: bounds) else {
+//            return nil
+//        }
+//        cacheDisplay(in: bounds, to: rep)
+//        guard let cgImage = rep.cgImage else {
+//            return nil
+//        }
+//        return NSImage(cgImage: cgImage, size: bounds.size)
+//    }
+//    
+//}

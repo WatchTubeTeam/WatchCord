@@ -46,11 +46,11 @@ final class GuildFolder: Decodable, Hashable {
     @DefaultEmptyArray
     var guilds: [Guild]
 
-    var unreadMessages: Bool {
-        guilds
-            .map { Accord.unreadMessages(guild: $0) }
-            .contains(true)
-    }
+//    var unreadMessages: Bool {
+//        guilds
+//            .map { Accord.unreadMessages(guild: $0) }
+//            .contains(true)
+//    }
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(guild_ids)
