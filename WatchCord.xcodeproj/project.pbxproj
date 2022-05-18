@@ -23,11 +23,6 @@
 		AAC6B0E3283123C60032E1D6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */; };
 		AAC6B0E5283123C70032E1D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0E4283123C70032E1D6 /* Assets.xcassets */; };
 		AAC6B0E8283123C70032E1D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0E7283123C70032E1D6 /* Preview Assets.xcassets */; };
-		AAFD28D628343FBC003BEDEA /* Gateway+Receive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C128343FBB003BEDEA /* Gateway+Receive.swift */; };
-		AAFD28D728343FBC003BEDEA /* MentionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C228343FBB003BEDEA /* MentionProtocol.swift */; };
-		AAFD28D828343FBC003BEDEA /* Sockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C328343FBB003BEDEA /* Sockets.swift */; };
-		AAFD28D928343FBC003BEDEA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C428343FBB003BEDEA /* Request.swift */; };
-		AAFD28DA28343FBC003BEDEA /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C528343FBB003BEDEA /* Core.swift */; };
 		AAFD28DB28343FBC003BEDEA /* AsyncMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C728343FBB003BEDEA /* AsyncMarkdown.swift */; };
 		AAFD28DC28343FBC003BEDEA /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28C828343FBB003BEDEA /* Markdown.swift */; };
 		AAFD28DD28343FBC003BEDEA /* RegisterImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28CA28343FBC003BEDEA /* RegisterImages.swift */; };
@@ -57,6 +52,27 @@
 		AAFD290D28344219003BEDEA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28FA28344219003BEDEA /* Settings.swift */; };
 		AAFD290E28344219003BEDEA /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28FB28344219003BEDEA /* Status.swift */; };
 		AAFD290F28344219003BEDEA /* ReadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD28FC28344219003BEDEA /* ReadState.swift */; };
+		AAFD2911283518B6003BEDEA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD2910283518B6003BEDEA /* Constants.swift */; };
+		AAFD291928351AAC003BEDEA /* MentionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291528351AAB003BEDEA /* MentionProtocol.swift */; };
+		AAFD291B28351AAC003BEDEA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291728351AAB003BEDEA /* Request.swift */; };
+		AAFD291C28351AAC003BEDEA /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291828351AAC003BEDEA /* Core.swift */; };
+		AAFD293128351B5E003BEDEA /* ImageProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291E28351B5E003BEDEA /* ImageProcessing.swift */; };
+		AAFD293228351B5E003BEDEA /* Queues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD291F28351B5E003BEDEA /* Queues.swift */; };
+		AAFD293328351B5E003BEDEA /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292128351B5E003BEDEA /* Github.swift */; };
+		AAFD293428351B5E003BEDEA /* UserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292228351B5E003BEDEA /* UserNotifications.swift */; };
+		AAFD293528351B5E003BEDEA /* AppKitLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292328351B5E003BEDEA /* AppKitLink.swift */; };
+		AAFD293628351B5E003BEDEA /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292428351B5E003BEDEA /* Keychain.swift */; };
+		AAFD293728351B5E003BEDEA /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292528351B5E003BEDEA /* Regex.swift */; };
+		AAFD293828351B5E003BEDEA /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292728351B5E003BEDEA /* String++.swift */; };
+		AAFD293928351B5E003BEDEA /* Networking++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292828351B5E003BEDEA /* Networking++.swift */; };
+		AAFD293A28351B5E003BEDEA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292928351B5E003BEDEA /* Extensions.swift */; };
+		AAFD293B28351B5E003BEDEA /* NSColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292A28351B5E003BEDEA /* NSColor++.swift */; };
+		AAFD293C28351B5E003BEDEA /* Collection++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292B28351B5E003BEDEA /* Collection++.swift */; };
+		AAFD293D28351B5E003BEDEA /* Print++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292C28351B5E003BEDEA /* Print++.swift */; };
+		AAFD293E28351B5E003BEDEA /* Combine++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292D28351B5E003BEDEA /* Combine++.swift */; };
+		AAFD293F28351B5E003BEDEA /* SwiftUI++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292E28351B5E003BEDEA /* SwiftUI++.swift */; };
+		AAFD294028351B5E003BEDEA /* Operators++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD292F28351B5E003BEDEA /* Operators++.swift */; };
+		AAFD294128351B5E003BEDEA /* Keypath++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFD293028351B5E003BEDEA /* Keypath++.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,11 +134,6 @@
 		AAC6B0E4283123C70032E1D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC6B0E7283123C70032E1D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAC6B0E9283123C70032E1D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAFD28C128343FBB003BEDEA /* Gateway+Receive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+Receive.swift"; sourceTree = "<group>"; };
-		AAFD28C228343FBB003BEDEA /* MentionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionProtocol.swift; sourceTree = "<group>"; };
-		AAFD28C328343FBB003BEDEA /* Sockets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sockets.swift; sourceTree = "<group>"; };
-		AAFD28C428343FBB003BEDEA /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		AAFD28C528343FBB003BEDEA /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		AAFD28C728343FBB003BEDEA /* AsyncMarkdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncMarkdown.swift; sourceTree = "<group>"; };
 		AAFD28C828343FBB003BEDEA /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 		AAFD28CA28343FBC003BEDEA /* RegisterImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterImages.swift; sourceTree = "<group>"; };
@@ -152,6 +163,27 @@
 		AAFD28FA28344219003BEDEA /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		AAFD28FB28344219003BEDEA /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		AAFD28FC28344219003BEDEA /* ReadState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadState.swift; sourceTree = "<group>"; };
+		AAFD2910283518B6003BEDEA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AAFD291528351AAB003BEDEA /* MentionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionProtocol.swift; sourceTree = "<group>"; };
+		AAFD291728351AAB003BEDEA /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		AAFD291828351AAC003BEDEA /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		AAFD291E28351B5E003BEDEA /* ImageProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessing.swift; sourceTree = "<group>"; };
+		AAFD291F28351B5E003BEDEA /* Queues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queues.swift; sourceTree = "<group>"; };
+		AAFD292128351B5E003BEDEA /* Github.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
+		AAFD292228351B5E003BEDEA /* UserNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
+		AAFD292328351B5E003BEDEA /* AppKitLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppKitLink.swift; sourceTree = "<group>"; };
+		AAFD292428351B5E003BEDEA /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		AAFD292528351B5E003BEDEA /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		AAFD292728351B5E003BEDEA /* String++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
+		AAFD292828351B5E003BEDEA /* Networking++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Networking++.swift"; sourceTree = "<group>"; };
+		AAFD292928351B5E003BEDEA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AAFD292A28351B5E003BEDEA /* NSColor++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor++.swift"; sourceTree = "<group>"; };
+		AAFD292B28351B5E003BEDEA /* Collection++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection++.swift"; sourceTree = "<group>"; };
+		AAFD292C28351B5E003BEDEA /* Print++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Print++.swift"; sourceTree = "<group>"; };
+		AAFD292D28351B5E003BEDEA /* Combine++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Combine++.swift"; sourceTree = "<group>"; };
+		AAFD292E28351B5E003BEDEA /* SwiftUI++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftUI++.swift"; sourceTree = "<group>"; };
+		AAFD292F28351B5E003BEDEA /* Operators++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Operators++.swift"; sourceTree = "<group>"; };
+		AAFD293028351B5E003BEDEA /* Keypath++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keypath++.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,9 +209,10 @@
 		AA40878A28318AFB009B638A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AAFD2910283518B6003BEDEA /* Constants.swift */,
 				AAFD28E628344201003BEDEA /* Objects */,
+				AAFD291D28351B5E003BEDEA /* Misc */,
 				AAFD28A728343DDA003BEDEA /* Backend */,
-				AA40878B28318B24009B638A /* SampleDataProvision.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -248,6 +281,7 @@
 				AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */,
 				AAC6B0E4283123C70032E1D6 /* Assets.xcassets */,
 				AAC6B0E9283123C70032E1D6 /* Info.plist */,
+				AA40878B28318B24009B638A /* SampleDataProvision.swift */,
 				AAC6B0E6283123C70032E1D6 /* Preview Content */,
 			);
 			path = "WatchCord WatchKit Extension";
@@ -285,11 +319,9 @@
 		AAFD28C028343FBB003BEDEA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				AAFD28C128343FBB003BEDEA /* Gateway+Receive.swift */,
-				AAFD28C228343FBB003BEDEA /* MentionProtocol.swift */,
-				AAFD28C328343FBB003BEDEA /* Sockets.swift */,
-				AAFD28C428343FBB003BEDEA /* Request.swift */,
-				AAFD28C528343FBB003BEDEA /* Core.swift */,
+				AAFD291828351AAC003BEDEA /* Core.swift */,
+				AAFD291528351AAB003BEDEA /* MentionProtocol.swift */,
+				AAFD291728351AAB003BEDEA /* Request.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -380,6 +412,46 @@
 				AAFD28FC28344219003BEDEA /* ReadState.swift */,
 			);
 			path = DiscordTypes;
+			sourceTree = "<group>";
+		};
+		AAFD291D28351B5E003BEDEA /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD291E28351B5E003BEDEA /* ImageProcessing.swift */,
+				AAFD291F28351B5E003BEDEA /* Queues.swift */,
+				AAFD292028351B5E003BEDEA /* Shapes */,
+				AAFD292228351B5E003BEDEA /* UserNotifications.swift */,
+				AAFD292328351B5E003BEDEA /* AppKitLink.swift */,
+				AAFD292428351B5E003BEDEA /* Keychain.swift */,
+				AAFD292528351B5E003BEDEA /* Regex.swift */,
+				AAFD292628351B5E003BEDEA /* PlusPlus */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		AAFD292028351B5E003BEDEA /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD292128351B5E003BEDEA /* Github.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		AAFD292628351B5E003BEDEA /* PlusPlus */ = {
+			isa = PBXGroup;
+			children = (
+				AAFD292728351B5E003BEDEA /* String++.swift */,
+				AAFD292828351B5E003BEDEA /* Networking++.swift */,
+				AAFD292928351B5E003BEDEA /* Extensions.swift */,
+				AAFD292A28351B5E003BEDEA /* NSColor++.swift */,
+				AAFD292B28351B5E003BEDEA /* Collection++.swift */,
+				AAFD292C28351B5E003BEDEA /* Print++.swift */,
+				AAFD292D28351B5E003BEDEA /* Combine++.swift */,
+				AAFD292E28351B5E003BEDEA /* SwiftUI++.swift */,
+				AAFD292F28351B5E003BEDEA /* Operators++.swift */,
+				AAFD293028351B5E003BEDEA /* Keypath++.swift */,
+			);
+			path = PlusPlus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,12 +604,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAFD28DC28343FBC003BEDEA /* Markdown.swift in Sources */,
+				AAFD293928351B5E003BEDEA /* Networking++.swift in Sources */,
+				AAFD291B28351AAC003BEDEA /* Request.swift in Sources */,
 				AAFD28E028343FBC003BEDEA /* Gateway+MessageHandle.swift in Sources */,
-				AAFD28D628343FBC003BEDEA /* Gateway+Receive.swift in Sources */,
-				AAFD28D828343FBC003BEDEA /* Sockets.swift in Sources */,
 				AAFD290128344219003BEDEA /* SongLink.swift in Sources */,
+				AAFD291928351AAC003BEDEA /* MentionProtocol.swift in Sources */,
+				AAFD293628351B5E003BEDEA /* Keychain.swift in Sources */,
+				AAFD293428351B5E003BEDEA /* UserNotifications.swift in Sources */,
 				AAFD290528344219003BEDEA /* Guild.swift in Sources */,
 				AAFD28FF28344219003BEDEA /* LoginPayloads.swift in Sources */,
+				AAFD293228351B5E003BEDEA /* Queues.swift in Sources */,
+				AAFD293D28351B5E003BEDEA /* Print++.swift in Sources */,
 				AAFD28E228343FBC003BEDEA /* GatewayEvent.swift in Sources */,
 				AAFD290B28344219003BEDEA /* Emote.swift in Sources */,
 				AAFD28E128343FBC003BEDEA /* Gateway.swift in Sources */,
@@ -546,30 +623,41 @@
 				AAC6B0E1283123C60032E1D6 /* WatchCordApp.swift in Sources */,
 				AAFD28E428343FBC003BEDEA /* Socket.swift in Sources */,
 				AAFD290A28344219003BEDEA /* User.swift in Sources */,
+				AAFD293328351B5E003BEDEA /* Github.swift in Sources */,
+				AAFD2911283518B6003BEDEA /* Constants.swift in Sources */,
+				AAFD293528351B5E003BEDEA /* AppKitLink.swift in Sources */,
 				AAFD290828344219003BEDEA /* Channel.swift in Sources */,
+				AAFD293F28351B5E003BEDEA /* SwiftUI++.swift in Sources */,
 				AAFD290928344219003BEDEA /* Permissions.swift in Sources */,
 				AAFD28DB28343FBC003BEDEA /* AsyncMarkdown.swift in Sources */,
 				AAFD290D28344219003BEDEA /* Settings.swift in Sources */,
 				AAFD290228344219003BEDEA /* Embed.swift in Sources */,
-				AAFD28DA28343FBC003BEDEA /* Core.swift in Sources */,
+				AAFD294028351B5E003BEDEA /* Operators++.swift in Sources */,
 				AAFD28E328343FBC003BEDEA /* ZStream.swift in Sources */,
 				AA40878C28318B24009B638A /* SampleDataProvision.swift in Sources */,
 				AAFD290F28344219003BEDEA /* ReadState.swift in Sources */,
 				AAFD290C28344219003BEDEA /* Reaction.swift in Sources */,
-				AAFD28D728343FBC003BEDEA /* MentionProtocol.swift in Sources */,
+				AAFD293B28351B5E003BEDEA /* NSColor++.swift in Sources */,
 				AAFD290628344219003BEDEA /* Message.swift in Sources */,
 				AA40878E28318EA1009B638A /* ChatView.swift in Sources */,
 				AAFD28DD28343FBC003BEDEA /* RegisterImages.swift in Sources */,
 				AAFD28E528343FBC003BEDEA /* Gateway+VoiceState.swift in Sources */,
 				AAFD28FD28344219003BEDEA /* MemberList.swift in Sources */,
-				AAFD28D928343FBC003BEDEA /* Request.swift in Sources */,
+				AAFD294128351B5E003BEDEA /* Keypath++.swift in Sources */,
 				AAFD28DF28343FBC003BEDEA /* Images.swift in Sources */,
 				AAC6B0DF283123C60032E1D6 /* SidebarView.swift in Sources */,
+				AAFD293128351B5E003BEDEA /* ImageProcessing.swift in Sources */,
 				AAFD290428344219003BEDEA /* Roles.swift in Sources */,
+				AAFD293C28351B5E003BEDEA /* Collection++.swift in Sources */,
 				AAFD290E28344219003BEDEA /* Status.swift in Sources */,
+				AAFD293828351B5E003BEDEA /* String++.swift in Sources */,
+				AAFD293E28351B5E003BEDEA /* Combine++.swift in Sources */,
 				AAFD290728344219003BEDEA /* Sticker.swift in Sources */,
+				AAFD293A28351B5E003BEDEA /* Extensions.swift in Sources */,
+				AAFD293728351B5E003BEDEA /* Regex.swift in Sources */,
 				AAC6B0E3283123C60032E1D6 /* ComplicationController.swift in Sources */,
 				AAFD290028344219003BEDEA /* GatewayStructure.swift in Sources */,
+				AAFD291C28351AAC003BEDEA /* Core.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

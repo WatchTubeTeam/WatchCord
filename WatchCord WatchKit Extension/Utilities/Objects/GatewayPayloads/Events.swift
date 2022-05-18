@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class GuildMemberChunkResponse: Decodable {
     var t: String

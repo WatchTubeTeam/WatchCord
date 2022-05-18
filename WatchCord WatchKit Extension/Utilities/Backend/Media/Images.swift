@@ -28,7 +28,7 @@ struct Attachment: View, Equatable {
 
     var body: some View {
         HStack {
-            Image(nsImage: imageLoader.image)
+            Image(uiImage: imageLoader.image)
                 .resizable()
                 .frame(idealWidth: imageLoader.image.size.width, idealHeight: imageLoader.image.size.height)
                 .scaledToFit()
@@ -53,7 +53,7 @@ struct HoveredAttachment: View, Equatable {
 
     var body: some View {
         HStack {
-            Image(nsImage: imageLoader.image)
+            Image(uiImage: imageLoader.image)
                 .resizable()
                 .scaledToFit()
                 .padding(2)
@@ -69,7 +69,7 @@ struct HoveredAttachment: View, Equatable {
 }
 
 final class ImageLoaderAndCache: ObservableObject {
-    @Published var image: NSImage = .init()
+    @Published var image: UIImage = .init()
     private var url: URL?
     private var size: CGSize?
     private let queue = DispatchQueue.global(qos: .userInteractive)
@@ -83,7 +83,7 @@ final class ImageLoaderAndCache: ObservableObject {
         queue.async { [weak self] in
             guard let self = self else { return }
             RequestPublisher.image(url: self.url, to: self.size)
-                .replaceError(with: NSImage())
+                .replaceError(with: UIImage())
                 .receive(on: RunLoop.main)
                 .assign(to: &self.$image)
         }
