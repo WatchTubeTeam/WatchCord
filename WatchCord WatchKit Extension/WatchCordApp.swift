@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WatchConnectivity
 
 @main
 struct WatchCordApp: App {
@@ -18,9 +19,11 @@ struct WatchCordApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if self.token == "" {
+                if self.token == "e" {
                     // is not logged in
                     LoginView()
+                } else {
+                    SidebarView()
                 }
             }
         }
@@ -28,6 +31,9 @@ struct WatchCordApp: App {
 }
 
 fileprivate struct LoginView: View {
+    
+    @ObservedObject var data = DataTransportModel.shared
+    
     var body: some View {
         ZStack {
             Color(rgb: 0x1b274a)
@@ -54,6 +60,36 @@ fileprivate struct LoginView: View {
                 }
             }
         }
+        .onReceive(data.data.publisher) { _ in
+            /// We received data from teh phone go like do something with it and pray its a token
+            let data = data.data
+            let tokenstring = String(data: data, encoding: .utf8)
+        }
+    }
+}
+
+class DataTransportModel : NSObject, WCSessionDelegate, ObservableObject {
+    static let shared = DataTransportModel()
+    let session = WCSession.default
+    
+    @Published var data : Data = Data()
+    
+    override init() {
+        super.init()
+        if WCSession.isSupported() {
+            session.delegate = self
+            session.activate()
+        }
+    }
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if let _ = error { return }
+    }
+    
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any]) {
+        guard let incoming = userInfo["data"] as? Data else { return }
+        DispatchQueue.main.async {
+            self.data = incoming // data was sent over
+        }
     }
 }
 
@@ -62,8 +98,6 @@ struct appPreviews: PreviewProvider {
         LoginView()
     }
 }
-
-
 
 
 extension Color {

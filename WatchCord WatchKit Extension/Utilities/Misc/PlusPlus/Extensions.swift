@@ -9,7 +9,6 @@ import Combine
 import Foundation
 import SwiftUI
 import UIKit
-import WatchKit
 
 public var doNothing: (Any) -> Void = { _ in }
 
@@ -295,16 +294,6 @@ extension DispatchQueue {
                 perform()
             }
         }
-    }
-}
-
-extension WKExtension {
-    var kernelVersion: String {
-        var size = 0
-        sysctlbyname("kern.osrelease", nil, &size, nil, 0)
-        var vers = [CChar](repeating: 0, count: size)
-        sysctlbyname("kern.osrelease", &vers, &size, nil, 0)
-        return String(cString: vers)
     }
 }
 

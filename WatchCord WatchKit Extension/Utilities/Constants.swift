@@ -20,7 +20,6 @@ let cdnURL: String = "https://cdn.discordapp.com"
 var user_id: String = .init()
 var avatar: Data = .init()
 public var pastelColors: Bool = UserDefaults.standard.bool(forKey: "pastelColors")
-// var discordStockSettings: Bool = UserDefaults.standard.bool(forKey: "discordStockSettings")
 var sortByMostRecent: Bool = UserDefaults.standard.bool(forKey: "sortByMostRecent")
 var pfpShown: Bool = UserDefaults.standard.bool(forKey: "pfpShown")
 let discordUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.266 Chrome/91.0.4472.164 Electron/13.6.6 Safari/537.36"
@@ -87,7 +86,7 @@ final class AccordCoreVars {
             dladdr(dlsym(dlopen(nil, RTLD_LAZY), "LocalizedString"), &info)
             return info.dli_fbase
         }(),
-        log: OSLog(subsystem: "com.apple.runtime-issues", category: "Accord")
+        log: OSLog(subsystem: "com.apple.runtime-issues", category: "WatchCord")
     )
 #endif
 

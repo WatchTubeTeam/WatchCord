@@ -120,6 +120,10 @@ struct Discord {
             ])
         ])
     ]
+    static var testUserData = [
+        dUser(username: "clum", tag: 1965, id: "549604509614211073", thumb: "https://cdn.discordapp.com/avatars/549604509614211073/06bc15d223fca424199fa0a0649844c9.png?size=1024"),
+        dUser(username: "llsc12", tag: 1902, id: "381538809180848128", thumb: "https://cdn.discordapp.com/avatars/381538809180848128/b99386d1217673d7a9a25aaeca55c6f0.png")
+    ]
     static func myServers() -> [dServer] {
         return testServerData
     }
@@ -145,6 +149,13 @@ struct dChannel {
     var name: String
     var type: dChannelType
     var id: String
+}
+
+struct dUser {
+    var username: String
+    var tag: Int
+    var id: String
+    var thumb: String
 }
 
 enum dChannelType {

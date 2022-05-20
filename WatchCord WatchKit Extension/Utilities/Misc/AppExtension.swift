@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import WatchKit
 
 extension WatchCordApp {
     #warning("This needs rewriting")

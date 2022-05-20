@@ -81,26 +81,46 @@ struct SidebarView: View {
                             .frame(width: geometry.size.width * 0.75)
                         } else if selectedServerId == "1" {
                             // dms
-                            VStack {
-                                HStack {
-                                    Text("Direct Messages")
-                                        .font(.callout)
-                                        .minimumScaleFactor(0.1)
-                                        .lineLimit(2)
+                            ScrollView {
+                                VStack {
+                                    HStack {
+                                        Text("Direct Messages")
+                                            .font(.callout)
+                                            .minimumScaleFactor(0.1)
+                                            .lineLimit(2)
+                                        Spacer()
+                                    }
+                                    ForEach(0..<Discord.testUserData.count, id: \.self) { i in
+                                        let user = Discord.testUserData[i]
+                                        Button {
+                                            selectedServerId = "1"
+                                            selectedChannelId = user.id
+                                            withAnimation(.easeInOut) {
+                                                tabSelection = 2
+                                            }
+                                        } label: {
+                                            HStack {
+                                                WebImage(url: URL(string: user.thumb))
+                                                    .placeholder {
+                                                        ProgressView()
+                                                            .progressViewStyle(.circular)
+                                                    }
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .clipShape(Circle())
+                                                    .frame(width: 30)
+                                                Text(user.username)
+                                                    .lineLimit(1)
+                                                    .minimumScaleFactor(0.1)
+                                                Spacer()
+                                            }
+                                        }
+
+                                    }
                                     Spacer()
                                 }
-                                HStack {
-                                    Text("DMs not designed")
-                                        .lineLimit(2)
-                                        .font(.footnote)
-                                        .foregroundColor(.secondary)
-                                        .minimumScaleFactor(0.1)
-                                    Spacer()
-                                }
-                                Spacer()
+                                .frame(width: geometry.size.width * 0.75)
                             }
-                            .frame(width: geometry.size.width * 0.75)
-                            
                             
                         } else {
                             // server view
@@ -177,8 +197,8 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             SidebarView()
                 .previewDevice("Apple Watch Series 7 - 45mm")
-            SidebarView()
-                .previewDevice("Apple Watch Series 3 - 38 mm")
+//            SidebarView()
+//                .previewDevice("Apple Watch Series 3 - 38 mm")
         }
     }
 }

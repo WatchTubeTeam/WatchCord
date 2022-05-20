@@ -84,7 +84,7 @@ final class Headers {
             "browser": "Discord Client",
             "release_channel": "stable",
             "client_version": "0.0.266",
-            "os_version": WKInterfaceDevice.current(),
+            "os_version": "21.2.0",
             "os_arch": "x64",
             "system_locale": "\(NSLocale.current.languageCode ?? "en")-\(NSLocale.current.regionCode ?? "US")",
             "client_build_number": dscVersion,

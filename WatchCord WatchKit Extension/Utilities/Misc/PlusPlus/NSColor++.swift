@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import WatchKit
+import UIKit
 
 extension String {
     func conformsTo(_ pattern: String) -> Bool {

@@ -59,8 +59,8 @@ extension Gateway {
                 messageSubject.send((event.data, channelID, author.id == user_id))
             }
             guard message.author?.id != user_id else { return }
-            let ids = message.mentions.compactMap { $0?.id }
-            let guildID = message.guild_id ?? "@me"
+//            let ids = message.mentions.compactMap { $0?.id }
+//            let guildID = message.guild_id ?? "@me"
             guard let channelID = event.channelID else { print("wat"); break }
             MentionSender.shared.newMessage(in: channelID, with: message.id, isDM: message.guild_id == nil)
 //            if ids.contains(user_id) || (ServerListView.privateChannels.map(\.id).contains(channelID) && message.author?.id != user_id) {
