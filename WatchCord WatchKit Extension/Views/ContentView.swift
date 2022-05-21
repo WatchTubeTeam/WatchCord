@@ -71,7 +71,7 @@ struct ContentView: View {
                                         self.userData = datastuffs
                                     }
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                        withAnimation {
+                                        withAnimation(.easeInOut) {
                                             loaded = true
                                         }
                                     }
@@ -86,11 +86,7 @@ struct ContentView: View {
         } else {
             
             // MARK: - Finished or failed to load user data
-            
-            VStack {
-                Text(userData.user.username)
-                WebImage(url: avatar)
-            }
+            SidebarView(guilds: userData.guilds)
         }
     }
     
@@ -105,7 +101,7 @@ struct ContentView: View {
                 AccordCoreVars.user = structure.d.user
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                withAnimation {
+                withAnimation(.easeInOut) {
                     loaded = true
                 }
             }

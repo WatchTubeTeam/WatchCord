@@ -7,34 +7,20 @@
 
 import Combine
 import Foundation
-import Network
 
 final class Notifications {
     static var privateChannels: [String] = []
 }
 
 extension Gateway {
-    func close(_ closeCode: NWProtocolWebSocket.CloseCode) {
-        let metadata = NWProtocolWebSocket.Metadata(opcode: .close)
-        metadata.closeCode = closeCode
-        let context = NWConnection.ContentContext(identifier: "closeContext",
-                                                  metadata: [metadata])
-
-        connection?.send(content: nil, contentContext: context, isComplete: true, completion: .contentProcessed { error in
-            if let error = error {
-                print(error, "close error")
-            }
-        })
+    func close(_ closeCode: URLSessionWebSocketTask.CloseCode) {
+        connection?.cancel(with: closeCode, reason: nil)
     }
 
     func send<S>(text: S) throws where S: Collection, S.Element == Character {
-        let context = NWConnection.ContentContext(
-            identifier: "textContext",
-            metadata: [NWProtocolWebSocket.Metadata(opcode: .text)]
-        )
-        let string = String(text)
-        guard let data = string.data(using: .utf8) else { throw GatewayErrors.noStringData(string) }
-        connection?.send(content: data, contentContext: context, completion: .contentProcessed { error in
+        let text = String(text)
+        let message = URLSessionWebSocketTask.Message.string(text)
+        connection?.send(message, completionHandler: { error in
             if let error = error {
                 print(error)
             }
@@ -42,12 +28,9 @@ extension Gateway {
     }
 
     func send<C: Collection>(json: C) throws {
-        let context = NWConnection.ContentContext(
-            identifier: "textContext",
-            metadata: [NWProtocolWebSocket.Metadata(opcode: .text)]
-        )
         let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
-        connection?.send(content: jsonData, contentContext: context, completion: .contentProcessed { error in
+        let message = URLSessionWebSocketTask.Message.string(try String(jsonData))
+        connection?.send(message, completionHandler: { error in
             if let error = error {
                 print(error)
             }
@@ -55,11 +38,8 @@ extension Gateway {
     }
 
     func send(data: Data) throws {
-        let context = NWConnection.ContentContext(
-            identifier: "binaryContext",
-            metadata: [NWProtocolWebSocket.Metadata(opcode: .binary)]
-        )
-        connection?.send(content: data, contentContext: context, completion: .contentProcessed { error in
+        let message = URLSessionWebSocketTask.Message.string(try String(data))
+        connection?.send(message, completionHandler: { error in
             if let error = error {
                 print(error)
             }
@@ -69,8 +49,8 @@ extension Gateway {
     func reset(function: String = #function) {
         print("resetting from function", function, wss.connection?.state as Any)
 
-        if let state = wss.connection?.state, case NWConnection.State.failed = state {
-            close(.protocolCode(.protocolError))
+        if let state = wss.connection?.state, case URLSessionWebSocketTask.State.suspended = state {
+            close(.protocolError)
         }
         concurrentQueue.async {
             guard let new = try? Gateway(url: Gateway.gatewayURL, session_id: wss.sessionID, seq: wss.seq) else { return }
@@ -80,7 +60,7 @@ extension Gateway {
 
     func hardReset(function: String = #function) {
         print("hard resetting from function", function)
-        close(.protocolCode(.normalClosure))
+        close(.normalClosure)
         concurrentQueue.async {
             guard let new = try? Gateway(url: Gateway.gatewayURL) else { return }
             new.ready().sink(receiveCompletion: doNothing, receiveValue: doNothing).store(in: &new.bag)

@@ -126,7 +126,7 @@ final class Headers {
             if let superProps = superProps {
                 request.addValue(superProps, forHTTPHeaderField: "X-Super-Properties")
             } else {
-                wss.close(.protocolCode(.abnormalClosure))
+                wss.close(.abnormalClosure)
                 fatalError("We cannot skip the X-Super-Properties. What are you trying to do, get banned?")
             }
             config.httpAdditionalHeaders = [
@@ -192,7 +192,7 @@ public final class Request {
         }()
         guard var request = request else { return completion(.failure(FetchErrors.invalidRequest)) }
         var config = URLSessionConfiguration.default
-        guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != NWConnection.State.ready) else {
+        guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != URLSessionWebSocketTask.State.running) else {
             print("No active websocket connection")
             return
         }
@@ -244,7 +244,7 @@ public final class Request {
         }()
         guard var request = request else { return completion(.failure(FetchErrors.invalidRequest)) }
         var config = URLSessionConfiguration.default
-        guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != NWConnection.State.ready) else {
+        guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != URLSessionWebSocketTask.State.running) else {
             print("No active websocket connection")
             return
         }
@@ -319,7 +319,7 @@ public final class Request {
         }()
         guard var request = request else { return }
         var config = URLSessionConfiguration.default
-        guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != NWConnection.State.ready) else {
+        guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != URLSessionWebSocketTask.State.running) else {
             print("No active websocket connection")
             return
         }
@@ -405,7 +405,7 @@ public final class RequestPublisher {
         }()
         guard var request = request else { return Empty(completeImmediately: true).eraseToAnyPublisher() }
         var config = URLSessionConfiguration.default
-        guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != NWConnection.State.ready) else {
+        guard !(wss != nil && headers?.discordHeaders == true && wss?.connection?.state != URLSessionWebSocketTask.State.running) else {
             print("No active websocket connection")
             return Empty(completeImmediately: true).eraseToAnyPublisher()
         }

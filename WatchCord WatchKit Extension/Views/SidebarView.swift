@@ -10,6 +10,91 @@ import SDWebImageSwiftUI
 
 struct SidebarView: View {
     
+    var guilds: [Guild]
+    
+    @State var tabSelection = 1
+    
+    @State var currentGuild: String = "0"
+    
+    var body: some View {
+        TabView(selection: $tabSelection) {
+            GeometryReader { geo in
+                VStack {
+                    HStack(spacing: 0) {
+                        ScrollView {
+                            LazyVStack {
+                                Button {
+                                    currentGuild = "1"
+                                } label: {
+                                    Image("WatchCord")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .scaledToFit()
+                                        .clipShape(Circle())
+                                }
+                                .buttonStyle(.plain)
+                                
+                                Divider()
+                                
+                                ForEach(guilds) { guild in
+                                    Button {
+                                        currentGuild = guild.id
+                                    } label: {
+                                        let img = "\(cdnURL)/icons/\(guild.id)/\(guild.icon ?? "").png"
+                                        if guild.id == currentGuild {
+                                            WebImage(url: URL(string: guild.icon != nil ? img : "https://github.com/WatchTubeTeam/WatchCord/blob/cc9083d32931429678db61fb65e9ddbfb499482c/junk/missing.png"))
+                                                .placeholder {
+                                                    ProgressView()
+                                                }
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .scaledToFit()
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                        } else {
+                                            WebImage(url: URL(string: guild.icon != nil ? img : "https://github.com/WatchTubeTeam/WatchCord/blob/cc9083d32931429678db61fb65e9ddbfb499482c/junk/missing.png"))
+                                                .placeholder {
+                                                    ProgressView()
+                                                }
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .scaledToFit()
+                                                .clipShape(Circle())
+                                        }
+                                    }
+                                    .buttonStyle(.plain)
+                                }
+                                
+                                Divider()
+                                Button {
+                                    currentGuild = "2"
+                                } label: {
+                                    Image("WatchCord")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .scaledToFit()
+                                        .clipShape(Circle())
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .frame(width: geo.size.width * 0.20)
+                        ScrollView {
+                            
+                        }
+                        .frame(width: geo.size.width * 0.75)
+                    }
+                }
+            }
+            .tag(1)
+            
+            Text("gn")
+                .tag(2)
+        }
+    }
+}
+
+struct old: View {
+    
     @State var selectedServerId: String = "0"
     @State var selectedChannelId: String = "0"
     
@@ -189,16 +274,5 @@ struct SidebarView: View {
             .tag(2)
         }
         .navigationBarHidden(true)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            SidebarView()
-                .previewDevice("Apple Watch Series 7 - 45mm")
-//            SidebarView()
-//                .previewDevice("Apple Watch Series 3 - 38 mm")
-        }
     }
 }

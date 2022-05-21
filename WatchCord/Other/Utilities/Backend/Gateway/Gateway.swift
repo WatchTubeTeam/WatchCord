@@ -5,15 +5,13 @@
 //  Created by evelyn on 2022-01-01.
 //
 
-//import AppKit // Necessary for the locale & architecture
 import Combine
 import Foundation
-import Network
 
 // The second version of Accord's gateway.
 // This uses Network.framework instead of URLSessionWebSocketTask
 final class Gateway {
-    private(set) var connection: NWConnection?
+    private(set) var connection: URLSessionWebSocketTask?
     private(set) var sessionID: String?
 
     internal var pendingHeartbeat: Bool = false
@@ -30,25 +28,25 @@ final class Gateway {
     
     var presencePipeline = [String:PassthroughSubject<PresenceUpdate, Never>]()
 
-    private(set) var stateUpdateHandler: (NWConnection.State) -> Void = { state in
-        switch state {
-        case .ready:
-            print("Ready up")
-        case .cancelled:
-            print("Connection cancelled, what happened?")
-            wss.hardReset()
-        case let .failed(error):
-            print("Connection failed \(error.debugDescription)")
-        case .preparing:
-            print("Preparing")
-        case let .waiting(error):
-            print("Spinning infinitely \(error.debugDescription)")
-        case .setup:
-            print("Setting up")
-        @unknown default:
-            fatalError()
-        }
-    }
+//    private(set) var stateUpdateHandler: (NWConnection.State) -> Void = { state in
+//        switch state {
+//        case .ready:
+//            print("Ready up")
+//        case .cancelled:
+//            print("Connection cancelled, what happened?")
+//            wss.hardReset()
+//        case let .failed(error):
+//            print("Connection failed \(error.debugDescription)")
+//        case .preparing:
+//            print("Preparing")
+//        case let .waiting(error):
+//            print("Spinning infinitely \(error.debugDescription)")
+//        case .setup:
+//            print("Setting up")
+//        @unknown default:
+//            fatalError()
+//        }
+//    }
     
     func closeMessageHandler(_ message: String?) {
         guard let message = message?.lowercased() else {
@@ -60,7 +58,6 @@ final class Gateway {
         }
     }
 
-    private let socketEndpoint: NWEndpoint
     internal let compress: Bool
 
     var cachedMemberRequest: [String: GuildMember] = [:]
@@ -88,13 +85,13 @@ final class Gateway {
         }
     }
 
-    private let additionalHeaders: [(String, String)] = [
-        ("User-Agent", discordUserAgent),
-        ("Pragma", "no-cache"),
-        ("Origin", "https://discord.com"),
-        ("Host", Gateway.gatewayURL.host ?? "gateway.discord.gg"),
-        ("Accept-Language", "en-CA,en-US;q=0.9,en;q=0.8"),
-        ("Accept-Encoding", "gzip, deflate, br"),
+    private let additionalHeaders: [String:String] = [
+        "User-Agent": discordUserAgent,
+        "Pragma": "no-cache",
+        "Origin": "https://discord.com",
+        "Host": Gateway.gatewayURL.host ?? "gateway.discord.gg",
+        "Accept-Language": "en-CA,en-US;q=0.9,en;q=0.8",
+        "Accept-Encoding": "gzip, deflate, br",
     ]
 
     static var gatewayURL: URL = .init(string: "wss://gateway.discord.gg?v=9&encoding=json")!
@@ -109,45 +106,47 @@ final class Gateway {
         seq: Int? = nil,
         compress: Bool = true
     ) throws {
+        let config = URLSessionConfiguration.default
+        config.httpAdditionalHeaders = self.additionalHeaders
+        let session = URLSession(configuration: config)
         if compress {
-            socketEndpoint = NWEndpoint.url(URL(string: "wss://gateway.discord.gg?v=9&encoding=json&compress=zlib-stream")!)
-            print(socketEndpoint)
+            self.connection = session.webSocketTask(with: URL(string: "wss://gateway.discord.gg?v=9&encoding=json&compress=zlib-stream")!)
         } else {
-            socketEndpoint = NWEndpoint.url(url)
+            self.connection = session.webSocketTask(with: url)
         }
-        let parameters: NWParameters = .tls
-        let wsOptions = NWProtocolWebSocket.Options()
-        wsOptions.autoReplyPing = true
-        wsOptions.maximumMessageSize = 1_000_000_000
-        wsOptions.setAdditionalHeaders(additionalHeaders)
-        parameters.defaultProtocolStack.applicationProtocols.insert(wsOptions, at: 0)
-        connection = NWConnection(to: socketEndpoint, using: parameters)
-        connection?.stateUpdateHandler = stateUpdateHandler
+        self.connection?.maximumMessageSize = 1024 * 1024 * 1024
         self.compress = compress
         try connect(session_id, seq)
     }
 
     private func connect(_ session_id: String? = nil, _ seq: Int? = nil) throws {
-        connection?.start(queue: concurrentQueue)
-        hello(session_id, seq)
+        self.connection?.resume()
+        Task.detached {
+            try await self.hello(session_id, seq)
+        }
+        do {
+            if let session_id = session_id, let seq = seq {
+                try self.reconnect(session_id: session_id, seq: seq)
+            } else {
+                print("identifying")
+                try self.identify()
+            }
+        } catch {
+            print(error)
+        }
     }
 
-    private func hello(_ session_id: String? = nil, _ seq: Int? = nil) {
-        guard connection?.state != .cancelled else { return } // Don't listen for hello if there is no connection
-        connection?.receiveMessage { [weak self] data, _, _, error in
-            guard let self = self else { return }
-
-            if let error = error {
-                return print(error)
-            }
-            
-            guard let data = data,
-                  let decompressedData = self.compress ? try? self.decompressor.decompress(data: data) : data,
-                  let hello = try? JSONSerialization.jsonObject(with: decompressedData, options: []) as? [String: Any],
-                  let helloD = hello["d"] as? [String: Any],
-                  let interval = helloD["heartbeat_interval"] as? Int else {
-                print("Failed to get a heartbeat interval")
-                return wss.hardReset()
+    private func hello(_ session_id: String? = nil, _ seq: Int? = nil) async throws {
+        guard connection?.state != .suspended else { return } // Don't listen for hello if there is no connection
+        let message = try await self.connection?.receive()
+        switch message {
+        case .string(let text):
+            guard let data = text.data(using: .utf8) else { return }
+            guard let hello = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any],
+                  let helloD = hello["d"] as? [String:Any],
+                  let interval = helloD["heartbeat_interval"] as? Int  else {
+                    print("Failed to get a heartbeat interval")
+                    return wss.hardReset()
             }
             DispatchQueue.main.async {
                 Timer.publish(
@@ -157,11 +156,11 @@ final class Gateway {
                     in: .default
                 )
                 .autoconnect()
-                .sink { [weak self] _ in
+                .sink { _ in
                     wssThread.async {
                         do {
                             print("Heartbeating")
-                            try self?.heartbeat()
+                            try self.heartbeat()
                         } catch {
                             print("Error sending heartbeat", error)
                         }
@@ -169,54 +168,46 @@ final class Gateway {
                 }
                 .store(in: &self.bag)
             }
-            do {
-                if let session_id = session_id, let seq = seq {
-                    try self.reconnect(session_id: session_id, seq: seq)
-                } else {
-                    try self.identify()
-                }
-            } catch {
-                print(error)
+        case .data(let data):
+            let decompressed = try self.decompressor.decompress(data: data)
+            guard let hello = try JSONSerialization.jsonObject(with: decompressed, options: []) as? [String:Any],
+                  let helloD = hello["d"] as? [String:Any],
+                  let interval = helloD["heartbeat_interval"] as? Int  else {
+                    print("Failed to get a heartbeat interval")
+                    return wss.hardReset()
             }
-        }
-    }
-
-    private func listen() {
-        guard connection?.state != .cancelled else { return }
-        connection?.receiveMessage { [weak self] data, context, _, error in
-            guard let self = self else { return }
-            if let error = error {
-                print(error)
-            } else {
-                self.listen()
-            }
-            guard let data = data else {
-                return print(context as Any, data as Any)
-            }
-            if let info = context?.protocolMetadata.first as? NWProtocolWebSocket.Metadata {
-                if info.opcode == .close {
-                    if let closeMessage = String(data: data, encoding: .utf8) {
-                        print("Closed with \(closeMessage)")
-                        self.closeMessageHandler(closeMessage)
-                    } else {
-                        print("Closed with unknown close code")
-                    }
-                    wss.reset()
-                }
-            }
-            if self.compress {
-                self.decompressor.decompressionQueue.async {
-                    guard let data = try? self.decompressor.decompress(data: data) else { return }
+            DispatchQueue.main.async {
+                Timer.publish(
+                    every: Double(interval / 1000),
+                    tolerance: nil,
+                    on: .main,
+                    in: .default
+                )
+                .autoconnect()
+                .sink { _ in
                     wssThread.async {
                         do {
-                            let event = try GatewayEvent(data: data)
-                            try self.handleMessage(event: event)
+                            print("Heartbeating")
+                            try self.heartbeat()
                         } catch {
-                            print(error)
+                            print("Error sending heartbeat", error)
                         }
                     }
                 }
-            } else {
+                .store(in: &self.bag)
+            }
+        case .none: break
+        case .some(_): break
+        }
+    }
+
+    private func listen() async throws {
+        guard connection?.state != .suspended else { return }
+        let message = try await connection?.receive()
+        switch message {
+        case .data(let data):
+            self.decompressor.decompressionQueue.async {
+                guard let data = try? self.decompressor.decompress(data: data) else { return }
                 wssThread.async {
                     do {
                         let event = try GatewayEvent(data: data)
@@ -226,10 +217,24 @@ final class Gateway {
                     }
                 }
             }
+        case .string(let text):
+            guard let data = text.data(using: .utf8) else { return }
+            wssThread.async {
+                do {
+                    let event = try GatewayEvent(data: data)
+                    try self.handleMessage(event: event)
+                } catch {
+                    print(error)
+                }
+            }
+        case .none:
+            break
+        @unknown default:
+            break
         }
     }
 
-    private func identify() throws {
+    func identify() throws {
         let packet: [String: Any] = [
             "op": 2,
             "d": [
@@ -264,7 +269,7 @@ final class Gateway {
         try send(json: packet)
     }
 
-    private func heartbeat() throws {
+    func heartbeat() throws {
         guard !pendingHeartbeat else {
             return WatchCordApp.error(GatewayErrors.heartbeatMissed, additionalDescription: "Check your network connection")
         }
@@ -278,51 +283,13 @@ final class Gateway {
 
     func ready() -> Future<GatewayD, Error> {
         Future { [weak self] promise in
-            self?.connection?.receiveMessage { data, context, _, error in
-                if let error = error {
-                    print(error)
-                }
-                guard let info = context?.protocolMetadata.first as? NWProtocolWebSocket.Metadata,
-                      let data = data
-                else {
-                    return WatchCordApp.error(GatewayErrors.essentialEventFailed("READY"), additionalDescription: "Try reconnecting?")
-                }
-                switch info.opcode {
-                case .text:
-                    wssThread.async {
-                        do {
-                            try wss.updateVoiceState(guildID: nil, channelID: nil)
-                            let path = FileManager.default.urls(for: .cachesDirectory,
-                                                                in: .userDomainMask)[0]
-                                .appendingPathComponent("socketOut.json")
-                            try data.write(to: path)
-                            let structure = try JSONDecoder().decode(GatewayStructure.self, from: data)
-                            wssThread.async {
-                                self?.listen()
-                            }
-                            print("Hello, \(structure.d.user.username)#\(structure.d.user.discriminator) !!")
-                            self?.sessionID = structure.d.session_id
-                            print("Connected with session ID", structure.d.session_id)
-                            promise(.success(structure.d))
-                            return
-                        } catch {
-                            promise(.failure(error))
-                            WatchCordApp.error(error)
-                            return
-                        }
-                    }
-                case .close:
-                    if let closeMessage = String(data: data, encoding: .utf8) {
-                        print("Closed with #\(closeMessage)#")
-                        self?.closeMessageHandler(closeMessage)
-                    } else {
-                        print("Closed with unknown close code")
-                    }
-                case .cont: break
-                case .binary:
-                    print("binary packet")
-                    self?.decompressor.decompressionQueue.async {
-                        guard let data = try? self?.decompressor.decompress(data: data, large: true) else { return }
+            self?.connection?.receive {
+                switch $0 {
+                case .success(let message):
+                    switch message {
+                    case .string(let text):
+                        print(text)
+                        guard let data = text.data(using: .utf8) else { return promise(.failure(GatewayErrors.noStringData(text))) }
                         wssThread.async {
                             do {
                                 try wss.updateVoiceState(guildID: nil, channelID: nil)
@@ -331,8 +298,8 @@ final class Gateway {
                                     .appendingPathComponent("socketOut.json")
                                 try data.write(to: path)
                                 let structure = try JSONDecoder().decode(GatewayStructure.self, from: data)
-                                wssThread.async {
-                                    self?.listen()
+                                Task.detached {
+                                    try await wss.listen()
                                 }
                                 print("Hello, \(structure.d.user.username)#\(structure.d.user.discriminator) !!")
                                 self?.sessionID = structure.d.session_id
@@ -345,11 +312,36 @@ final class Gateway {
                                 return
                             }
                         }
+                    case .data(let data):
+                        self?.decompressor.decompressionQueue.async {
+                            guard let data = try? self?.decompressor.decompress(data: data, large: true) else { return }
+                            wssThread.async {
+                                do {
+                                    try wss.updateVoiceState(guildID: nil, channelID: nil)
+                                    let path = FileManager.default.urls(for: .cachesDirectory,
+                                                                        in: .userDomainMask)[0]
+                                        .appendingPathComponent("socketOut.json")
+                                    try data.write(to: path)
+                                    let structure = try JSONDecoder().decode(GatewayStructure.self, from: data)
+                                    Task.detached {
+                                        try await wss.listen()
+                                    }
+                                    print("Hello, \(structure.d.user.username)#\(structure.d.user.discriminator) !!")
+                                    self?.sessionID = structure.d.session_id
+                                    print("Connected with session ID", structure.d.session_id)
+                                    promise(.success(structure.d))
+                                    return
+                                } catch {
+                                    promise(.failure(error))
+                                    WatchCordApp.error(error)
+                                    return
+                                }
+                            }
+                        }
+                    @unknown default: break
                     }
-                case .ping: print("ping")
-                case .pong: print("pong")
-                @unknown default:
-                    break
+                case .failure(let error):
+                    print(error)
                 }
             }
         }
@@ -384,8 +376,8 @@ final class Gateway {
             ],
         ]
         try send(json: packet)
-        wssThread.async {
-            self.listen()
+        Task.detached {
+            try await self.listen()
         }
     }
 
