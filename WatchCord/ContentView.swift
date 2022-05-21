@@ -139,12 +139,22 @@ struct LoginViewDataModel {
 
 public var captchaPublicKey: String = "error"
 
+extension UIApplication {
+    func restart() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LoggedIn"), object: nil, userInfo: [:])
+    }
+}
+
 struct UserProfile: View {
     
     @Binding var isShowingProfile: Bool
     
     @StateObject var viewModel: LoginViewViewModel = .init()
     @State var loginViewDataModel: LoginViewDataModel = .init()
+    
+    @State private var showLoading = false
+    
+    @ObservedObject var data = DataTransportModel.shared
     
     var body: some View {
         VStack {
@@ -165,17 +175,39 @@ struct UserProfile: View {
             print(notification)
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("LoggedIn")), perform: { _ in
-            self.viewModel.state = .hasToken
+            withAnimation(.easeInOut) {
+                viewModel.state = .hasToken
+            }
+            showLoading = false
         })
         .padding()
     }
     
     
+    // MARK: - Logged in
     @ViewBuilder
     private var ProfileView: some View {
-        Text("Hey there, ")
+        VStack {
+            Text("Welcome!")
+                .font(.title)
+            Text("You're currently logged in. If you have any issues, you should sync your credentials to your watch below.")
+            Button("Sync Now") {
+                // syncing code
+                data.session.transferUserInfo(["data": UserDefaults.standard.string(forKey: keychainItemName) ?? ""])
+            }
+            .buttonStyle(.bordered)
+            Button("Log Out") {
+                // log out
+                UserDefaults.standard.set(nil, forKey: keychainItemName)
+                withAnimation(.easeInOut) {
+                    viewModel.state = .initial
+                }
+            }
+            .buttonStyle(.bordered)
+        }
     }
     
+    // MARK: - Log in
     @ViewBuilder
     private var initialViewTopView: some View {
         Text("WatchCord")
@@ -183,7 +215,11 @@ struct UserProfile: View {
             .fontWeight(.bold)
             .padding(.bottom, 5)
             .padding(.top)
-        
+            .onAppear {
+                if UserDefaults.standard.string(forKey: keychainItemName) != nil {
+                    viewModel.state = .hasToken
+                }
+            }
         Text("Log into your discord account for WatchCord")
             .foregroundColor(Color.secondary)
             .padding(.bottom)
@@ -212,11 +248,15 @@ struct UserProfile: View {
     }
     
     private var bottomView: some View {
-        HStack(alignment: .center) {
+        VStack {
+            if showLoading {
+                ProgressView()
+                    .progressViewStyle(.circular)
+            }
             Button("Login") { [weak viewModel] in
                 viewModel?.loginError = nil
                 if loginViewDataModel.token != "" {
-                    KeychainManager.save(key: keychainItemName, data: loginViewDataModel.token.data(using: String.Encoding.utf8) ?? Data())
+                    UserDefaults.standard.set(loginViewDataModel.token, forKey: keychainItemName)
                     AccordCoreVars.token = loginViewDataModel.token
                     UIApplication.shared.restart()
                 } else {
@@ -249,6 +289,7 @@ struct UserProfile: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
                 Button("Login") {
+                    self.showLoading = true
                     if let ticket = viewModel.ticket {
                         Request.fetch(LoginResponse.self, url: URL(string: "\(rootURL)/auth/mfa/totp"), headers: Headers(
                             userAgent: discordUserAgent,
@@ -261,7 +302,7 @@ struct UserProfile: View {
                             switch completion {
                             case .success(let value):
                                 if let token = value.token {
-                                    KeychainManager.save(key: keychainItemName, data: token.data(using: String.Encoding.utf8) ?? Data())
+                                    UserDefaults.standard.set(token, forKey: keychainItemName)
                                     AccordCoreVars.token = token
                                   //  KeychainManager.save(key: keychainItemName, data: token.data(using: .utf8) ?? Data())
                                   //  AccordCoreVars.token = String(decoding: KeychainManager.load(key: keychainItemName) ?? Data(), as: UTF8.self)
@@ -289,7 +330,7 @@ struct UserProfile: View {
                         switch completion {
                         case .success(let response):
                             if let token = response.token {
-                                KeychainManager.save(key: keychainItemName, data: token.data(using: String.Encoding.utf8) ?? Data())
+                                UserDefaults.standard.set(token, forKey: keychainItemName)
                                 AccordCoreVars.token = token
                                 self.loginViewDataModel.captcha = false
                                 UIApplication.shared.restart()
@@ -308,7 +349,7 @@ struct UserProfile: View {
                                     case .success(let response):
                                         if let token = response.token {
                                             AccordCoreVars.token = String(decoding: token.data(using: String.Encoding.utf8) ?? Data(), as: UTF8.self)
-                                            KeychainManager.save(key: keychainItemName, data: token.data(using: String.Encoding.utf8) ?? Data())
+                                            UserDefaults.standard.set(token, forKey: keychainItemName)
                                             self.loginViewDataModel.captcha = false
                                             UIApplication.shared.restart()
                                         }
@@ -356,7 +397,7 @@ final class LoginViewViewModel: ObservableObject {
             switch completion {
             case .success(let response):
                 if let checktoken = response.token {
-                    KeychainManager.save(key: keychainItemName, data: checktoken.data(using: String.Encoding.utf8) ?? Data())
+                    UserDefaults.standard.set(checktoken, forKey: keychainItemName)
                     AccordCoreVars.token = checktoken
                     
                  //   KeychainManager.save(key: keychainItemName, data: checktoken.data(using: String.Encoding.utf8) ?? Data())
@@ -537,7 +578,6 @@ class DataTransportModel : NSObject, WCSessionDelegate, ObservableObject {
     static let shared = DataTransportModel()
     
     let session = WCSession.default
-    @Published var data : Data = Data()
     
     override init() {
         super.init()

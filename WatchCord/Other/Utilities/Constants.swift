@@ -18,7 +18,7 @@ var wss: Gateway!
 let rootURL: String = "https://discord.com/api/v9"
 let cdnURL: String = "https://cdn.discordapp.com"
 var user_id: String = .init()
-var avatar: Data = .init()
+var avatar: URL! = nil
 public var pastelColors: Bool = UserDefaults.standard.bool(forKey: "pastelColors")
 var sortByMostRecent: Bool = UserDefaults.standard.bool(forKey: "sortByMostRecent")
 var pfpShown: Bool = UserDefaults.standard.bool(forKey: "pfpShown")
@@ -39,7 +39,7 @@ final class AccordCoreVars {
     // static var cancellable: Cancellable?
 
     // static var suffixes: Bool = UserDefaults.standard.bool(forKey: "enableSuffixRemover")
-    static var token: String = .init(decoding: KeychainManager.load(key: keychainItemName) ?? Data(), as: UTF8.self)
+    static var token: String = UserDefaults.standard.string(forKey: keychainItemName) ?? ""
     static var user: User?
 
 //    func loadPlugins() {

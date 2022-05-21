@@ -11,19 +11,19 @@ import WatchConnectivity
 @main
 struct WatchCordApp: App {
     
-    @State var token = AccordCoreVars.token
-    @State var loaded: Bool = false
+    var token = AccordCoreVars.token
     @State var popup: Bool = false
-
+    
+    @State var override = false
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if self.token == "e" {
+                if self.token == "" && override == false {
                     // is not logged in
-                    LoginView()
+                    LoginView(override: $override)
                 } else {
-                    SidebarView()
+                    ContentView()
                 }
             }
         }
@@ -33,6 +33,10 @@ struct WatchCordApp: App {
 fileprivate struct LoginView: View {
     
     @ObservedObject var data = DataTransportModel.shared
+    
+    @State var issueMessage = "Oops! We couldn't find any login details to start! Please open the app on your phone to log in!"
+    
+    @Binding var override: Bool
     
     var body: some View {
         ZStack {
@@ -53,17 +57,27 @@ fileprivate struct LoginView: View {
                     }
                     .padding()
                     Spacer()
-                    Text("Oops! We couldn't find any login details to start! Please open the app on your phone to log in!")
+                    Text(issueMessage)
                         .font(.footnote)
                         .padding()
                     Spacer()
                 }
             }
         }
+        .navigationBarHidden(true)
         .onReceive(data.data.publisher) { _ in
             /// We received data from teh phone go like do something with it and pray its a token
-            let data = data.data
-            let tokenstring = String(data: data, encoding: .utf8)
+            let token = data.data
+            if token == "" {
+                issueMessage = "Oh no! Your credentials seem to be incorrectly stored on your phone! Please log out and in again!"
+            } else {
+                issueMessage = "Great! The sync worked! Relaunching..."
+            }
+            UserDefaults.standard.set(token, forKey: keychainItemName)
+            AccordCoreVars.token = token
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.override = true
+            }
         }
     }
 }
@@ -72,7 +86,7 @@ class DataTransportModel : NSObject, WCSessionDelegate, ObservableObject {
     static let shared = DataTransportModel()
     let session = WCSession.default
     
-    @Published var data : Data = Data()
+    @Published var data : String = ""
     
     override init() {
         super.init()
@@ -86,16 +100,10 @@ class DataTransportModel : NSObject, WCSessionDelegate, ObservableObject {
     }
     
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any]) {
-        guard let incoming = userInfo["data"] as? Data else { return }
+        guard let incoming = userInfo["data"] as? String else { return }
         DispatchQueue.main.async {
             self.data = incoming // data was sent over
         }
-    }
-}
-
-struct appPreviews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }
 
