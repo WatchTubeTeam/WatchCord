@@ -102,24 +102,6 @@ extension Gateway {
         case .applicationCommandUpdate: break
         case .applicationCommandPermissionsUpdate: break
         case .guildApplicationCommandsUpdate: break
-//            print("uwu")
-//            if let guildID = event.guildID {
-//                let commands = try JSONDecoder().decode(
-//                    SlashCommandStorage.GuildApplicationCommandsUpdateEvent.self,
-//                    from: event.data
-//                )
-//                let userKeyMap = commands.d.applications.generateKeyMap()
-//                SlashCommandStorage.commands[guildID] = commands.d.application_commands
-//                    .map { command -> SlashCommandStorage.Command in
-//                        print(command)
-//                        if let avatar = commands.d.applications[command.application_id, userKeyMap]?.icon {
-//                            command.avatar = avatar
-//                            return command
-//                        }
-//                        print(event.data)
-//                        return command
-//                    }
-//            }
         default: break
         }
     }

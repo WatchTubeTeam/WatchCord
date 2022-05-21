@@ -11,6 +11,12 @@
 		AA40878E28318EA1009B638A /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA40878D28318EA1009B638A /* ChatView.swift */; };
 		AA408791283190CC009B638A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA408790283190CC009B638A /* SDWebImageSwiftUI */; };
 		AA40879428319175009B638A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA40879328319175009B638A /* SDWebImageSwiftUI */; };
+		AA59E9A5283912330042E122 /* ZStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59E9A0283912320042E122 /* ZStream.swift */; };
+		AA59E9A6283912330042E122 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59E9A1283912330042E122 /* Gateway.swift */; };
+		AA59E9A7283912330042E122 /* GatewayEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59E9A2283912330042E122 /* GatewayEvent.swift */; };
+		AA59E9A8283912330042E122 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59E9A3283912330042E122 /* Socket.swift */; };
+		AA59E9A9283912330042E122 /* Gateway+MessageHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59E9A4283912330042E122 /* Gateway+MessageHandle.swift */; };
+		AA59E9AB283916B00042E122 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA59E9AA283916B00042E122 /* Network.framework */; };
 		AA91114F28382E6600F87400 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91111028382E6600F87400 /* Constants.swift */; };
 		AA91115028382E6600F87400 /* Queues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91111228382E6600F87400 /* Queues.swift */; };
 		AA91115128382E6600F87400 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91111328382E6600F87400 /* AppExtension.swift */; };
@@ -99,11 +105,6 @@
 		AA9111E428382F5F00F87400 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111AF28382F5E00F87400 /* Request.swift */; };
 		AA9111E528382F5F00F87400 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111B028382F5E00F87400 /* Core.swift */; };
 		AA9111E628382F5F00F87400 /* Gateway+VoiceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111B228382F5E00F87400 /* Gateway+VoiceState.swift */; };
-		AA9111E728382F5F00F87400 /* Gateway+MessageHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111B428382F5F00F87400 /* Gateway+MessageHandle.swift */; };
-		AA9111E828382F5F00F87400 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111B528382F5F00F87400 /* Gateway.swift */; };
-		AA9111E928382F5F00F87400 /* GatewayEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111B628382F5F00F87400 /* GatewayEvent.swift */; };
-		AA9111EA28382F5F00F87400 /* ZStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111B728382F5F00F87400 /* ZStream.swift */; };
-		AA9111EB28382F5F00F87400 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111B828382F5F00F87400 /* Socket.swift */; };
 		AA9111EC28382F5F00F87400 /* RegisterImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111BA28382F5F00F87400 /* RegisterImages.swift */; };
 		AA9111ED28382F5F00F87400 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111BB28382F5F00F87400 /* Images.swift */; };
 		AA9111EE28382F5F00F87400 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9111BD28382F5F00F87400 /* Storage.swift */; };
@@ -168,6 +169,12 @@
 /* Begin PBXFileReference section */
 		AA40878B28318B24009B638A /* SampleDataProvision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataProvision.swift; sourceTree = "<group>"; };
 		AA40878D28318EA1009B638A /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		AA59E9A0283912320042E122 /* ZStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStream.swift; sourceTree = "<group>"; };
+		AA59E9A1283912330042E122 /* Gateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
+		AA59E9A2283912330042E122 /* GatewayEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatewayEvent.swift; sourceTree = "<group>"; };
+		AA59E9A3283912330042E122 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		AA59E9A4283912330042E122 /* Gateway+MessageHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+MessageHandle.swift"; sourceTree = "<group>"; };
+		AA59E9AA283916B00042E122 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.5.sdk/System/Library/Frameworks/Network.framework; sourceTree = DEVELOPER_DIR; };
 		AA91110B2838245000F87400 /* WatchCord.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchCord.entitlements; sourceTree = "<group>"; };
 		AA91110C283824D400F87400 /* WatchCord WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchCord WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		AA91111028382E6600F87400 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -258,11 +265,6 @@
 		AA9111AF28382F5E00F87400 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AA9111B028382F5E00F87400 /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		AA9111B228382F5E00F87400 /* Gateway+VoiceState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+VoiceState.swift"; sourceTree = "<group>"; };
-		AA9111B428382F5F00F87400 /* Gateway+MessageHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+MessageHandle.swift"; sourceTree = "<group>"; };
-		AA9111B528382F5F00F87400 /* Gateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
-		AA9111B628382F5F00F87400 /* GatewayEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatewayEvent.swift; sourceTree = "<group>"; };
-		AA9111B728382F5F00F87400 /* ZStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStream.swift; sourceTree = "<group>"; };
-		AA9111B828382F5F00F87400 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		AA9111BA28382F5F00F87400 /* RegisterImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterImages.swift; sourceTree = "<group>"; };
 		AA9111BB28382F5F00F87400 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		AA9111BD28382F5F00F87400 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA40879428319175009B638A /* SDWebImageSwiftUI in Frameworks */,
+				AA59E9AB283916B00042E122 /* Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +310,7 @@
 		AA40879228319175009B638A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA59E9AA283916B00042E122 /* Network.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -602,20 +606,12 @@
 		AA9111AB28382F5E00F87400 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				AA9111AC28382F5E00F87400 /* Markdown */,
 				AA9111AD28382F5E00F87400 /* Networking */,
 				AA9111B128382F5E00F87400 /* Voice */,
 				AA9111B328382F5E00F87400 /* Gateway */,
 				AA9111B928382F5F00F87400 /* Media */,
 			);
 			path = Backend;
-			sourceTree = "<group>";
-		};
-		AA9111AC28382F5E00F87400 /* Markdown */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Markdown;
 			sourceTree = "<group>";
 		};
 		AA9111AD28382F5E00F87400 /* Networking */ = {
@@ -639,11 +635,11 @@
 		AA9111B328382F5E00F87400 /* Gateway */ = {
 			isa = PBXGroup;
 			children = (
-				AA9111B428382F5F00F87400 /* Gateway+MessageHandle.swift */,
-				AA9111B528382F5F00F87400 /* Gateway.swift */,
-				AA9111B628382F5F00F87400 /* GatewayEvent.swift */,
-				AA9111B728382F5F00F87400 /* ZStream.swift */,
-				AA9111B828382F5F00F87400 /* Socket.swift */,
+				AA59E9A1283912330042E122 /* Gateway.swift */,
+				AA59E9A4283912330042E122 /* Gateway+MessageHandle.swift */,
+				AA59E9A2283912330042E122 /* GatewayEvent.swift */,
+				AA59E9A3283912330042E122 /* Socket.swift */,
+				AA59E9A0283912320042E122 /* ZStream.swift */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -938,15 +934,13 @@
 				AA9111D328382F5F00F87400 /* LoginPayloads.swift in Sources */,
 				AA9111C228382F5F00F87400 /* AppExtension.swift in Sources */,
 				AA9111EC28382F5F00F87400 /* RegisterImages.swift in Sources */,
-				AA9111EB28382F5F00F87400 /* Socket.swift in Sources */,
 				AA9111DE28382F5F00F87400 /* Emote.swift in Sources */,
-				AA9111E728382F5F00F87400 /* Gateway+MessageHandle.swift in Sources */,
 				AA9111CC28382F5F00F87400 /* Combine++.swift in Sources */,
 				AA9111D628382F5F00F87400 /* Attachment.swift in Sources */,
 				AA9111D128382F5F00F87400 /* MemberList.swift in Sources */,
 				AAC6B0DF283123C60032E1D6 /* SidebarView.swift in Sources */,
 				AA9111EF28382F5F00F87400 /* Engine.swift in Sources */,
-				AA9111EA28382F5F00F87400 /* ZStream.swift in Sources */,
+				AA59E9A9283912330042E122 /* Gateway+MessageHandle.swift in Sources */,
 				AA9111C628382F5F00F87400 /* String++.swift in Sources */,
 				AA9111DD28382F5F00F87400 /* User.swift in Sources */,
 				AA9111DB28382F5F00F87400 /* Channel.swift in Sources */,
@@ -956,16 +950,17 @@
 				AA9111D528382F5F00F87400 /* Embed.swift in Sources */,
 				AA9111D028382F5F00F87400 /* SongLink.swift in Sources */,
 				AA9111EE28382F5F00F87400 /* Storage.swift in Sources */,
+				AA59E9A5283912330042E122 /* ZStream.swift in Sources */,
 				AA9111E328382F5F00F87400 /* MentionProtocol.swift in Sources */,
-				AA9111E928382F5F00F87400 /* GatewayEvent.swift in Sources */,
+				AA59E9A8283912330042E122 /* Socket.swift in Sources */,
 				AA9111D228382F5F00F87400 /* Events.swift in Sources */,
 				AA9111C028382F5F00F87400 /* Constants.swift in Sources */,
 				AA9111E228382F5F00F87400 /* ReadState.swift in Sources */,
 				AA9111E428382F5F00F87400 /* Request.swift in Sources */,
+				AA59E9A6283912330042E122 /* Gateway.swift in Sources */,
 				AA9111C128382F5F00F87400 /* Queues.swift in Sources */,
 				AA9111DF28382F5F00F87400 /* Reaction.swift in Sources */,
 				AA9111D428382F5F00F87400 /* GatewayStructure.swift in Sources */,
-				AA9111E828382F5F00F87400 /* Gateway.swift in Sources */,
 				AA9111D928382F5F00F87400 /* Message.swift in Sources */,
 				AA9111CD28382F5F00F87400 /* SwiftUI++.swift in Sources */,
 				AA9111ED28382F5F00F87400 /* Images.swift in Sources */,
@@ -981,6 +976,7 @@
 				AA9111DA28382F5F00F87400 /* Sticker.swift in Sources */,
 				AA9111C828382F5F00F87400 /* Extensions.swift in Sources */,
 				AA9111F028382F5F00F87400 /* Models.swift in Sources */,
+				AA59E9A7283912330042E122 /* GatewayEvent.swift in Sources */,
 				AA9111E528382F5F00F87400 /* Core.swift in Sources */,
 				AA9111CA28382F5F00F87400 /* Collection++.swift in Sources */,
 			);

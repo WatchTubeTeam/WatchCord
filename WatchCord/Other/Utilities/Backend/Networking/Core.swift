@@ -15,7 +15,7 @@ final class NetworkCore {
         let data = try? Data(contentsOf: url)
         if data == nil {
             WatchCordApp.error(text: "Offline", additionalDescription: "Check your network connection")
-            connected = false
+            connected = true
         } else {
             connected = true
         }

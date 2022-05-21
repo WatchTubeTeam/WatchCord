@@ -193,6 +193,7 @@ struct UserProfile: View {
             Text("You're currently logged in. If you have any issues, you should sync your credentials to your watch below.")
             Button("Sync Now") {
                 // syncing code
+                print(UserDefaults.standard.string(forKey: keychainItemName) ?? "")
                 data.session.transferUserInfo(["data": UserDefaults.standard.string(forKey: keychainItemName) ?? ""])
             }
             .buttonStyle(.bordered)

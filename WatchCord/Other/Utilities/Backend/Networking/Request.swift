@@ -39,8 +39,7 @@ extension String {
 }
 
 func logOut() {
-    KeychainManager.save(key: keychainItemName, data: Data())
-//    NSApp.restart()
+    UserDefaults.standard.set(nil, forKey: keychainItemName)
 }
 
 final class Headers {

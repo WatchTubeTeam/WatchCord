@@ -27,7 +27,7 @@ final class KeychainManager {
         var dataTypeRef: AnyObject?
 
         let status: OSStatus = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
-
+        
         if status == noErr {
             return dataTypeRef as? Data
         } else {
