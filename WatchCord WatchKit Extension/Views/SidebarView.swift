@@ -22,7 +22,7 @@ struct SidebarView: View {
                 VStack {
                     HStack(spacing: 0) {
                         ScrollView {
-                            LazyVStack {
+                            VStack {
                                 Button {
                                     currentGuild = "1"
                                 } label: {

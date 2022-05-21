@@ -28,7 +28,7 @@ struct ContentView: View {
             LoadingView()
                 .onAppear {
                     concurrentQueue.async {
-                        
+                        print("[Debug] \(UserDefaults.standard.string(forKey: keychainItemName) ?? "idk")")
                         DispatchQueue.global().async {
                             NetworkCore.shared = NetworkCore()
                         }
