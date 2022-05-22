@@ -188,9 +188,12 @@ struct UserProfile: View {
     @ViewBuilder
     private var ProfileView: some View {
         VStack {
+            Spacer()
             Text("Welcome!")
                 .font(.title)
+            Spacer()
             Text("You're currently logged in. If you have any issues, you should sync your credentials to your watch below.")
+            Spacer()
             Button("Sync Now") {
                 // syncing code
                 print(UserDefaults.standard.string(forKey: keychainItemName) ?? "")
@@ -205,6 +208,12 @@ struct UserProfile: View {
                 }
             }
             .buttonStyle(.bordered)
+            Spacer()
+            #if DEBUG
+            Button("Copy Token") {
+                UIPasteboard.general.string = UserDefaults.standard.string(forKey: keychainItemName)
+            }
+            #endif
         }
     }
     

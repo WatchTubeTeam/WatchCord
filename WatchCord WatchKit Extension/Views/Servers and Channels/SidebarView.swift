@@ -77,7 +77,7 @@ struct SidebarView: View {
             .navigationBarHidden(true)
             .tag(1)
             
-            Text("gn")
+            ChatView()
                 .navigationBarHidden(false)
                 .tag(2)
         }

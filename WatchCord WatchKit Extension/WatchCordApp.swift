@@ -11,20 +11,54 @@ import WatchConnectivity
 @main
 struct WatchCordApp: App {
     
+    @ObservedObject var data = DataTransportModel.shared
+    
     @State var token = AccordCoreVars.token
     @State var popup: Bool = false
     
     @State var override = false
     
+    @State var issueMessage = "Oops! We couldn't find any login details to start! Please open the app on your phone to log in!"
+    
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                if self.token == "" && override == false {
-                    // is not logged in
-                    LoginView(override: $override)
-                } else {
-                    ContentView(token: $token)
-                }
+            if self.token == "" && override == false {
+                // is not logged in
+                LoginView(issueMessage: issueMessage, override: $override)
+                    .onReceive(data.data.publisher) { _ in
+                        /// We received data from teh phone go like do something with it and pray its a token
+                        let token = data.data
+                        if token == "" {
+                            issueMessage = "Oh no! Your credentials seem to be incorrectly stored on your phone! Please log out and in again!"
+                        } else {
+                            issueMessage = "Great! The sync worked! Relaunching..."
+                        }
+                        UserDefaults.standard.set(token, forKey: keychainItemName)
+                        AccordCoreVars.token = token
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self.override = true
+                        }
+                    }
+                    .onAppear {
+                        UserDefaults.standard.set("egg", forKey: "egg")
+                        print(NSHomeDirectory())
+                    }
+            } else {
+                ContentView(token: $token)
+                    .onReceive(data.data.publisher) { _ in
+                        /// We received data from teh phone go like do something with it and pray its a token
+                        let token = data.data
+                        if token == "" {
+                            issueMessage = "Oh no! Your credentials seem to be incorrectly stored on your phone! Please log out and in again!"
+                        } else {
+                            issueMessage = "Great! The sync worked! Relaunching..."
+                        }
+                        UserDefaults.standard.set(token, forKey: keychainItemName)
+                        AccordCoreVars.token = token
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self.override = true
+                        }
+                    }
             }
         }
     }
@@ -34,7 +68,7 @@ fileprivate struct LoginView: View {
     
     @ObservedObject var data = DataTransportModel.shared
     
-    @State var issueMessage = "Oops! We couldn't find any login details to start! Please open the app on your phone to log in!"
+    @State var issueMessage: String
     
     @Binding var override: Bool
 
@@ -65,20 +99,6 @@ fileprivate struct LoginView: View {
             }
         }
         .navigationBarHidden(true)
-        .onReceive(data.data.publisher) { _ in
-            /// We received data from teh phone go like do something with it and pray its a token
-            let token = data.data
-            if token == "" {
-                issueMessage = "Oh no! Your credentials seem to be incorrectly stored on your phone! Please log out and in again!"
-            } else {
-                issueMessage = "Great! The sync worked! Relaunching..."
-            }
-            UserDefaults.standard.set(token, forKey: keychainItemName)
-            AccordCoreVars.token = token
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.override = true
-            }
-        }
     }
 }
 

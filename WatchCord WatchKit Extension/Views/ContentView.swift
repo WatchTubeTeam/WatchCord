@@ -29,7 +29,7 @@ struct ContentView: View {
             
             LoadingView(token: $token)
                 .onAppear {
-                    concurrentQueue.async {
+                    concurrentQueue.asyncAfter(deadline: .now() + 1.5) {
                         print("[Debug] \(UserDefaults.standard.string(forKey: keychainItemName) ?? "idk")")
                         DispatchQueue.global().async {
                             NetworkCore.shared = NetworkCore()

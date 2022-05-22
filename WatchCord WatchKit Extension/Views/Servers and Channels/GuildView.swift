@@ -17,12 +17,12 @@ struct GuildView: View {
         let guild = guilds.filter { $0.id == currentGuild }.first
         if guild != nil {
             HStack {
-                Text(guild!.name)
+                Text((guild?.name!)!)
                     .font(.title3)
                 Spacer()
             }
-            ForEach(guild!.channels ?? .init(), id: \.id) { channel in
-                if channel.shown == true {
+            ForEach(guild?.channels ?? .init(), id: \.id) { channel in
+                if channel.shown == false { EmptyView() } else {
                     if channel.type == .section {
                         Text(channel.name?.uppercased() ?? "")
                             .fontWeight(.bold)
@@ -40,7 +40,6 @@ struct GuildView: View {
                                 default:
                                     Image(systemName: "questionmark.square.dashed")
                                 }
-                                Text(channel.name)
                             }
                         }
                     }

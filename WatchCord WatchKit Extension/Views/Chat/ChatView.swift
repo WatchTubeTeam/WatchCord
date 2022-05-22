@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct ChatView: View {
+    var body: some View {
+        Text("eta s0n")
+    }
+}
