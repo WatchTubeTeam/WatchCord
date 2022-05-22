@@ -21,13 +21,18 @@ struct GuildView: View {
                     .font(.title3)
                 Spacer()
             }
+            
             ForEach(guild?.channels ?? .init(), id: \.id) { channel in
                 if channel.shown == false { EmptyView() } else {
                     if channel.type == .section {
-                        Text(channel.name?.uppercased() ?? "")
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.secondary)
-                            .font(.footnote)
+                        HStack {
+                            Text(channel.name?.uppercased() ?? "")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.secondary)
+                                .font(.footnote)
+                                .lineLimit(1)
+                            Spacer()
+                        }
                     } else {
                         Button {
                             currentGuild = guild!.id
@@ -48,9 +53,10 @@ struct GuildView: View {
                                 default:
                                     Image(systemName: "questionmark.square.dashed")
                                 }
-                                Text(channel.name != nil ? channel.name! : "Unknown")
+                                Text(channel.name ?? "Unknown")
                                     .lineLimit(1)
                                     .minimumScaleFactor(0.1)
+                                Spacer()
                             }
                         }
                     }
