@@ -111,9 +111,9 @@ struct UserButton: View {
                 currentGuild = "2"
             }
         } label: {
-            let img = "\(cdnURL)/avatars/\(user.id)/\(user.avatar ?? "").png"
+            let img = "\(cdnURL)/avatars/\(user.user.id)/\(user.user.avatar ?? "").png"
             if currentGuild == "2" {
-                WebImage(url: URL(string: user.avatar != nil ? img : placeholders.avatar()))
+                WebImage(url: URL(string: user.user.avatar != nil ? img : placeholders.avatar()))
                     .placeholder {
                         ProgressView()
                     }
@@ -122,7 +122,7 @@ struct UserButton: View {
                     .scaledToFit()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             } else {
-                WebImage(url: URL(string: user.avatar != nil ? img : placeholders.avatar()))
+                WebImage(url: URL(string: user.user.avatar != nil ? img : placeholders.avatar()))
                     .placeholder {
                         ProgressView()
                     }
