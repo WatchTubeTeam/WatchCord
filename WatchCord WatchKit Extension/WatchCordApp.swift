@@ -11,7 +11,7 @@ import WatchConnectivity
 @main
 struct WatchCordApp: App {
     
-    var token = AccordCoreVars.token
+    @State var token = AccordCoreVars.token
     @State var popup: Bool = false
     
     @State var override = false
@@ -23,7 +23,7 @@ struct WatchCordApp: App {
                     // is not logged in
                     LoginView(override: $override)
                 } else {
-                    ContentView()
+                    ContentView(token: $token)
                 }
             }
         }
@@ -37,7 +37,7 @@ fileprivate struct LoginView: View {
     @State var issueMessage = "Oops! We couldn't find any login details to start! Please open the app on your phone to log in!"
     
     @Binding var override: Bool
-    
+
     var body: some View {
         ZStack {
             Color(rgb: 0x1b274a)

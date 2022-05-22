@@ -24,6 +24,12 @@ struct TiltAnimation: ViewModifier {
 }
 
 struct LoadingView: View {
+    
+    @Binding var token: String
+    
+    @State private var logoutprompt = false
+    @State private var done = false
+    
     var body: some View {
         VStack {
             Image("WatchCord")
@@ -32,8 +38,31 @@ struct LoadingView: View {
                 .frame(width: WKInterfaceDevice.current().screenBounds.width / 3)
                 .clipShape(Circle())
                 .modifier(TiltAnimation())
-
-            LoadingView.greetings.randomElement()!
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        withAnimation(.easeInOut) {
+                            logoutprompt = true
+                        }
+                    }
+                }
+            if !logoutprompt {
+                LoadingView.greetings.randomElement()!
+            } else {
+                if done == false {
+                    Text("Having issues?")
+                    Button("Log Out") {
+                        token = ""
+                        UserDefaults.standard.set(nil, forKey: keychainItemName)
+                        AccordCoreVars.token = ""
+                        withAnimation(.easeInOut) {
+                            done = true
+                        }
+                    }
+                    .buttonStyle(.bordered)
+                } else {
+                    Text("Relaunch and resync credentials")
+                }
+            }
         }
     }
     

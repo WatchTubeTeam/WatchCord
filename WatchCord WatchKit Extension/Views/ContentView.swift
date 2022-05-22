@@ -11,6 +11,8 @@ import SDWebImageSwiftUI
 
 struct ContentView: View {
     
+    @Binding var token: String
+    
     @State var wsCancellable = Set<AnyCancellable>()
     @State var loaded: Bool = false
     @State var userData: GatewayD! = nil
@@ -25,7 +27,7 @@ struct ContentView: View {
             
             // MARK: - Load user data
             
-            LoadingView()
+            LoadingView(token: $token)
                 .onAppear {
                     concurrentQueue.async {
                         print("[Debug] \(UserDefaults.standard.string(forKey: keychainItemName) ?? "idk")")
@@ -51,7 +53,7 @@ struct ContentView: View {
                             print("hiiiii")
                             let new = try Gateway(
                                 url: Gateway.gatewayURL,
-                                compress: UserDefaults.standard.value(forKey: "CompressGateway") as? Bool ?? true
+                                compress: true
                             )
                             new.ready()
                                 .sink(receiveCompletion: { completion in
@@ -86,7 +88,7 @@ struct ContentView: View {
         } else {
             
             // MARK: - Finished or failed to load user data
-            SidebarView(guilds: userData.guilds)
+            SidebarView(SelfUser: userData)
         }
     }
     

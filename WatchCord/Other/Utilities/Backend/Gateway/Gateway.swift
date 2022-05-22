@@ -121,7 +121,7 @@ final class Gateway {
 
     private func connect(_ session_id: String? = nil, _ seq: Int? = nil) throws {
         self.connection?.resume()
-        Task.detached {
+        Task {
             try await self.hello(session_id, seq)
         }
         do {
@@ -141,6 +141,7 @@ final class Gateway {
         let message = try await self.connection?.receive()
         switch message {
         case .string(let text):
+            print(text)
             guard let data = text.data(using: .utf8) else { return }
             guard let hello = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any],
                   let helloD = hello["d"] as? [String:Any],
@@ -170,6 +171,7 @@ final class Gateway {
             }
         case .data(let data):
             let decompressed = try self.decompressor.decompress(data: data)
+            print(String(data: decompressed, encoding: .utf8))
             guard let hello = try JSONSerialization.jsonObject(with: decompressed, options: []) as? [String:Any],
                   let helloD = hello["d"] as? [String:Any],
                   let interval = helloD["heartbeat_interval"] as? Int  else {

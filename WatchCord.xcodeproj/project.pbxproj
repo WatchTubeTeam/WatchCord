@@ -17,6 +17,7 @@
 		AA59E9B4283936E80042E122 /* GatewayEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59E9AF283936E80042E122 /* GatewayEvent.swift */; };
 		AA59E9B5283936E80042E122 /* ZStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59E9B0283936E80042E122 /* ZStream.swift */; };
 		AA59E9B6283936E80042E122 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59E9B1283936E80042E122 /* Socket.swift */; };
+		AA6713602839653700A5E94A /* PlaceholderPfpUrlGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67135F2839653700A5E94A /* PlaceholderPfpUrlGen.swift */; };
 		AA91114F28382E6600F87400 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91111028382E6600F87400 /* Constants.swift */; };
 		AA91115028382E6600F87400 /* Queues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91111228382E6600F87400 /* Queues.swift */; };
 		AA91115128382E6600F87400 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91111328382E6600F87400 /* AppExtension.swift */; };
@@ -175,6 +176,7 @@
 		AA59E9AF283936E80042E122 /* GatewayEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatewayEvent.swift; sourceTree = "<group>"; };
 		AA59E9B0283936E80042E122 /* ZStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStream.swift; sourceTree = "<group>"; };
 		AA59E9B1283936E80042E122 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		AA67135F2839653700A5E94A /* PlaceholderPfpUrlGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderPfpUrlGen.swift; sourceTree = "<group>"; };
 		AA91110B2838245000F87400 /* WatchCord.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchCord.entitlements; sourceTree = "<group>"; };
 		AA91110C283824D400F87400 /* WatchCord WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchCord WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		AA91111028382E6600F87400 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 		AA91118028382F5E00F87400 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AA67135F2839653700A5E94A /* PlaceholderPfpUrlGen.swift */,
 				AA91118128382F5E00F87400 /* Constants.swift */,
 				AA91118228382F5E00F87400 /* Misc */,
 				AA91119428382F5E00F87400 /* Objects */,
@@ -960,6 +963,7 @@
 				AA9111E228382F5F00F87400 /* ReadState.swift in Sources */,
 				AA9111E428382F5F00F87400 /* Request.swift in Sources */,
 				AA9111C128382F5F00F87400 /* Queues.swift in Sources */,
+				AA6713602839653700A5E94A /* PlaceholderPfpUrlGen.swift in Sources */,
 				AA9111DF28382F5F00F87400 /* Reaction.swift in Sources */,
 				AA9111D428382F5F00F87400 /* GatewayStructure.swift in Sources */,
 				AA9111D928382F5F00F87400 /* Message.swift in Sources */,
