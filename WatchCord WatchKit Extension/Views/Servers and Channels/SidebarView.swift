@@ -58,22 +58,7 @@ struct SidebarView: View {
                             VStack {
                                 if currentGuild == "0" {
                                     // MARK: - Welcome Screen
-                                    HStack {
-                                        Text("Welcome to \nWatchCord!")
-                                            .font(.callout)
-                                            .minimumScaleFactor(0.1)
-                                            .lineLimit(2)
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        Text("Open a server to get started")
-                                            .lineLimit(2)
-                                            .font(.footnote)
-                                            .foregroundColor(.secondary)
-                                            .minimumScaleFactor(0.1)
-                                        Spacer()
-                                    }
-                                    Spacer()
+                                    WelcomeView()
                                 } else if currentGuild == "1" {
                                     // MARK: - Direct Messages
                                     DmsView(channels: SelfUser.private_channels, users: SelfUser.users, currentGuild: $currentGuild, currentChannel: $currentChannel, tabSelection: $tabSelection)
@@ -99,39 +84,3 @@ struct SidebarView: View {
     }
 }
 
-struct UserButton: View {
-    
-    var user: GatewayD
-    
-    @Binding var currentGuild: String
-    
-    var body: some View {
-        Button {
-            withAnimation(.easeInOut(duration: 0.2)) {
-                currentGuild = "2"
-            }
-        } label: {
-            let img = "\(cdnURL)/avatars/\(user.user.id)/\(user.user.avatar ?? "").png"
-            if currentGuild == "2" {
-                WebImage(url: URL(string: user.user.avatar != nil ? img : placeholders.avatar()))
-                    .placeholder {
-                        ProgressView()
-                    }
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-            } else {
-                WebImage(url: URL(string: user.user.avatar != nil ? img : placeholders.avatar()))
-                    .placeholder {
-                        ProgressView()
-                    }
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .scaledToFit()
-                    .clipShape(Circle())
-            }
-        }
-        .buttonStyle(.plain)
-    }
-}
