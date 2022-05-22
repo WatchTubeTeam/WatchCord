@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA19E656283A45C10045DDCF /* GuildButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19E655283A45C10045DDCF /* GuildButton.swift */; };
+		AA19E658283A45FB0045DDCF /* GuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19E657283A45FB0045DDCF /* GuildView.swift */; };
+		AA19E65A283A46300045DDCF /* DmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19E659283A46300045DDCF /* DmsView.swift */; };
 		AA40878C28318B24009B638A /* SampleDataProvision.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA40878B28318B24009B638A /* SampleDataProvision.swift */; };
 		AA40878E28318EA1009B638A /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA40878D28318EA1009B638A /* ChatView.swift */; };
 		AA408791283190CC009B638A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA408790283190CC009B638A /* SDWebImageSwiftUI */; };
@@ -168,6 +171,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA19E655283A45C10045DDCF /* GuildButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildButton.swift; sourceTree = "<group>"; };
+		AA19E657283A45FB0045DDCF /* GuildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildView.swift; sourceTree = "<group>"; };
+		AA19E659283A46300045DDCF /* DmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsView.swift; sourceTree = "<group>"; };
 		AA40878B28318B24009B638A /* SampleDataProvision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataProvision.swift; sourceTree = "<group>"; };
 		AA40878D28318EA1009B638A /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		AA59E9AA283916B00042E122 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.5.sdk/System/Library/Frameworks/Network.framework; sourceTree = DEVELOPER_DIR; };
@@ -309,6 +315,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA19E654283A459A0045DDCF /* Servers and Channels */ = {
+			isa = PBXGroup;
+			children = (
+				AAC6B0DE283123C60032E1D6 /* SidebarView.swift */,
+				AA19E657283A45FB0045DDCF /* GuildView.swift */,
+				AA19E655283A45C10045DDCF /* GuildButton.swift */,
+				AA19E659283A46300045DDCF /* DmsView.swift */,
+			);
+			path = "Servers and Channels";
+			sourceTree = "<group>";
+		};
 		AA40879228319175009B638A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,7 +741,7 @@
 			children = (
 				AA9111F1283834C000F87400 /* LoadingView.swift */,
 				AA9111F32838479600F87400 /* ContentView.swift */,
-				AAC6B0DE283123C60032E1D6 /* SidebarView.swift */,
+				AA19E654283A459A0045DDCF /* Servers and Channels */,
 				AA40878D28318EA1009B638A /* ChatView.swift */,
 			);
 			path = Views;
@@ -929,6 +946,7 @@
 				AA9111CF28382F5F00F87400 /* Keypath++.swift in Sources */,
 				AA9111C328382F5F00F87400 /* Github.swift in Sources */,
 				AA9111F42838479600F87400 /* ContentView.swift in Sources */,
+				AA19E658283A45FB0045DDCF /* GuildView.swift in Sources */,
 				AAC6B0E1283123C60032E1D6 /* WatchCordApp.swift in Sources */,
 				AA9111F2283834C000F87400 /* LoadingView.swift in Sources */,
 				AA40878C28318B24009B638A /* SampleDataProvision.swift in Sources */,
@@ -939,6 +957,7 @@
 				AA9111C228382F5F00F87400 /* AppExtension.swift in Sources */,
 				AA9111EC28382F5F00F87400 /* RegisterImages.swift in Sources */,
 				AA9111DE28382F5F00F87400 /* Emote.swift in Sources */,
+				AA19E656283A45C10045DDCF /* GuildButton.swift in Sources */,
 				AA9111CC28382F5F00F87400 /* Combine++.swift in Sources */,
 				AA9111D628382F5F00F87400 /* Attachment.swift in Sources */,
 				AA9111D128382F5F00F87400 /* MemberList.swift in Sources */,
@@ -963,6 +982,7 @@
 				AA9111E228382F5F00F87400 /* ReadState.swift in Sources */,
 				AA9111E428382F5F00F87400 /* Request.swift in Sources */,
 				AA9111C128382F5F00F87400 /* Queues.swift in Sources */,
+				AA19E65A283A46300045DDCF /* DmsView.swift in Sources */,
 				AA6713602839653700A5E94A /* PlaceholderPfpUrlGen.swift in Sources */,
 				AA9111DF28382F5F00F87400 /* Reaction.swift in Sources */,
 				AA9111D428382F5F00F87400 /* GatewayStructure.swift in Sources */,
