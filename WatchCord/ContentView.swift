@@ -34,10 +34,13 @@ struct ContentView: View {
                         isShowingEasterEgg.toggle()
                     } label: {
                             Text("Thanks for installing WatchCord!")
-                                .foregroundColor(.white)
-                                .font(.title)
-                                .fontWeight(.semibold)
-                                .multilineTextAlignment(.leading)
+                            .foregroundColor(.white)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.1)
+
                         .padding(15)
                     }
                     .buttonStyle(.bordered)

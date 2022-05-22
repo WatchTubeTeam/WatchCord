@@ -72,6 +72,7 @@ struct ContentView: View {
                                     }
                                     let datastuffs = d
                                     DispatchQueue.main.async {
+                                        datastuffs.order()
                                         self.userData = datastuffs
                                     }
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
