@@ -37,9 +37,20 @@ struct GuildView: View {
                                 switch channel.type {
                                 case .normal:
                                     Image(systemName: "number")
+                                case .voice:
+                                    Image(systemName: "speaker.wave.2")
+                                case .guild_news:
+                                    Image(systemName: "megaphone")
+                                case .guild_store:
+                                    Image(systemName: "dollarsign.circle")
+                                case .stage:
+                                    Image(systemName: "person.wave.2")
                                 default:
                                     Image(systemName: "questionmark.square.dashed")
                                 }
+                                Text(channel.name != nil ? channel.name! : "Unknown")
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.1)
                             }
                         }
                     }
