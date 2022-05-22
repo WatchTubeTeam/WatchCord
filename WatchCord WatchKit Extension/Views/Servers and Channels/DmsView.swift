@@ -30,7 +30,7 @@ struct DmsView: View {
             Button {
                 currentGuild = "1"
                 currentChannel = dm.id
-                withAnimation(.easeInOut) {
+                withAnimation(.easeInOut(duration: 0.2)) {
                     tabSelection = 2
                 }
             } label: {

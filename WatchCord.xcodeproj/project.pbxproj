@@ -10,8 +10,6 @@
 		AA19E656283A45C10045DDCF /* GuildButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19E655283A45C10045DDCF /* GuildButton.swift */; };
 		AA19E658283A45FB0045DDCF /* GuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19E657283A45FB0045DDCF /* GuildView.swift */; };
 		AA19E65A283A46300045DDCF /* DmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19E659283A46300045DDCF /* DmsView.swift */; };
-		AA40878C28318B24009B638A /* SampleDataProvision.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA40878B28318B24009B638A /* SampleDataProvision.swift */; };
-		AA40878E28318EA1009B638A /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA40878D28318EA1009B638A /* ChatView.swift */; };
 		AA408791283190CC009B638A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA408790283190CC009B638A /* SDWebImageSwiftUI */; };
 		AA40879428319175009B638A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA40879328319175009B638A /* SDWebImageSwiftUI */; };
 		AA59E9AB283916B00042E122 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA59E9AA283916B00042E122 /* Network.framework */; };
@@ -174,8 +172,6 @@
 		AA19E655283A45C10045DDCF /* GuildButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildButton.swift; sourceTree = "<group>"; };
 		AA19E657283A45FB0045DDCF /* GuildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildView.swift; sourceTree = "<group>"; };
 		AA19E659283A46300045DDCF /* DmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsView.swift; sourceTree = "<group>"; };
-		AA40878B28318B24009B638A /* SampleDataProvision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataProvision.swift; sourceTree = "<group>"; };
-		AA40878D28318EA1009B638A /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		AA59E9AA283916B00042E122 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.5.sdk/System/Library/Frameworks/Network.framework; sourceTree = DEVELOPER_DIR; };
 		AA59E9AD283936E80042E122 /* Gateway+MessageHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gateway+MessageHandle.swift"; sourceTree = "<group>"; };
 		AA59E9AE283936E80042E122 /* Gateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
@@ -326,6 +322,13 @@
 			path = "Servers and Channels";
 			sourceTree = "<group>";
 		};
+		AA19E65B283A50CF0045DDCF /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		AA40879228319175009B638A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,7 +354,6 @@
 			children = (
 				AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */,
 				AAC6B0E4283123C70032E1D6 /* Assets.xcassets */,
-				AA40878B28318B24009B638A /* SampleDataProvision.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -742,7 +744,7 @@
 				AA9111F1283834C000F87400 /* LoadingView.swift */,
 				AA9111F32838479600F87400 /* ContentView.swift */,
 				AA19E654283A459A0045DDCF /* Servers and Channels */,
-				AA40878D28318EA1009B638A /* ChatView.swift */,
+				AA19E65B283A50CF0045DDCF /* Chat */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -949,8 +951,6 @@
 				AA19E658283A45FB0045DDCF /* GuildView.swift in Sources */,
 				AAC6B0E1283123C60032E1D6 /* WatchCordApp.swift in Sources */,
 				AA9111F2283834C000F87400 /* LoadingView.swift in Sources */,
-				AA40878C28318B24009B638A /* SampleDataProvision.swift in Sources */,
-				AA40878E28318EA1009B638A /* ChatView.swift in Sources */,
 				AA9111D828382F5F00F87400 /* Guild.swift in Sources */,
 				AA59E9B6283936E80042E122 /* Socket.swift in Sources */,
 				AA9111D328382F5F00F87400 /* LoginPayloads.swift in Sources */,

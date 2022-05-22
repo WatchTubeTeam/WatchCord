@@ -175,7 +175,7 @@ struct UserProfile: View {
             print(notification)
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("LoggedIn")), perform: { _ in
-            withAnimation(.easeInOut) {
+            withAnimation(.easeInOut(duration: 0.2)) {
                 viewModel.state = .hasToken
             }
             showLoading = false
@@ -200,7 +200,7 @@ struct UserProfile: View {
             Button("Log Out") {
                 // log out
                 UserDefaults.standard.set(nil, forKey: keychainItemName)
-                withAnimation(.easeInOut) {
+                withAnimation(.easeInOut(duration: 0.2)) {
                     viewModel.state = .initial
                 }
             }

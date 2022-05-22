@@ -41,7 +41,9 @@ struct ContentView: View {
                         guard AccordCoreVars.token != "" else { return }
                         do {
                             guard userData == nil else {
-                                loaded = true
+                                withAnimation(.easeInOut(duration: 0.2)) {
+                                    loaded = true
+                                }
                                 return
                             }
                             guard wss == nil else {
@@ -73,7 +75,7 @@ struct ContentView: View {
                                         self.userData = datastuffs
                                     }
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                        withAnimation(.easeInOut) {
+                                        withAnimation(.easeInOut(duration: 0.2)) {
                                             loaded = true
                                         }
                                     }
@@ -103,7 +105,7 @@ struct ContentView: View {
                 AccordCoreVars.user = structure.d.user
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                withAnimation(.easeInOut) {
+                withAnimation(.easeInOut(duration: 0.2)) {
                     loaded = true
                 }
             }

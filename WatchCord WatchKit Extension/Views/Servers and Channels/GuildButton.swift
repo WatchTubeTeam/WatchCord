@@ -14,7 +14,7 @@ struct GuildButton: View {
     
     var body: some View {
         Button {
-            withAnimation(.easeInOut) {
+            withAnimation(.easeInOut(duration: 0.2)) {
                 currentGuild = guild.id
             }
         } label: {

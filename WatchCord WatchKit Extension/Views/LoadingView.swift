@@ -40,7 +40,7 @@ struct LoadingView: View {
                 .modifier(TiltAnimation())
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                        withAnimation(.easeInOut) {
+                        withAnimation(.easeInOut(duration: 0.2)) {
                             logoutprompt = true
                         }
                     }
@@ -54,7 +54,7 @@ struct LoadingView: View {
                         token = ""
                         UserDefaults.standard.set(nil, forKey: keychainItemName)
                         AccordCoreVars.token = ""
-                        withAnimation(.easeInOut) {
+                        withAnimation(.easeInOut(duration: 0.2)) {
                             done = true
                         }
                     }

@@ -26,7 +26,7 @@ struct SidebarView: View {
                         ScrollView {
                             VStack {
                                 Button {
-                                    withAnimation(.easeInOut) {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
                                         currentGuild = "1"
                                     }
                                 } label: {
@@ -107,7 +107,7 @@ struct UserButton: View {
     
     var body: some View {
         Button {
-            withAnimation(.easeInOut) {
+            withAnimation(.easeInOut(duration: 0.2)) {
                 currentGuild = "2"
             }
         } label: {
