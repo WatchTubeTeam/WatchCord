@@ -321,11 +321,11 @@
 			isa = PBXGroup;
 			children = (
 				AAC6B0DE283123C60032E1D6 /* SidebarView.swift */,
+				AA56BF72283A5CAF0058C3E4 /* WelcomeView.swift */,
 				AA19E657283A45FB0045DDCF /* GuildView.swift */,
 				AA19E655283A45C10045DDCF /* GuildButton.swift */,
 				AA19E659283A46300045DDCF /* DmsView.swift */,
 				AA56BF70283A5C750058C3E4 /* UserButton.swift */,
-				AA56BF72283A5CAF0058C3E4 /* WelcomeView.swift */,
 			);
 			path = "Servers and Channels";
 			sourceTree = "<group>";

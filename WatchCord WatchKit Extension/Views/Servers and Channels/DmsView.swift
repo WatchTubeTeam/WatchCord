@@ -24,7 +24,8 @@ struct DmsView: View {
                 .lineLimit(2)
             Spacer()
         }
-        ForEach(channels) { dm in
+        let sorted = channels.sorted(by: { $0.last_message_id ?? "" > $1.last_message_id ?? "" })
+        ForEach(sorted) { dm in
             let person = users.filter { $0.id == dm.recipient_ids?.first }.first!
             let avatarurl = person.avatar == nil ? placeholders.avatar() : "\(cdnURL)/avatars/\(person.id)/\(person.avatar ?? "").png"
             Button {

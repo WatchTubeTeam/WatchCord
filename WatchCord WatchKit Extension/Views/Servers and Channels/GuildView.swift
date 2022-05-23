@@ -10,9 +10,12 @@ import SwiftUI
 struct GuildView: View {
     
     var guilds: [Guild]
+    @Binding var tabSelection: Int
     @Binding var currentGuild: String
     @Binding var currentChannel: String
 
+    @State private var error = false
+    
     var body: some View {
         let guild = guilds.filter { $0.id == currentGuild }.first
         if guild != nil {
@@ -25,6 +28,8 @@ struct GuildView: View {
             ForEach(guild?.channels ?? .init(), id: \.id) { channel in
                 if channel.shown == false { EmptyView() } else {
                     if channel.type == .section {
+                        // MARK: - Categories are channels too
+
                         HStack {
                             Text(channel.name?.uppercased() ?? "")
                                 .fontWeight(.bold)
@@ -34,18 +39,37 @@ struct GuildView: View {
                             Spacer()
                         }
                     } else {
+                        // MARK: - Channel
+                        
                         Button {
-                            currentGuild = guild!.id
-                            currentChannel = channel.id
+                            switch channel.type {
+                            case .normal:
+                                currentGuild = guild!.id
+                                currentChannel = channel.id
+                                
+                                withAnimation(.easeInOut) {
+                                    tabSelection = 2
+                                }
+                            case .voice:
+                                error.toggle()
+                            case .guild_news:
+                                error.toggle()
+                            case .guild_store:
+                                error.toggle()
+                            case .stage:
+                                error.toggle()
+                            default:
+                                error.toggle()
+                            }
                         } label: {
                             HStack {
                                 switch channel.type {
                                 case .normal:
                                     Image(systemName: "number")
                                 case .voice:
-                                    Image(systemName: "speaker.wave.2")
+                                    Image(systemName: "speaker.wave.2.fill")
                                 case .guild_news:
-                                    Image(systemName: "megaphone")
+                                    Image(systemName: "megaphone.fill")
                                 case .guild_store:
                                     Image(systemName: "dollarsign.circle")
                                 case .stage:
@@ -58,6 +82,9 @@ struct GuildView: View {
                                     .minimumScaleFactor(0.1)
                                 Spacer()
                             }
+                        }
+                        .alert(isPresented: $error) {
+                            Alert(title: Text("Incomplete"), message: Text("We haven't added support for this kind of channel yet!"), dismissButton: .default(Text("Got it!")))
                         }
                     }
                 }

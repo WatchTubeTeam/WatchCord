@@ -9,7 +9,14 @@ import Foundation
 import SwiftUI
 
 struct ChatView: View {
+    
+    @Binding var currentGuild: String
+    @Binding var currentChannel: String
+
     var body: some View {
-        Text("eta s0n")
+        VStack {
+            Text(currentGuild)
+            Text(currentChannel)
+        }
     }
 }

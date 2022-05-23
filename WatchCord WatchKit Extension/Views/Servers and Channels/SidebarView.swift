@@ -30,11 +30,19 @@ struct SidebarView: View {
                                         currentGuild = "1"
                                     }
                                 } label: {
-                                    Image("WatchCord")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .scaledToFit()
-                                        .clipShape(Circle())
+                                    if currentGuild == "1" {
+                                        Image("WatchCord")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .scaledToFit()
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    } else {
+                                        Image("WatchCord")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .scaledToFit()
+                                            .clipShape(Circle())
+                                    }
                                 }
                                 .buttonStyle(.plain)
                                 
@@ -66,7 +74,7 @@ struct SidebarView: View {
                                     Text("Unfinished")
                                 } else {
                                     // MARK: - Guild View
-                                    GuildView(guilds: SelfUser.guilds, currentGuild: $currentGuild, currentChannel: $currentChannel)
+                                    GuildView(guilds: SelfUser.guilds, tabSelection: $tabSelection, currentGuild: $currentGuild, currentChannel: $currentChannel)
                                 }
                             }
                         }
@@ -77,7 +85,7 @@ struct SidebarView: View {
             .navigationBarHidden(true)
             .tag(1)
             
-            ChatView()
+            ChatView(currentGuild: $currentGuild, currentChannel: $currentChannel)
                 .navigationBarHidden(false)
                 .tag(2)
         }
