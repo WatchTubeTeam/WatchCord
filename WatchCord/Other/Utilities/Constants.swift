@@ -90,7 +90,6 @@ final class AccordCoreVars {
     )
 #endif
 
-#warning("TO DO")
 func generateFakeNonce() -> String {
     let date: Double = Date().timeIntervalSince1970
     let nonceNumber = (Int64(date)*1000 - 1420070400000) * 4194304

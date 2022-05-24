@@ -63,7 +63,7 @@ struct SidebarView: View {
                                     // MARK: - Direct Messages
                                     DmsView(channels: SelfUser.private_channels, users: SelfUser.users, currentGuild: $currentGuild, currentChannel: $currentChannel, tabSelection: $tabSelection)
                                 } else if currentGuild == "2" {
-                                    SettingsView(user: SelfUser.user, settings: SelfUser.user_settings!)
+                                    SettingsView(user: SelfUser.user, settings: SelfUser.user_settings!, currentGuild: $currentGuild, currentChannel: $currentChannel, tabSelection: $tabSelection)
                                 } else {
                                     // MARK: - Guild View
                                     GuildView(guilds: SelfUser.guilds, tabSelection: $tabSelection, currentGuild: $currentGuild, currentChannel: $currentChannel)

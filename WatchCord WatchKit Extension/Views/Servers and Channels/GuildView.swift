@@ -38,6 +38,7 @@ struct GuildView: View {
                                 .lineLimit(1)
                             Spacer()
                         }
+                        .padding(.top, 5)
                     } else {
                         // MARK: - Channel
                         
