@@ -30,7 +30,7 @@ struct SidebarView: View {
                                         currentGuild = "1"
                                     }
                                 } label: {
-                                    Image("WatchCord")
+                                    Image("dms")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .scaledToFit()

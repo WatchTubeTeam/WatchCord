@@ -32,7 +32,7 @@ struct LoadingView: View {
     
     var body: some View {
         VStack {
-            Image("WatchCord")
+            Image("dms")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: WKInterfaceDevice.current().screenBounds.width / 3)
@@ -138,6 +138,7 @@ fileprivate func quotes() -> Text {
             "cum cock balls",
             "cum",
             "stupid ass mf",
+            "hot singles in your area"
         ]
         if UserDefaults.standard.bool(forKey: "Explicit Splash Messages") {
             array.append(contentsOf: explicit)
