@@ -21,25 +21,14 @@ struct UserButton: View {
             }
         } label: {
             let img = "\(cdnURL)/avatars/\(user.user.id)/\(user.user.avatar ?? "").png"
-            if currentGuild == "2" {
-                WebImage(url: URL(string: user.user.avatar != nil ? img : placeholders.avatar()))
-                    .placeholder {
-                        ProgressView()
-                    }
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-            } else {
-                WebImage(url: URL(string: user.user.avatar != nil ? img : placeholders.avatar()))
-                    .placeholder {
-                        ProgressView()
-                    }
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .scaledToFit()
-                    .clipShape(Circle())
-            }
+            WebImage(url: URL(string: user.user.avatar != nil ? img : placeholders.avatar(user.user.discriminator)))
+                .placeholder {
+                    ProgressView()
+                }
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
+                .cornerRadius(currentGuild == "2" ? 10 : 100)
         }
         .buttonStyle(.plain)
     }

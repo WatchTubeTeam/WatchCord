@@ -127,6 +127,7 @@
 		AAC6B0E1283123C60032E1D6 /* WatchCordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0E0283123C60032E1D6 /* WatchCordApp.swift */; };
 		AAC6B0E3283123C60032E1D6 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */; };
 		AAC6B0E5283123C70032E1D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC6B0E4283123C70032E1D6 /* Assets.xcassets */; };
+		AAE9A57C283C2B6F008B270B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE9A57B283C2B6F008B270B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -294,6 +295,7 @@
 		AAC6B0E2283123C60032E1D6 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		AAC6B0E4283123C70032E1D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC6B0E9283123C70032E1D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAE9A57B283C2B6F008B270B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +328,7 @@
 				AA19E655283A45C10045DDCF /* GuildButton.swift */,
 				AA19E659283A46300045DDCF /* DmsView.swift */,
 				AA56BF70283A5C750058C3E4 /* UserButton.swift */,
+				AAE9A57B283C2B6F008B270B /* SettingsView.swift */,
 			);
 			path = "Servers and Channels";
 			sourceTree = "<group>";
@@ -983,6 +986,7 @@
 				AA59E9B4283936E80042E122 /* GatewayEvent.swift in Sources */,
 				AAC6B0E3283123C60032E1D6 /* ComplicationController.swift in Sources */,
 				AA9111E028382F5F00F87400 /* Settings.swift in Sources */,
+				AAE9A57C283C2B6F008B270B /* SettingsView.swift in Sources */,
 				AA9111D528382F5F00F87400 /* Embed.swift in Sources */,
 				AA9111D028382F5F00F87400 /* SongLink.swift in Sources */,
 				AA9111EE28382F5F00F87400 /* Storage.swift in Sources */,

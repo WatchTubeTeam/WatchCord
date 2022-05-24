@@ -27,7 +27,7 @@ struct DmsView: View {
         let sorted = channels.sorted(by: { $0.last_message_id ?? "" > $1.last_message_id ?? "" })
         ForEach(sorted) { dm in
             let person = users.filter { $0.id == dm.recipient_ids?.first }.first!
-            let avatarurl = person.avatar == nil ? placeholders.avatar() : "\(cdnURL)/avatars/\(person.id)/\(person.avatar ?? "").png"
+            let avatarurl = person.avatar == nil ? placeholders.avatar(person.discriminator) : "\(cdnURL)/avatars/\(person.id)/\(person.avatar ?? "").png"
             Button {
                 currentGuild = "1"
                 currentChannel = dm.id

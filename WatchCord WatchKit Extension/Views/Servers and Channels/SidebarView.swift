@@ -30,19 +30,11 @@ struct SidebarView: View {
                                         currentGuild = "1"
                                     }
                                 } label: {
-                                    if currentGuild == "1" {
-                                        Image("WatchCord")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .scaledToFit()
-                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    } else {
-                                        Image("WatchCord")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .scaledToFit()
-                                            .clipShape(Circle())
-                                    }
+                                    Image("WatchCord")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .scaledToFit()
+                                        .cornerRadius(currentGuild == "1" ? 10 : 100)
                                 }
                                 .buttonStyle(.plain)
                                 
@@ -71,7 +63,7 @@ struct SidebarView: View {
                                     // MARK: - Direct Messages
                                     DmsView(channels: SelfUser.private_channels, users: SelfUser.users, currentGuild: $currentGuild, currentChannel: $currentChannel, tabSelection: $tabSelection)
                                 } else if currentGuild == "2" {
-                                    Text("Unfinished")
+                                    SettingsView(user: SelfUser.user, settings: SelfUser.user_settings!)
                                 } else {
                                     // MARK: - Guild View
                                     GuildView(guilds: SelfUser.guilds, tabSelection: $tabSelection, currentGuild: $currentGuild, currentChannel: $currentChannel)

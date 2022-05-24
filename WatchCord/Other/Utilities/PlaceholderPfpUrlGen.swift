@@ -8,8 +8,9 @@
 import Foundation
 
 struct placeholders {
-    static func avatar() -> String {
-        let num = Int.random(in: 0...5)
-        return "\(cdnURL)/embed/avatars/\(num).png"
+    static func avatar(_ tagstr: String) -> String {
+        let tag = Int(tagstr) ?? 0
+        let image = tag % 5
+        return "\(cdnURL)/embed/avatars/\(image).png"
     }
 }
