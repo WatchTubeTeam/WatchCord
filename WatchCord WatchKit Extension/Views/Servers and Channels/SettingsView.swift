@@ -32,10 +32,9 @@ struct SettingsView: View {
                 Spacer()
             }
             Button {
-                currentGuild = "2"
-                currentChannel = "splash"
-                
                 withAnimation(.easeInOut) {
+                    currentGuild = "2"
+                    currentChannel = "1"
                     tabSelection = 2
                 }
             } label: {

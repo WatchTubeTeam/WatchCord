@@ -45,10 +45,9 @@ struct GuildView: View {
                         Button {
                             switch channel.type {
                             case .normal:
-                                currentGuild = guild!.id
-                                currentChannel = channel.id
-                                
                                 withAnimation(.easeInOut) {
+                                    currentGuild = guild!.id
+                                    currentChannel = channel.id
                                     tabSelection = 2
                                 }
                             case .voice:

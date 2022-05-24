@@ -29,9 +29,9 @@ struct DmsView: View {
             let person = users.filter { $0.id == dm.recipient_ids?.first }.first!
             let avatarurl = person.avatar == nil ? placeholders.avatar(person.discriminator) : "\(cdnURL)/avatars/\(person.id)/\(person.avatar ?? "").png"
             Button {
-                currentGuild = "1"
-                currentChannel = dm.id
                 withAnimation(.easeInOut(duration: 0.2)) {
+                    currentGuild = "1"
+                    currentChannel = dm.id
                     tabSelection = 2
                 }
             } label: {

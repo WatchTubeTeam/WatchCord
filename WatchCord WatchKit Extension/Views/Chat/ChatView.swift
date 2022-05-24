@@ -17,7 +17,7 @@ struct ChatView: View {
         if currentGuild == "2" {
             
             switch currentChannel {
-            case "splash":
+            case "1":
                 splash
             default:
                 EmptyView()
@@ -25,6 +25,10 @@ struct ChatView: View {
             
         } else {
             // Chat view
+            VStack {
+                Text(currentGuild)
+                Text(currentChannel)
+            }
         }
     }
     
