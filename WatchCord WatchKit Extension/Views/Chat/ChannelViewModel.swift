@@ -44,9 +44,9 @@ final class ChannelViewModel: ObservableObject, Equatable {
                 if channel.owner_id == user_id {
                     self.permissions.insert(.kickMembers)
                 }
-            } else {
-                self.permissions = channel.permission_overwrites?.allAllowed(guildID: self.guildID) ?? .init()
-            }
+            } // else {
+//                self.permissions = channel.permission_overwrites?.allAllowed(guildID: self.guildID) ?? .init()
+//            }
         }
         connect()
     }
