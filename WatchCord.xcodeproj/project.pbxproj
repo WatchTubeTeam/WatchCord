@@ -12,6 +12,8 @@
 		AA19E65A283A46300045DDCF /* DmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19E659283A46300045DDCF /* DmsView.swift */; };
 		AA408791283190CC009B638A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA408790283190CC009B638A /* SDWebImageSwiftUI */; };
 		AA40879428319175009B638A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AA40879328319175009B638A /* SDWebImageSwiftUI */; };
+		AA5223F4283E8E2200C939D2 /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5223F3283E8E2200C939D2 /* ChannelViewModel.swift */; };
+		AA5223F6283E8ED900C939D2 /* PermissionOverwrites.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5223F5283E8ED900C939D2 /* PermissionOverwrites.swift */; };
 		AA56BF6F283A5A240058C3E4 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA56BF6E283A5A240058C3E4 /* ChatView.swift */; };
 		AA56BF71283A5C750058C3E4 /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA56BF70283A5C750058C3E4 /* UserButton.swift */; };
 		AA56BF73283A5CAF0058C3E4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA56BF72283A5CAF0058C3E4 /* WelcomeView.swift */; };
@@ -176,6 +178,8 @@
 		AA19E655283A45C10045DDCF /* GuildButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildButton.swift; sourceTree = "<group>"; };
 		AA19E657283A45FB0045DDCF /* GuildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuildView.swift; sourceTree = "<group>"; };
 		AA19E659283A46300045DDCF /* DmsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DmsView.swift; sourceTree = "<group>"; };
+		AA5223F3283E8E2200C939D2 /* ChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewModel.swift; sourceTree = "<group>"; };
+		AA5223F5283E8ED900C939D2 /* PermissionOverwrites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionOverwrites.swift; sourceTree = "<group>"; };
 		AA56BF6E283A5A240058C3E4 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		AA56BF70283A5C750058C3E4 /* UserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserButton.swift; sourceTree = "<group>"; };
 		AA56BF72283A5CAF0058C3E4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -345,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				AA56BF6E283A5A240058C3E4 /* ChatView.swift */,
+				AA5223F3283E8E2200C939D2 /* ChannelViewModel.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -645,6 +650,7 @@
 				AA9111A828382F5E00F87400 /* Settings.swift */,
 				AA9111A928382F5E00F87400 /* Status.swift */,
 				AA9111AA28382F5E00F87400 /* ReadState.swift */,
+				AA5223F5283E8ED900C939D2 /* PermissionOverwrites.swift */,
 			);
 			path = DiscordTypes;
 			sourceTree = "<group>";
@@ -981,6 +987,7 @@
 				AA9111DD28382F5F00F87400 /* User.swift in Sources */,
 				AA59E9B5283936E80042E122 /* ZStream.swift in Sources */,
 				AA9111DB28382F5F00F87400 /* Channel.swift in Sources */,
+				AA5223F6283E8ED900C939D2 /* PermissionOverwrites.swift in Sources */,
 				AA9111DC28382F5F00F87400 /* Permissions.swift in Sources */,
 				AA59E9B3283936E80042E122 /* Gateway.swift in Sources */,
 				AA59E9B4283936E80042E122 /* GatewayEvent.swift in Sources */,
@@ -1014,6 +1021,7 @@
 				AA9111E628382F5F00F87400 /* Gateway+VoiceState.swift in Sources */,
 				AA9111DA28382F5F00F87400 /* Sticker.swift in Sources */,
 				AA9111C828382F5F00F87400 /* Extensions.swift in Sources */,
+				AA5223F4283E8E2200C939D2 /* ChannelViewModel.swift in Sources */,
 				AA56BF73283A5CAF0058C3E4 /* WelcomeView.swift in Sources */,
 				AA9111F028382F5F00F87400 /* Models.swift in Sources */,
 				AA9111E528382F5F00F87400 /* Core.swift in Sources */,

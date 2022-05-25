@@ -25,6 +25,9 @@ var pfpShown: Bool = UserDefaults.standard.bool(forKey: "pfpShown")
 let discordUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.266 Chrome/91.0.4472.164 Electron/13.6.6 Safari/537.36"
 var dscVersion = 126_462
 
+public var roleColors: [String: (Int, Int)] = [:]
+public var roleNames: [String: String] = [:]
+
 #if DEBUG
     let keychainItemName = "com.llsc12.watchcord.token.debug"
 #else
