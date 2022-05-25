@@ -20,6 +20,8 @@ struct ContentView: View {
     
     @AppStorage("userthumb") var userthumb: String = UserDefaults.standard.string(forKey: "userthumb") ?? ""
     
+    @State private var bobble = false
+    
     var body: some View {
         ZStack {
 
@@ -52,6 +54,7 @@ struct ContentView: View {
                     }
                     Spacer()
                 }
+                .padding(.vertical, bobble ? 0 : 20)
                 Spacer()
                 Spacer()
                 Spacer()
@@ -60,6 +63,7 @@ struct ContentView: View {
             VStack {
                 Text("If you do find issues and bugs, feel free to help us fix them for you and other users by reporting them in our discord server!")
                     .padding()
+                    .padding(.vertical, bobble ? 20 : 0)
                 Button {
                     UIApplication.shared.open(URL(string: "https://discord.gg/6RJtAWp9wJ")!)
                 } label: {
@@ -67,6 +71,7 @@ struct ContentView: View {
                         .font(.title2)
                 }
                 .buttonStyle(.bordered)
+                .padding(.vertical, bobble ? 0 : 20)
             }
             VStack {
                 HStack {
@@ -101,16 +106,20 @@ struct ContentView: View {
                             .preferredColorScheme(.dark)
                     }
                 }
+                .padding(.vertical, bobble ? 0 : 20)
                 Spacer()
             }
         }
         .preferredColorScheme(.dark)
+        .onAppear {
+            Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
+                withAnimation(.easeInOut(duration: 4)) {
+                    bobble.toggle()
+                }
+            }
+        }
     }
 }
-
-
-
-
 
 
 enum LoginState {

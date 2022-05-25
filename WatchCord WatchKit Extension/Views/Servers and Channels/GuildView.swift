@@ -11,6 +11,7 @@ struct GuildView: View {
     
     var guilds: [Guild]
     @Binding var tabSelection: Int
+    @Binding var selectedGuild: String
     @Binding var currentGuild: String
     @Binding var currentChannel: String
 
@@ -47,6 +48,7 @@ struct GuildView: View {
                             case .normal:
                                 withAnimation(.easeInOut) {
                                     currentGuild = guild!.id
+                                    selectedGuild = guild!.id
                                     currentChannel = channel.id
                                     tabSelection = 2
                                 }

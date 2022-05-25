@@ -14,6 +14,7 @@ struct SidebarView: View {
     
     @State var tabSelection = 1
     
+    @State var selectedGuild: String = "0"
     @State var currentGuild: String = "0"
     @State var currentChannel: String = "0"
 
@@ -63,10 +64,10 @@ struct SidebarView: View {
                                     // MARK: - Direct Messages
                                     DmsView(channels: SelfUser.private_channels, users: SelfUser.users, currentGuild: $currentGuild, currentChannel: $currentChannel, tabSelection: $tabSelection)
                                 } else if currentGuild == "2" {
-                                    SettingsView(user: SelfUser.user, settings: SelfUser.user_settings!, currentGuild: $currentGuild, currentChannel: $currentChannel, tabSelection: $tabSelection)
+                                    SettingsView(user: SelfUser.user, settings: SelfUser.user_settings!, selectedGuild: $selectedGuild, currentGuild: $currentGuild, currentChannel: $currentChannel, tabSelection: $tabSelection)
                                 } else {
                                     // MARK: - Guild View
-                                    GuildView(guilds: SelfUser.guilds, tabSelection: $tabSelection, currentGuild: $currentGuild, currentChannel: $currentChannel)
+                                    GuildView(guilds: SelfUser.guilds, tabSelection: $tabSelection, selectedGuild: $selectedGuild, currentGuild: $currentGuild, currentChannel: $currentChannel)
                                 }
                             }
                         }
@@ -77,7 +78,7 @@ struct SidebarView: View {
             .navigationBarHidden(true)
             .tag(1)
             
-            ChatView(currentGuild: $currentGuild, currentChannel: $currentChannel)
+            ChatView(currentGuild: $selectedGuild, currentChannel: $currentChannel)
                 .navigationBarHidden(false)
                 .tag(2)
         }

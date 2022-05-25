@@ -11,6 +11,7 @@ struct SettingsView: View {
     var user: User
     var settings: DiscordSettings
     
+    @Binding var selectedGuild: String
     @Binding var currentGuild: String
     @Binding var currentChannel: String
     
@@ -34,6 +35,7 @@ struct SettingsView: View {
             Button {
                 withAnimation(.easeInOut) {
                     currentGuild = "2"
+                    selectedGuild = "2"
                     currentChannel = "1"
                     tabSelection = 2
                 }
