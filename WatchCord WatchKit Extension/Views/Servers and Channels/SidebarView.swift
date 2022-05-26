@@ -50,6 +50,7 @@ struct SidebarView: View {
                                 }
                                 
                                 Divider()
+                                
                                 UserButton(user: SelfUser, currentGuild: $currentGuild)
                             }
                         }
