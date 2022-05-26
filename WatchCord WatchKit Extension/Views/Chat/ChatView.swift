@@ -13,7 +13,7 @@ struct ChatView: View {
     @Binding var currentGuild: String
     @Binding var currentChannel: String
     
-    @StateObject var viewModel: ChannelViewModel
+//    @StateObject var viewModel: ChannelViewModel
     
     var body: some View {
         if currentGuild == "2" {
