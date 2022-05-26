@@ -9,13 +9,14 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct DmsView: View {
+    
+    @Binding var chatShown: Bool
+    
     @State var channels: [Channel]
     @State var users: [User]
     
     @Binding var selectedGuild: Guild!
-    @Binding var currentGuild: Guild!
     @Binding var currentChannel: Channel!
-    @Binding var tabSelection: Int  
 
     var body: some View {
         HStack {
@@ -32,9 +33,8 @@ struct DmsView: View {
             Button {
                 withAnimation(.easeInOut(duration: 0.2)) {
                     selectedGuild = nil
-                    currentGuild = nil
                     currentChannel = dm
-                    tabSelection = 2
+                    chatShown = true
                 }
             } label: {
                 HStack {

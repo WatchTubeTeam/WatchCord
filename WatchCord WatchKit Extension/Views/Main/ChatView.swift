@@ -9,15 +9,15 @@ import SwiftUI
 
 struct ChatView: View {
     
-    @Binding var tabSelection: Int
+    @Binding var ChatShown: Bool
     @Binding var currentChannel: Channel!
     
     @State private var channelHeader = true
     
     @StateObject var viewmodel: ChannelViewModel
     
-    init(tabSelection: Binding<Int>, currentChannel: Binding<Channel?>) {
-        _tabSelection = tabSelection
+    init(chatShown: Binding<Bool>,currentChannel: Binding<Channel?>) {
+        _ChatShown = chatShown
         _currentChannel = currentChannel
         _viewmodel = StateObject(wrappedValue: ChannelViewModel(channel: currentChannel.wrappedValue ?? Channel(id: "123", type: .normal, position: 0, parent_id: "123")))
     }
@@ -30,9 +30,7 @@ struct ChatView: View {
                         VStack {
                             HStack {
                                 Button {
-                                    withAnimation(.easeInOut) {
-                                        tabSelection = 1
-                                    }
+                                    ChatShown = false
                                 } label: {
                                     Image(systemName: "chevron.left")
                                         .foregroundColor(.accentColor)

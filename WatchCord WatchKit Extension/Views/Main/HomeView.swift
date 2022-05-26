@@ -11,9 +11,7 @@ import SDWebImageSwiftUI
 struct HomeView: View {
     
     var UserData: GatewayD
-    
-    @State var tabSelection = 1
-    
+        
     @State var homeControl = 0
     // 0 is welcome view
     // 1 is dms
@@ -21,8 +19,9 @@ struct HomeView: View {
     // 3 is settings
     
     @State var selectedGuild: Guild! = nil
-    @State var currentGuild: Guild! = nil
     @State var currentChannel: Channel! = nil
+    
+    @State var chatShown = false
     
     var body: some View {
         NavigationView {
@@ -68,7 +67,6 @@ struct HomeView: View {
                                 Button {
                                     withAnimation(.easeInOut(duration: 0.2)) {
                                         selectedGuild = nil
-                                        currentGuild = nil
                                         currentChannel = nil
                                         homeControl = 3
                                     }
@@ -98,9 +96,9 @@ struct HomeView: View {
                                 case 0:
                                     welcome
                                 case 1:
-                                    DmsView(channels: UserData.private_channels, users: UserData.users, selectedGuild: $selectedGuild, currentGuild: $currentGuild, currentChannel: $currentChannel, tabSelection: $tabSelection)
+                                    DmsView(chatShown: $chatShown, channels: UserData.private_channels, users: UserData.users, selectedGuild: $selectedGuild, currentChannel: $currentChannel)
                                 case 2:
-                                    GuildView(tabSelection: $tabSelection, selectedGuild: $selectedGuild, currentGuild: $currentGuild, currentChannel: $currentChannel)
+                                    GuildView(chatShown: $chatShown, selectedGuild: $selectedGuild, currentChannel: $currentChannel)
                                 case 3:
                                     settings
                                 default:
@@ -112,17 +110,16 @@ struct HomeView: View {
                     }
                 }
             }
-            .tag(1)
             
-            // MARK: - Chat Page
-            
-            ChatView(tabSelection: $tabSelection, currentChannel: $currentChannel)
-                .tag(2)
+            NavigationLink(isActive: $chatShown) {
+                ChatView(chatShown: $chatShown, currentChannel: $currentChannel)
+            } label: {}
+                .buttonStyle(.plain)
         }
+        .navigationBarHidden(true)
     }
     
     
-    @State var bobbing = false
     var welcome: some View {
         VStack {
             HStack {
@@ -133,19 +130,8 @@ struct HomeView: View {
                 Image("WatchCord")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .onAppear {
-                        withAnimation(.easeInOut(duration: 4.5)) {
-                            bobbing.toggle()
-                        }
-                        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
-                            withAnimation(.easeInOut(duration: 4.5)) {
-                                bobbing.toggle()
-                            }
-                        }
-                    }
                     .frame(width: 40)
                     .clipShape(Circle())
-                    .padding(.vertical, bobbing ? 10 : 0)
             }
             HStack {
                 Text("Choose a chat to start!")

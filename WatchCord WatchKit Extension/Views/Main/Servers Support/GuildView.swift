@@ -9,9 +9,8 @@ import SwiftUI
 
 struct GuildView: View {
     
-    @Binding var tabSelection: Int
+    @Binding var chatShown: Bool
     @Binding var selectedGuild: Guild!
-    @Binding var currentGuild: Guild!
     @Binding var currentChannel: Channel!
 
     @State private var error = false
@@ -44,12 +43,9 @@ struct GuildView: View {
                         Button {
                             switch channel.type {
                             case .normal:
-                                withAnimation(.easeInOut) {
-                                    currentGuild = guild
-                                    selectedGuild = guild
-                                    currentChannel = channel
-                                    tabSelection = 2
-                                }
+                                selectedGuild = guild
+                                currentChannel = channel
+                                chatShown = true
                             case .voice:
                                 error.toggle()
                             case .guild_news:
