@@ -10,13 +10,10 @@ import SDWebImageSwiftUI
 
 struct DmsView: View {
     
-    @Binding var chatShown: Bool
-    
     @State var channels: [Channel]
     @State var users: [User]
     
     @Binding var selectedGuild: Guild!
-    @Binding var currentChannel: Channel!
 
     var body: some View {
         HStack {
@@ -30,12 +27,8 @@ struct DmsView: View {
         ForEach(sorted) { dm in
             let person = users.filter { $0.id == dm.recipient_ids?.first }.first!
             let avatarurl = person.avatar == nil ? placeholders.avatar(person.discriminator) : "\(cdnURL)/avatars/\(person.id)/\(person.avatar ?? "").png"
-            Button {
-                withAnimation(.easeInOut(duration: 0.2)) {
-                    selectedGuild = nil
-                    currentChannel = dm
-                    chatShown = true
-                }
+            NavigationLink {
+                ChatView(dm, nil)
             } label: {
                 HStack {
                     WebImage(url: URL(string: avatarurl))

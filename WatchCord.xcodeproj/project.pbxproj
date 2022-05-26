@@ -123,9 +123,7 @@
 		AA43725D283F6DF900BEED80 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA43725B283F6DF900BEED80 /* HomeView.swift */; };
 		AA437262283F725100BEED80 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA437260283F725100BEED80 /* ChatView.swift */; };
 		AA437265283F73D500BEED80 /* GuildButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA437263283F73D500BEED80 /* GuildButton.swift */; };
-		AA43726B283F841100BEED80 /* GuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA43726A283F841100BEED80 /* GuildView.swift */; };
 		AA43726C283F841100BEED80 /* GuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA43726A283F841100BEED80 /* GuildView.swift */; };
-		AA437273283FB91600BEED80 /* DmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA437272283FB91600BEED80 /* DmsView.swift */; };
 		AA437274283FB91600BEED80 /* DmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA437272283FB91600BEED80 /* DmsView.swift */; };
 		AA8D00C7283FE266004CF88C /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D00C6283FE266004CF88C /* ChannelViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -703,7 +701,6 @@
 				AA4371F1283F6A9F00BEED80 /* Constants.swift in Sources */,
 				AA4371F5283F6A9F00BEED80 /* AppExtension.swift in Sources */,
 				AA437249283F6A9F00BEED80 /* RegisterImages.swift in Sources */,
-				AA43726B283F841100BEED80 /* GuildView.swift in Sources */,
 				AA437243283F6A9F00BEED80 /* GatewayEvent.swift in Sources */,
 				AA43720D283F6A9F00BEED80 /* Operators++.swift in Sources */,
 				AA43722F283F6A9F00BEED80 /* Reaction.swift in Sources */,
@@ -722,7 +719,6 @@
 				AA43722D283F6A9F00BEED80 /* Emote.swift in Sources */,
 				AA437215283F6A9F00BEED80 /* Events.swift in Sources */,
 				AA4371F9283F6A9F00BEED80 /* Keychain.swift in Sources */,
-				AA437273283FB91600BEED80 /* DmsView.swift in Sources */,
 				AA43723B283F6A9F00BEED80 /* Core.swift in Sources */,
 				AA437207283F6A9F00BEED80 /* Print++.swift in Sources */,
 			);

@@ -106,13 +106,8 @@ struct HomeView: View {
                     }
                 }
             }
-            
-            NavigationLink(isActive: $chatShown) {
-                ChatView(chatShown: $chatShown, currentChannel: $currentChannel)
-            } label: {}
-                .buttonStyle(.plain)
+            .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
     }
     
     

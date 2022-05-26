@@ -9,9 +9,7 @@ import SwiftUI
 
 struct GuildView: View {
     
-    @Binding var chatShown: Bool
     @Binding var selectedGuild: Guild!
-    @Binding var currentChannel: Channel!
 
     @State private var error = false
     
@@ -40,53 +38,65 @@ struct GuildView: View {
                     } else {
                         // MARK: - Channel
                         
-                        Button {
-                            switch channel.type {
-                            case .normal:
-                                selectedGuild = guild
-                                currentChannel = channel
-                                chatShown = true
-                            case .voice:
-                                error.toggle()
-                            case .guild_news:
-                                error.toggle()
-                            case .guild_store:
-                                error.toggle()
-                            case .stage:
-                                error.toggle()
-                            default:
-                                error.toggle()
-                            }
-                        } label: {
-                            HStack {
-                                switch channel.type {
-                                case .normal:
-                                    Image(systemName: "number")
-                                case .voice:
-                                    Image(systemName: "speaker.wave.2.fill")
-                                case .guild_news:
-                                    Image(systemName: "megaphone.fill")
-                                case .guild_store:
-                                    Image(systemName: "dollarsign.circle")
-                                case .stage:
-                                    Image(systemName: "person.wave.2")
-                                default:
-                                    Image(systemName: "questionmark.square.dashed")
-                                }
-                                Text(channel.name ?? "Unknown")
-                                    .lineLimit(1)
-                                    .minimumScaleFactor(0.1)
-                                Spacer()
-                            }
-                        }
-                        .alert(isPresented: $error) {
-                            Alert(title: Text("Incomplete"), message: Text("We haven't added support for this kind of channel yet!"), dismissButton: .default(Text("Got it!")))
-                        }
+                        channelButton(guild: guild, channel: channel, error: $error)
                     }
                 }
             }
+            .alert(isPresented: $error) {
+                Alert(title: Text("Incomplete"), message: Text("We haven't added support for this kind of channel yet!"), dismissButton: .default(Text("Got it!")))
+            }
         } else {
             Text("Something's gone really wrong and we don't have any guild data right now.")
+        }
+    }
+}
+
+fileprivate struct channelButton: View {
+    var guild: Guild
+    var channel: Channel
+    @Binding var error: Bool
+    
+    var body: some View {
+        switch channel.type {
+        case .normal:
+            NavigationLink {
+                ChatView(channel, guild)
+            } label: {
+                channelLabel(channel: channel)
+            }
+        default:
+            Button {
+                error = true
+            } label: {
+                channelLabel(channel: channel)
+            }
+
+        }
+    }
+}
+
+fileprivate struct channelLabel: View {
+    var channel: Channel
+    var body: some View {
+        HStack {
+            switch channel.type {
+            case .normal:
+                Image(systemName: "number")
+            case .voice:
+                Image(systemName: "speaker.wave.2.fill")
+            case .guild_news:
+                Image(systemName: "megaphone.fill")
+            case .guild_store:
+                Image(systemName: "dollarsign.circle")
+            case .stage:
+                Image(systemName: "person.wave.2")
+            default:
+                Image(systemName: "questionmark.square.dashed")
+            }
+            Text(channel.name ?? "Unknown")
+                .lineLimit(1)
+                .minimumScaleFactor(0.1)
+            Spacer()
         }
     }
 }
