@@ -12,9 +12,10 @@ struct DmsView: View {
     @State var channels: [Channel]
     @State var users: [User]
     
-    @Binding var currentGuild: String
-    @Binding var currentChannel: String
-    @Binding var tabSelection: Int
+    @Binding var selectedGuild: Guild!
+    @Binding var currentGuild: Guild!
+    @Binding var currentChannel: Channel!
+    @Binding var tabSelection: Int  
 
     var body: some View {
         HStack {
@@ -29,9 +30,11 @@ struct DmsView: View {
             let person = users.filter { $0.id == dm.recipient_ids?.first }.first!
             let avatarurl = person.avatar == nil ? placeholders.avatar(person.discriminator) : "\(cdnURL)/avatars/\(person.id)/\(person.avatar ?? "").png"
             Button {
+                selectedGuild = nil
+                currentGuild = nil
+                currentChannel = dm
+                
                 withAnimation(.easeInOut(duration: 0.2)) {
-                    currentGuild = "1"
-                    currentChannel = dm.id
                     tabSelection = 2
                 }
             } label: {
@@ -51,7 +54,6 @@ struct DmsView: View {
                     Spacer()
                 }
             }
-
         }
         Spacer()
     }
