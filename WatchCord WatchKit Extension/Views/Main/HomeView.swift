@@ -19,10 +19,7 @@ struct HomeView: View {
     // 3 is settings
     
     @State var selectedGuild: Guild! = nil
-    @State var currentChannel: Channel! = nil
-    
-    @State var chatShown = false
-    
+        
     var body: some View {
         NavigationView {
             
@@ -67,7 +64,6 @@ struct HomeView: View {
                                 Button {
                                     withAnimation(.easeInOut(duration: 0.2)) {
                                         selectedGuild = nil
-                                        currentChannel = nil
                                         homeControl = 3
                                     }
                                 } label: {
@@ -96,9 +92,9 @@ struct HomeView: View {
                                 case 0:
                                     welcome
                                 case 1:
-                                    DmsView(chatShown: $chatShown, channels: UserData.private_channels, users: UserData.users, selectedGuild: $selectedGuild, currentChannel: $currentChannel)
+                                    DmsView(channels: UserData.private_channels, users: UserData.users, selectedGuild: $selectedGuild)
                                 case 2:
-                                    GuildView(chatShown: $chatShown, selectedGuild: $selectedGuild, currentChannel: $currentChannel)
+                                    GuildView(selectedGuild: $selectedGuild)
                                 case 3:
                                     settings
                                 default:
