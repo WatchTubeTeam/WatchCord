@@ -91,7 +91,7 @@ struct ContentView: View {
         } else {
             
             // MARK: - Finished or failed to load user data
-            SidebarView(SelfUser: userData)
+            HomeView(UserData: userData)
         }
     }
     

@@ -36,7 +36,9 @@ struct WatchCordApp: App {
                         UserDefaults.standard.set(token, forKey: keychainItemName)
                         AccordCoreVars.token = token
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            self.override = true
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                self.override = true
+                            }
                         }
                     }
                     .onAppear {
@@ -45,6 +47,7 @@ struct WatchCordApp: App {
                     }
             } else {
                 ContentView(token: $token)
+                    .navigationBarHidden(true)
                     .onReceive(data.data.publisher) { _ in
                         /// We received data from teh phone go like do something with it and pray its a token
                         let token = data.data
@@ -56,7 +59,9 @@ struct WatchCordApp: App {
                         UserDefaults.standard.set(token, forKey: keychainItemName)
                         AccordCoreVars.token = token
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            self.override = true
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                self.override = true
+                            }
                         }
                     }
             }

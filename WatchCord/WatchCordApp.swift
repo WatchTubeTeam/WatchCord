@@ -2,7 +2,7 @@
 //  WatchCordApp.swift
 //  WatchCord
 //
-//  Created by llsc12 on 15/05/2022.
+//  Created by Lakhan Lothiyi on 26/05/2022.
 //
 
 import SwiftUI
