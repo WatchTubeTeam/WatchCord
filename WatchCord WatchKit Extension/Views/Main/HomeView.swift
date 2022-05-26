@@ -25,7 +25,7 @@ struct HomeView: View {
     @State var currentChannel: Channel! = nil
     
     var body: some View {
-        TabView(selection: $tabSelection) {
+        NavigationView {
             
             // MARK: - Destination Selection
             

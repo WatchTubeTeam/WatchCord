@@ -30,11 +30,10 @@ struct DmsView: View {
             let person = users.filter { $0.id == dm.recipient_ids?.first }.first!
             let avatarurl = person.avatar == nil ? placeholders.avatar(person.discriminator) : "\(cdnURL)/avatars/\(person.id)/\(person.avatar ?? "").png"
             Button {
-                selectedGuild = nil
-                currentGuild = nil
-                currentChannel = dm
-                
                 withAnimation(.easeInOut(duration: 0.2)) {
+                    selectedGuild = nil
+                    currentGuild = nil
+                    currentChannel = dm
                     tabSelection = 2
                 }
             } label: {
