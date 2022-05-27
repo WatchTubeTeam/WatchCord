@@ -70,10 +70,11 @@ struct ChatView: View {
                         msgCell(msg: message)
 //                        .equatable()
                         .id(message.id)
-                        .listRowInsets(.init(top: 3.5, leading: 0, bottom: ((message.isSameAuthor && message.referenced_message == nil) ? 0.5 : 13) - (message.user_mentioned == true ? 3 : 0), trailing: 0))
+                        //.listRowInsets(.init(top: 3.5, leading: 0, bottom: ((message.isSameAuthor && message.referenced_message == nil) ? 0.5 : 13) - (message.user_mentioned == true ? 3 : 0), trailing: 0))
+                        .listRowInsets(.init(top: 3.5, leading: 0, bottom: 5, trailing: 0))
                         .padding(.horizontal, 5)
                         .padding(.vertical, message.user_mentioned == true ? 3 : 0)
-                        .background(message.user_mentioned == true ? Color.yellow.opacity(0.1).cornerRadius(7) : nil)
+                        //.background(message.user_mentioned == true ? Color.yellow.opacity(0.1).cornerRadius(7) : nil)
                         .onAppear {
                             if viewmodel.messages.count >= 50,
                                message == viewmodel.messages[viewmodel.messages.count - 2]
@@ -85,6 +86,7 @@ struct ChatView: View {
                         }
                     }
                 }
+                //
             }
             .listStyle(.plain)
             VStack {
