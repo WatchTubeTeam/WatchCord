@@ -74,6 +74,7 @@ struct ContentView: View {
                                     DispatchQueue.main.async {
                                         datastuffs.order()
                                         self.userData = datastuffs
+                                        AccordCoreVars.users = datastuffs.users
                                     }
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                         withAnimation(.easeInOut(duration: 0.2)) {

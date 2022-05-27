@@ -44,6 +44,8 @@ final class AccordCoreVars {
     // static var suffixes: Bool = UserDefaults.standard.bool(forKey: "enableSuffixRemover")
     static var token: String = UserDefaults.standard.string(forKey: keychainItemName) ?? ""
     static var user: User?
+    
+    static var users: [User]?
 
 //    func loadPlugins() {
 //        let path = FileManager.default.urls(for: .documentDirectory,

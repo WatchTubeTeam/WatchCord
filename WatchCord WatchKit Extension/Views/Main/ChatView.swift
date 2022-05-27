@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ChatView: View {
     @State private var channelHeader = true
@@ -19,8 +20,17 @@ struct ChatView: View {
         self.channel = channel
         guildID = channel.guild_id ?? "@me"
         channelID = channel.id
-        channelName = channel.name ?? channel.recipients?.first?.username ?? "Unknown channel"
-        self.guildName = guild.name ?? "Direct Messages"
+        if let _ = channel.name {
+            channelName = channel.name ?? AccordCoreVars.users?.filter({$0.id == channel.recipient_ids?.first}).first?.username ?? "Unknown"
+        } else {
+            channelName = channel.name ?? AccordCoreVars.users?.filter({$0.id == channel.recipient_ids?.first}).first?.username ?? "Unknown"
+            channelName = String(channelName.dropFirst(channelName.count))
+        }
+        if let server = guild {
+            self.guildName = server.name ?? "DMs"
+        } else {
+            self.guildName = "DMs"
+        }
         _viewmodel = StateObject(wrappedValue: ChannelViewModel(channel: channel))
         _memberList = State(initialValue: channel.recipients?.map(OPSItems.init) ?? [])
     }
@@ -54,6 +64,29 @@ struct ChatView: View {
     
     var body: some View {
         ZStack {
+            List {
+                ForEach(viewmodel.messages, id: \.identifier) { message in
+                    if let author = message.author {
+                        msgCell(msg: message)
+//                        .equatable()
+                        .id(message.id)
+                        .listRowInsets(.init(top: 3.5, leading: 0, bottom: ((message.isSameAuthor && message.referenced_message == nil) ? 0.5 : 13) - (message.user_mentioned == true ? 3 : 0), trailing: 0))
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, message.user_mentioned == true ? 3 : 0)
+                        .background(message.user_mentioned == true ? Color.yellow.opacity(0.1).cornerRadius(7) : nil)
+                        .onAppear {
+                            if viewmodel.messages.count >= 50,
+                               message == viewmodel.messages[viewmodel.messages.count - 2]
+                            {
+                                messageFetchQueue.async {
+                                    viewmodel.loadMoreMessages()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .listStyle(.plain)
             VStack {
                 if channelHeader {
                     HStack {
@@ -66,14 +99,16 @@ struct ChatView: View {
                         .buttonStyle(.plain)
                         .padding(4)
 
-                        Text("#\(channel.name ?? "Channel")")
+                        Text("#\(channelName)")
                         Spacer()
-                        Text(guild.name ?? "Server")
+                        Text(guildName)
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)
                     }
                     .padding()
                     .background(Capsule(style: .continuous).foregroundColor(.gray).opacity(0.2))
+                    .ignoresSafeArea()
+                    .padding(.top, 25)
                     .frame(height: WKInterfaceDevice.current().screenBounds.height / 20)
                 } else {
                     HStack {
@@ -87,10 +122,10 @@ struct ChatView: View {
                         .padding(4)
                         .background(Capsule(style: .continuous).foregroundColor(.gray).opacity(0.2))
                         
-                        Text("#\(channel.name ?? "Channel")")
+                        Text("#\(channelName)")
                             .opacity(0)
                         Spacer()
-                        Text(guild.name ?? "Server")
+                        Text(guildName)
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)
                             .opacity(0)
@@ -111,6 +146,8 @@ struct ChatView: View {
                                 }
                             }
                     )
+                    .ignoresSafeArea()
+                    .padding(.top, 25)
                     .frame(height: WKInterfaceDevice.current().screenBounds.height / 20)
                 }
                 Spacer()
@@ -122,7 +159,6 @@ struct ChatView: View {
                     }
                 }
             }
-            
         }
         .onAppear {
             channelHeader = true
