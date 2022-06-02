@@ -63,115 +63,43 @@ struct ChatView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        ZStack {
-            List {
-                ForEach(viewmodel.messages, id: \.identifier) { message in
-                    if let author = message.author {
-                        msgCell(msg: message)
-//                        .equatable()
-                        .id(message.id)
-                        //.listRowInsets(.init(top: 3.5, leading: 0, bottom: ((message.isSameAuthor && message.referenced_message == nil) ? 0.5 : 13) - (message.user_mentioned == true ? 3 : 0), trailing: 0))
-                        .listRowInsets(.init(top: 3.5, leading: 0, bottom: 5, trailing: 0))
-                        .padding(.horizontal, 5)
-                        .padding(.vertical, message.user_mentioned == true ? 3 : 0)
-                        //.background(message.user_mentioned == true ? Color.yellow.opacity(0.1).cornerRadius(7) : nil)
-                        .onAppear {
-                            if viewmodel.messages.count >= 50,
-                               message == viewmodel.messages[viewmodel.messages.count - 2]
-                            {
-                                messageFetchQueue.async {
-                                    viewmodel.loadMoreMessages()
-                                }
+        List {
+            ForEach(viewmodel.messages, id: \.identifier) { message in
+                    msgCell(msg: message)
+                    .id(message.id)
+                    .listRowInsets(.init(top: 3.5, leading: 0, bottom: 5, trailing: 0))
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, (message.user_mentioned == nil ? false : true) == true ? 3 : 0)
+//                    .background((message.user_mentioned == nil ? false : true) == true ? Color.yellow.opacity(0.1).cornerRadius(7) : nil)
+                    .onAppear {
+                        if viewmodel.messages.count >= 50,
+                           message == viewmodel.messages[viewmodel.messages.count - 2]
+                        {
+                            messageFetchQueue.async {
+                                viewmodel.loadMoreMessages()
                             }
                         }
                     }
-                }
-                //
+                    .flippedUpsideDown()
             }
-            .listStyle(.plain)
-            VStack {
-                if channelHeader {
-                    HStack {
-                        Button {
-                            self.presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.accentColor)
-                        }
-                        .buttonStyle(.plain)
-                        .padding(4)
-
-                        Text("#\(channelName)")
-                        Spacer()
-                        Text(guildName)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.7)
-                    }
-                    .padding()
-                    .background(Capsule(style: .continuous).foregroundColor(.gray).opacity(0.2))
-                    .ignoresSafeArea()
-                    .padding(.top, 25)
-                    .frame(height: WKInterfaceDevice.current().screenBounds.height / 20)
-                } else {
-                    HStack {
-                        Button {
-                            self.presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.accentColor)
-                        }
-                        .buttonStyle(.plain)
-                        .padding(4)
-                        .background(Capsule(style: .continuous).foregroundColor(.gray).opacity(0.2))
-                        
-                        Text("#\(channelName)")
-                            .opacity(0)
-                        Spacer()
-                        Text(guildName)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.7)
-                            .opacity(0)
-
-                    }
-                    .padding()
-                    .background(
-                        Capsule(style: .continuous).foregroundColor(.gray)
-                            .opacity(0.001)
-                            .onTapGesture {
-                                withAnimation(.easeIn(duration: 0.2)) {
-                                    channelHeader = true
-                                }
-                                Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { _ in
-                                    withAnimation(.easeOut(duration: 0.2)) {
-                                        channelHeader = false
-                                    }
-                                }
-                            }
-                    )
-                    .ignoresSafeArea()
-                    .padding(.top, 25)
-                    .frame(height: WKInterfaceDevice.current().screenBounds.height / 20)
-                }
-                Spacer()
-            }
-            .onAppear {
-                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
-                    withAnimation(.easeOut(duration: 0.2)) {
-                        channelHeader = false
-                    }
-                }
-            }
+            //
         }
-        .onAppear {
-            channelHeader = true
-        }
-        .navigationBarHidden(true)
+        .flippedUpsideDown()
+        .listStyle(.plain)
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationTitle(channelName)
     }
 }
 
-//struct chatdesign: PreviewProvider {
-//    static var previews: some View {
-//        let chnl = Channel(id: "123", type: .normal, position: 1, parent_id: "123")
-//        ChatView(tabSelection: .constant(2), currentChannel: .constant(chnl))
-//    }
-//}
+struct FlippedUpsideDown: ViewModifier {
+   func body(content: Content) -> some View {
+    content
+           .rotationEffect(.degrees(180))
+      .scaleEffect(x: -1, y: 1, anchor: .center)
+   }
+}
+extension View{
+   func flippedUpsideDown() -> some View{
+     self.modifier(FlippedUpsideDown())
+   }
+}
