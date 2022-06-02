@@ -6,4 +6,4 @@
 ## Credits
 Thanks to [SDWebImage](https://github.com/sdwebimage/sdwebimage), we use it a lot :)
 
-Thanks to Evelyn for [Accord](https://github.com/evelyneee/accord)'s backend, it powers WatchCord!
+Thanks to Evelyn for [Accord](https://github.com/evelyneee/accord)'s backend, it powers WatchCord :D
